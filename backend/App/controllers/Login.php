@@ -384,20 +384,25 @@ html;
         // $usuario->_password = MD5(MasterDom::getData("password"));
         $usuario->_password = MasterDom::getData("password");
         $user = LoginDao::getUserRAById($usuario);
+
+    
+        if($user['status'] == 0){
+            //entrar a actualizar datos 
+            $user = json_encode($user);
+            header("location: /Register/?d=".base64_encode($user));
+            
+        }else{
+            session_start();
+            $_SESSION['usuario'] = $user['usuario'];
+            $_SESSION['nombre'] = $user['nombre'];
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['clave_socio'] = $user['clave_socio'];
+
+            header("location: /Home/");
+           
+        }
         
-        session_start();
-        $_SESSION['usuario'] = $user['usuario'];
-        $_SESSION['nombre'] = $user['nombre'];
-        $_SESSION['user_id'] = $user['user_id'];
-        $_SESSION['clave_socio'] = $user['clave_socio'];
-
-        // var_dump($usuario);
-        // echo "<br>";
-        // var_dump($_SESSION);
-        // exit;
-
-        header("location: /Home/");
-        // echo "Hola";
+        
     }
 
     public function crearSessionFinalize(){

@@ -2,6 +2,13 @@
 echo $header;
 ?>
 <body>
+    <?php
+    $data_user = base64_decode($_GET['d']);
+    $data = json_decode($data_user, TRUE);
+
+    echo $data['usuario'];
+    //  var_dump($data_user);
+     ?>
 <main class="main-content main-content-bg mt-0">
     <section>
         <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
@@ -60,7 +67,8 @@ echo $header;
                                                                 <div class="row mt-3">
                                                                     <div class="col-12 col-sm-6">
                                                                         <label>Correo Electrónico*</label>
-                                                                        <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no">
+                                                                        <input type="text" id="email_register" name="email_register" value="<?=$data['usuario']?>">
+                                                                        <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no" value="<?=$data['usuario']?>">
                                                                         <span class="mb-0 text-sm" id="error" style="display:none;color:red;">Correo incorrecto</span>
                                                                     </div>
                                                                     <div class="col-12 col-sm-6 mt-3 mt-sm-0">
@@ -587,12 +595,17 @@ enlace a continuación a nuestro Aviso de privacidad.
 
 <script>
     $(document).ready(function(){
-        let email = localStorage.getItem("email");
+
+        if($("#email_register").val() == ''){
+            let email = localStorage.getItem("email");
         
-        $("#email").val(email);
-        if($("#email").val() != ''){
-            $("#confirm_email").removeAttr('disabled');
+            $("#email").val(email);
+            if($("#email").val() != ''){
+                $("#confirm_email").removeAttr('disabled');
+            }
         }
+
+        
     });
 </script>
 
