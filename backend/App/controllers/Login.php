@@ -311,7 +311,7 @@ html;
         View::set('optionEspecialidad', $optionEspecialidad);
         View::set('optionPais', $optionPais);
         View::set('optionState', $optionState);
-        View::render("login_inicio");
+        View::render("login");
     }
 
     public function getEstadoPais(){
@@ -389,6 +389,9 @@ html;
         if($user['status'] == 0){
             //entrar a actualizar datos 
             $user = json_encode($user);
+
+         
+
             header("location: /Register/?d=".base64_encode($user));
             
         }else{

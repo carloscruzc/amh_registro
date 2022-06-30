@@ -11,70 +11,81 @@ use \App\controllers\UtileriasLog;
 class Register
 {
 
-    public static function insert($register)
+   
+
+    public static function insertNewUser($register)
     {
         $mysqli = Database::getInstance();
         $query = <<<sql
-        INSERT INTO utilerias_administradores(socio,usuario,title,name_user,middle_name,surname,second_surname,telephone,international_code,id_nationality,specialties,modality,id_state,id_country,organization,position_organization,address,organization_country,organization_postal_code,wadd_member,apm_member,APAL, AILANCYP, AMPI, LC,scholarship,business_name_iva,code_iva,payment_method_iva,email_receipt_iva,postal_code_iva,pay_ticket,status,envio_email,date,method_pay,reference,amout_due,sitio) VALUES(:socio,:usuario,:title,:name_user,:middle_name,:surname,:second_surname,:telephone,:international_code,:id_nationality,:specialties,:modality,:id_state, :id_country,:organization,:position_organization,:address,:organization_country,:organization_postal_code,:wadd_member,:apm_member,:APAL, :AILANCYP, :AMPI, :LC, :scholarship,:business_name_iva,:code_iva,:payment_method_iva,:email_receipt_iva,:postal_code_iva, null, 0,0,now(),:method_pay, :reference, :amout_due,:sitio)                        
+        INSERT INTO utilerias_administradores(usuario,title,nombre,apellidop,apellidom,telefono,id_categoria,especialidades,id_pais,id_estado,monto_congreso,status) VALUES(:usuario,:title,:nombre,:apellidop,:apellidom,:telefono,:id_categoria,:especialidades,:id_pais,:id_estado,:monto_congreso,1)                        
 sql;
 
         $parametros = array(
-            ':socio' => '',
             ':usuario' => $register->_email,
-            ':title' => $register->_title,
-            ':name_user' => $register->_name,
-            ':middle_name' => $register->_middle_name,
-            ':surname' => $register->_surname,
-            ':second_surname' => $register->_second_surname,
-            ':telephone' => $register->_telephone,
-            ':international_code' => $register->_international_code,
-            ':id_nationality' => $register->_nationality,
-            ':specialties' => $register->_specialties,
-            ':modality' => $register->_modality,
-            ':id_state' => $register->_state,
-            ':method_pay' => $register->_method_pay,
-            ':id_country' => $register->_residence,
-            ':organization' => $register->_organization,
-            ':position_organization' => $register->_position,
-            ':address' => $register->_address,
-            ':organization_country' => $register->_organization_country,
-            ':organization_postal_code' => $register->_organization_postal_code,
-            ':wadd_member' => $register->_wadd_member,
-            ':apm_member' => $register->_apm_member,
-            ':APAL' => $register->_APAL,
-            ':AILANCYP' => $register->_AILANCYP,
-            ':AMPI' => $register->_AMPI,
-            ':LC' => $register->_LC,
-            ':scholarship' => '',
-            ':business_name_iva' => $register->_business_name_iva,
-            ':code_iva' => $register->_code_iva,
-            ':payment_method_iva' => $register->_payment_method_iva,
-            ':email_receipt_iva' => $register->_email_receipt_iva,
-            ':postal_code_iva' => $register->_postal_code_iva,
-            ':reference' => $register->_reference_user,
-            ':amout_due' => $register->_costo,
-            ":sitio" => 1
+            ':title' => $register->_prefijo,
+            ':nombre' => $register->_nombre,
+            ':apellidop' => $register->_apellidop,
+            ':apellidom' => $register->_apellidom,
+            ':telefono' => $register->_telephone,
+            ':id_categoria' => $register->_categorias,
+            ':especialidades' => $register->_especialidades,
+            ':id_pais' => $register->_nationality,
+            ':id_estado' => $register->_state,
+            ':monto_congreso' => $register->_monto_congreso
         );
 
         $id = $mysqli->insert($query, $parametros);
-        $accion = new \stdClass();
-        $accion->_sql = $query;
-        $accion->_parametros = $parametros;
-        $accion->_id = $id;
-
         return $id;
     }
 
-    public static function getByCost($pais){
-        $mysqli = Database::getInstance(true);
-        $query =<<<sql
-         SELECT c.cost_enero_marzo FROM categorias c 
-         JOIN categorias_costos cc ON cc.id_categoria = c.id_categoria 
-         WHERE cc.id_pais = $pais;
-
+    public static function updateBecado($user)
+  {
+    $mysqli = Database::getInstance(true);
+    $query = <<<sql
+    UPDATE utilerias_administradores SET title = :prefijo, nombre = :nombre, apellidop = :apellidop, apellidom = :apellidom, telefono = :telefono, id_pais = :id_pais, id_estado = :id_estado, status = 1 WHERE usuario = :email;
 sql;
-        return $mysqli->queryOne($query);
-    }
+    $parametros = array(
+      ':prefijo' => $user->_prefijo,
+      ':nombre' => $user->_nombre,
+      ':apellidop' => $user->_apellidop,
+      ':apellidom' => $user->_apellidom,
+      ':telefono' => $user->_telephone,
+      ':id_pais' => $user->_nationality,
+      ':id_estado' => $user->_state,
+      ':email' => $user->_email
+
+    );
+
+    return $mysqli->update($query, $parametros);
+  }
+
+  public static function UpdateUser($user)
+  {
+    $mysqli = Database::getInstance(true);
+    $query = <<<sql
+    UPDATE utilerias_administradores SET title = :prefijo, nombre = :nombre, apellidop = :apellidop, apellidom = :apellidom, telefono = :telefono,id_categoria = :id_categoria, especialidades = :especialidades,id_pais = :id_pais, id_estado = :id_estado, monto_congreso = :monto_congreso,status = 1 WHERE usuario = :email;
+sql;
+
+    $parametros = array(
+      ':prefijo' => $user->_prefijo,
+      ':nombre' => $user->_nombre,
+      ':apellidop' => $user->_apellidop,
+      ':apellidom' => $user->_apellidom,
+      ':telefono' => $user->_telephone,
+      ':id_categoria' =>$user->_categorias,
+      ':especialidades' => $user->_especialidades,
+      ':id_pais' => $user->_nationality,
+      ':id_estado' => $user->_state,
+      ':email' => $user->_email,
+      ':monto_congreso' =>$user->_monto_congreso
+
+    );
+
+    return $mysqli->update($query, $parametros);
+  }
+
+
+
 
     public static function getUser($email){
         $mysqli = Database::getInstance(true);
@@ -145,4 +156,36 @@ sql;
         return $mysqli->queryAll($query);
         
     }
+
+    public static function getMontoPago($id_categoria){
+        $mysqli = Database::getInstance(true);
+        $query =<<<sql
+        SELECT * FROM categorias where id_categoria = '$id_categoria'
+sql;
+      
+        return $mysqli->queryOne($query);
+
+    }
+
+    public static function updateFiscalData($user)
+  {
+    $mysqli = Database::getInstance(true);
+    $query = <<<sql
+    UPDATE utilerias_administradores SET business_name_iva = :business_name_iva, code_iva = :code_iva, payment_method_iva = :payment_method_iva, email_receipt_iva = :email_receipt_iva  WHERE usuario = :usuario;
+sql;
+
+
+
+    $parametros = array(
+      ':business_name_iva' => $user->_business_name_iva,
+      ':code_iva' => $user->_code_iva,
+      ':payment_method_iva' => $user->_payment_method_iva,
+      ':email_receipt_iva' => $user->_email_receipt_iva,
+      ':usuario' => $user->_email
+    );
+
+    return $mysqli->update($query, $parametros);
+  }
+
+    
 }

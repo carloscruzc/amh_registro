@@ -5,6 +5,7 @@ defined("APPPATH") OR die("Access denied");
 use \Core\View;
 use \Core\MasterDom;
 use \App\models\Register AS RegisterDao;
+use \App\models\Login AS LoginDao;
 
 class Register{
     private $_contenedor;
@@ -71,6 +72,7 @@ html;
           <!-- Github buttons -->
           <script async defer src="https://buttons.github.io/buttons.js"></script>
           <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script>
         window.addEventListener("keypress", function(event){
@@ -125,23 +127,26 @@ html;
         {
     	    var email_uno = document.getElementById('email').value;
             var email_dos = document.getElementById('confirm_email').value;
+
+            console.log($(this).val());
+
                   
             if(email_uno == email_dos)
             {
-                document.getElementById('confirm_email').disabled = true;
+                // document.getElementById('confirm_email').disabled = true;
+                $("#confirm_email").attr('readonly', true);
                 document.getElementById('title').disabled = false;
-                document.getElementById('middle_name').disabled = false;
-                document.getElementById('surname').disabled = false;
-                document.getElementById('second_surname').disabled = false;
+                document.getElementById('apellidop').disabled = false;
+                document.getElementById('apellidom').disabled = false;
                 document.getElementById('telephone').disabled = false;
-                document.getElementById('telephone_code').disabled = false;
                 document.getElementById('nationality').disabled = false;
                 document.getElementById('state').disabled = false;
-                document.getElementById('residence').disabled = false;
-                document.getElementById('name_user').disabled = false;
-                document.getElementById('modality').disabled = false;
-                document.getElementById('specialties').disabled = false;
+                document.getElementById('nombre').disabled = false;
+                document.getElementById('especialidades').disabled = false;
+                document.getElementById('categorias').disabled = false;
                 document.getElementById("email_validado").value = email_uno;
+
+                console.log(document.getElementById('nombre'));
 
             }
         });
@@ -163,51 +168,53 @@ html;
             }
         })
         
-        let button_active  = document.getElementById("next_one")
-        let input_require = document.querySelectorAll(".all_input")
-        let input_require_select = document.querySelectorAll(".all_input_select")
+        // let button_active  = document.getElementById("next_one")
+        // let input_require = document.querySelectorAll(".all_input")
+        // let input_require_select = document.querySelectorAll(".all_input_select")
+
+        // console.log(input_require);
     
-       input_require[3].addEventListener("keyup", () => 
-       {
-          if(input_require[0].value != "" && input_require[1].value != "" && input_require[2].value != "" && input_require[3].value != "") 
-          {
-               input_require_select[3].addEventListener("change", () => 
-               {
-                  document.getElementById("next_one").disabled = false
-               })
-          } 
-          else 
-          {
-              document.getElementById("next_one").disabled = true
-          }
-        })
+    //    input_require[3].addEventListener("keyup", () => 
+    //    {
+    //       if(input_require[0].value != "" && input_require[1].value != "" && input_require[2].value != "" && input_require[3].value != "") 
+    //       {
+    //         //    input_require_select[3].addEventListener("change", () => 
+    //         //    {
+    //               document.getElementById("next_one").disabled = false
+    //         //    })
+    //       } 
+    //       else 
+    //       {
+    //           document.getElementById("next_one").disabled = true
+    //       }
+    //     })
         
-        button_active.addEventListener("click", (event) => {
-              event.preventDefault()
-        })
+        // button_active.addEventListener("click", (event) => {
+        //       event.preventDefault()
+        // })
         
-        let button_active_two  = document.getElementById("next_two")
-        let input_require_two = document.querySelectorAll(".all_input_second")
-        let input_require_second_select = document.querySelectorAll(".all_input_second_select")
+    //     let button_active_two  = document.getElementById("next_two")
+    //     let input_require_two = document.querySelectorAll(".all_input_second")
+    //     let input_require_second_select = document.querySelectorAll(".all_input_second_select")
     
-       input_require_two[1].addEventListener("keyup", () => 
-       {
-          if(input_require_two[0].value != "" && input_require_two[1].value != "") 
-          {
-               input_require_second_select[2].addEventListener("change", () => 
-               {
-                  document.getElementById("next_two").disabled = false
-               })
-          } 
-          else 
-          {
-              document.getElementById("next_two").disabled = true
-          }
-        })
+    //    input_require_two[1].addEventListener("keyup", () => 
+    //    {
+    //       if(input_require_two[0].value != "" && input_require_two[1].value != "") 
+    //       {
+    //            input_require_second_select[2].addEventListener("change", () => 
+    //            {
+    //               document.getElementById("next_two").disabled = false
+    //            })
+    //       } 
+    //       else 
+    //       {
+    //           document.getElementById("next_two").disabled = true
+    //       }
+    //     })
         
-        button_active_two.addEventListener("click", (event) => {
-              event.preventDefault()
-        })
+    //     button_active_two.addEventListener("click", (event) => {
+    //           event.preventDefault()
+    //     })
         
         function myFunction() 
         {
@@ -318,11 +325,342 @@ html;
                 },"El usuario no es correcto");
             });
       </script>
+      
 html;
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
         View::set('idCountry',$this->getCountry());
         View::render("Register");
+    }
+
+    public function UpdateData(){
+
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        // $categorias = $_POST['categorias'];
+        // $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
+
+        $documento = new \stdClass();
+
+        $documento->_email = $email;
+        $documento->_prefijo = $prefijo;
+        $documento->_nombre = $nombre;
+        $documento->_apellidop = $apellidop;
+        $documento->_apellidom = $apellidom;
+        
+        $documento->_telephone = $telephone;
+        $documento->_nationality = $nationality;
+        $documento->_state= $state;
+
+        $id = RegisterDao::updateBecado($documento);
+
+        if($id){
+            echo "success";
+        }else{
+            echo "fail";
+        }
+
+
+    }
+
+    public function passTwo(){
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/assets//img/favicon.ico">
+        <title>
+            APM Register
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+        
+        
+
+html;
+        $extraFooter =<<<html
+     
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+html;
+        
+
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        $categorias = $_POST['categorias'];
+        $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
+
+        $data = [
+            'email' => $email,
+            'title' => $prefijo,
+            'nombre' => $nombre,
+            'apellidop' => $apellidop,
+            'apellidom' => $apellidom,
+            'telephone' => $telephone,
+            'categorias' => $categorias,
+            'especialidades' => $especialidades,
+            'nationality' => $nationality,
+            'state' => $state
+        ];
+
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterTwo');
+
+    }
+
+    public function passThree(){
+
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/assets//img/favicon.ico">
+        <title>
+            APM Register
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+        
+        
+
+html;
+        $extraFooter =<<<html
+     
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+          <script>
+          $(document).ready(function(){
+            $('#email_receipt_iva').on('keypress', function() {
+                var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value);
+                if(!re) {
+                    $('#error_email_send').show();
+                } else {
+                    $('#error_email_send').hide();
+                }
+            })
+          });
+          </script>
+          
+
+html;
+
+        //Acarrear los datos
+        $data = unserialize($_POST['dataUser']);
+
+        // echo $data['email'];
+        // var_dump($data);
+
+        $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
+
+
+        $documento = new \stdClass();
+
+        $documento->_email = $data['email'];
+        $documento->_prefijo = $data['title'];
+        $documento->_nombre = $data['nombre'];;
+        $documento->_apellidop = $data['apellidop'];
+        $documento->_apellidom = $data['apellidom'];        
+        $documento->_telephone = $data['telephone'];
+        $documento->_categorias = $data['categorias'];
+        $documento->_especialidades = $data['especialidades'];
+        $documento->_nationality = $data['nationality'];
+        $documento->_state= $data['state'];
+        $documento->_monto_congreso= $monto_congreso;
+
+        $existe_user = RegisterDao::getUser($data['email']);
+
+
+        if($existe_user){
+            //Actualizar
+            $id = RegisterDao::UpdateUser($documento);
+        }else{
+            $id = RegisterDao::insertNewUser($documento);
+        }
+
+        
+
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterThree');
+    }
+
+    public function updateFiscalData(){
+        $business_name_iva = $_POST['business_name_iva'];
+        $code_iva = $_POST['code_iva'];
+        $payment_method_iva = $_POST['payment_method_iva'];
+        $email_receipt_iva = $_POST['email_receipt_iva'];
+
+        $data = unserialize($_POST['dataUser']);
+
+        $documento = new \stdClass();
+
+        $documento->_business_name_iva = $business_name_iva;
+        $documento->_code_iva = $code_iva;
+        $documento->_payment_method_iva = $payment_method_iva;
+        $documento->_email_receipt_iva = $email_receipt_iva;
+        $documento->_email = $data['email'];
+ 
+
+        $update_fiscal_data = RegisterDao::updateFiscalData($documento);
+
+        // echo $business_name_iva;
+        // echo $code_iva;
+        // echo $payment_method_iva;
+        // echo $email_receipt_iva;
+        // echo $data['email'];
+
+        if($update_fiscal_data){
+            echo "success";
+        }else{
+            echo "fail";
+        }
+
+    }
+
+    public function passFinalize_(){
+
+        //Acarrear los datos
+        $data = unserialize($_POST['dataUser']);
+
+        // echo $data['email'];
+        // var_dump($data);
+
+        // exit;
+
+        $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
+
+
+        $documento = new \stdClass();
+
+        $documento->_email = $data['email'];
+        $documento->_prefijo = $data['title'];
+        $documento->_nombre = $data['nombre'];;
+        $documento->_apellidop = $data['apellidop'];
+        $documento->_apellidom = $data['apellidom'];        
+        $documento->_telephone = $data['telephone'];
+        $documento->_categorias = $data['categorias'];
+        $documento->_especialidades = $data['especialidades'];
+        $documento->_nationality = $data['nationality'];
+        $documento->_state= $data['state'];
+        $documento->_monto_congreso= $monto_congreso;
+
+        $existe_user = RegisterDao::getUser($data['email']);
+
+        if($existe_user){
+            //Actualizar
+            $id = RegisterDao::UpdateUser($documento);
+        }else{
+            $id = RegisterDao::insertNewUser($documento);
+        }
+
+        echo "controlador finalize_";
+        echo $id;
+
     }
 
     public function Success(){
@@ -346,13 +684,13 @@ html;
         $middle_name = MasterDom::procesoAcentosNormal($middle_name);
         $register->_middle_name = $middle_name;
 
-        $surname = MasterDom::getDataAll('surname');
-        $surname = MasterDom::procesoAcentosNormal($surname);
-        $register->_surname = $surname;
+        $apellidop = MasterDom::getDataAll('apellidop');
+        $apellidop = MasterDom::procesoAcentosNormal($apellidop);
+        $register->_apellidop = $apellidop;
 
-        $second_surname = MasterDom::getDataAll('second_surname');
-        $second_surname = MasterDom::procesoAcentosNormal($second_surname);
-        $register->_second_surname = $second_surname;
+        $apellidom = MasterDom::getDataAll('apellidom');
+        $apellidom = MasterDom::procesoAcentosNormal($apellidom);
+        $register->_apellidom = $apellidom;
 
         $telephone = MasterDom::getDataAll('telephone');
         $register->_telephone = $telephone;
@@ -509,7 +847,7 @@ html;
         $postal_code_iva = MasterDom::getDataAll('postal_code_iva');
         $register->_postal_code_iva = $postal_code_iva;
 
-        $name_register = $name." ".$middle_name." ".$surname;
+        $name_register = $name." ".$middle_name." ".$apellidop;
 
         $fecha_actual = date("d-m-Y");
         $fecha_limite_pago =  date("d-m-Y",strtotime($fecha_actual."+ 5 days"));
@@ -518,7 +856,7 @@ html;
         $mes = date("m");
         $año = date("y");
         $sub_name =  substr($name, 0, 2);  // abcd
-        $sub_name_sur =  substr($surname, 0, 2);  // abcd
+        $sub_name_sur =  substr($apellidop, 0, 2);  // abcd
 
         $reference_user = $sub_name.$sub_name_sur.$dia.$mes.$año;
         $register->_reference_user = $reference_user;
@@ -638,6 +976,19 @@ html;
         {
             $this->alerta($id,'error',$method_pay, $name_register,"","","", "","");
         }
+    }
+
+    public function getCategorias()
+    {
+        // $id_categoria = $_POST['id_categoria'];
+
+        // if (isset($id_categoria)) {
+            $posiciones = LoginDao::getCategorias();
+
+            echo json_encode($posiciones);
+            //var_dump($posiciones);
+
+        // }
     }
 
     public function alerta($id, $parametro, $type_deposit, $name_register, $costo, $limit_pay, $reference_user){

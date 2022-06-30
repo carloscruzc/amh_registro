@@ -186,6 +186,14 @@ sql;
         return $mysqli->queryAll($query);
       }
 
+      public static function getCategorias(){       
+        $mysqli = Database::getInstance();
+        $query=<<<sql
+        SELECT * FROM categorias WHERE id_categoria != 1 ORDER BY id_categoria ASC LIMIT 3
+sql;
+        return $mysqli->queryAll($query);
+      }
+
 //     public static function getUser($usuario){
 //         $mysqli = Database::getInstance(true);
 //         $query =<<<sql
