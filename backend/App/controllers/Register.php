@@ -1,6 +1,7 @@
 <?php
 namespace App\controllers;
 defined("APPPATH") OR die("Access denied");
+require_once dirname(__DIR__) . '/../public/librerias/fpdf/fpdf.php';
 
 use \Core\View;
 use \Core\MasterDom;
@@ -1281,7 +1282,8 @@ html;
     
     
             $clave = $this->generateRandomString(); 
-           $usuario = $_POST['usuario'];  
+           $usuario = $_POST['usuario']; 
+           $tipo_pago = $_POST['metodo_pago']; 
            
             $datos = json_decode($_POST['array'],true);
     
@@ -1313,7 +1315,7 @@ html;
                     $documento->_reference = $reference;
                     $documento->_fecha = $fecha;
                     $documento->_monto = $monto;
-                    // $documento->_tipo_pago = $tipo_pago;
+                    $documento->_tipo_pago = $tipo_pago;
                     $documento->_clave = $clave;
                     $documento->_status = $status;
     
@@ -1353,65 +1355,147 @@ html;
     {
         date_default_timezone_set('America/Mexico_City');
 
-        $usuario = $_POST['usuario'];
+        $usuario = $_POST['email_usuario'];
         $datos_user = RegisterDao::getUser($usuario)[0];
 
-        var_dump($datos_user);
-
-        exit;
         
         $metodo_pago = $_POST['metodo_pago'];
-        $user_id = $_SESSION['user_id'];
-        $clave = $_POST['clave'];
-        
-
-        $productos = TalleresDao::getCarritoByIdUser($user_id);
-
-        // var_dump($productos);
-        // exit;
 
 
+        $user_id = $datos_user['user_id'];
+        // $clave = $_POST['clave'];
+
+        $productos = RegisterDao::getProductosPendientesPagoByUser($user_id);
 
         foreach($productos as $key => $value){
 
-            if($value['es_congreso'] == 1){
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
                 $precio = $value['amout_due'];
-            }else if($value['es_servicio'] == 1){
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
                 $precio = $value['precio_publico'];
-            }else if($value['es_curso'] == 1){
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
                 $precio = $value['precio_publico'];
             }
            
-            $documento = new \stdClass();  
+            // $documento = new \stdClass();  
 
             $nombre_curso = $value['nombre'];
             $id_producto = $value['id_producto'];
             $user_id = $datos_user['user_id'];
-            $reference = $datos_user['reference'];
+            $reference = $datos_user['referencia'];
             $fecha =  date("Y-m-d");
             // $monto = $value['precio_publico'];
             $monto = $precio;
             $tipo_pago = $metodo_pago;
             $status = 0;
     
-            $documento->_id_producto = $id_producto;
-            $documento->_user_id = $user_id;
-            $documento->_reference = $reference;
-            $documento->_fecha = $fecha;
-            $documento->_monto = $monto;
-            $documento->_tipo_pago = $tipo_pago;
-            $documento->_clave = $clave;
-            $documento->_status = $status;
+            // $documento->_id_producto = $id_producto;
+            // $documento->_user_id = $user_id;
+            // $documento->_reference = $reference;
+            // $documento->_fecha = $fecha;
+            // $documento->_monto = $monto;
+            // $documento->_tipo_pago = $tipo_pago;
+            // $documento->_clave = $clave;
+            // $documento->_status = $status;
 
-            $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
+            // $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
 
-            if(!$existe){
-                $id = TalleresDao::inserPendientePago($documento); 
-                $delete = TalleresDao::deleteItem($value['id_carrito']);
-            }
+            // if(!$existe){
+            //     $id = TalleresDao::inserPendientePago($documento); 
+            //     $delete = TalleresDao::deleteItem($value['id_carrito']);
+            // }
                 // $delete = TalleresDao::deleteItem($value['id_carrito']);
 
         }
+
+        // $d = $this->fechaCastellano($fecha);
+        
+        $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
+
+
+        $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->setY(1);
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
+        // $pdf->SetFont('Arial', 'B', 25);
+        // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
+
+        $espace = 141;
+        $total = array();
+        foreach($productos as $key => $value){            
+            
+            
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+
+            array_push($total,$precio);
+
+            //Nombre Curso
+            $pdf->SetXY(30, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, utf8_decode($value['nombre']), 0, 'C');
+
+            //Costo
+            $pdf->SetXY(122, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, '$ '.$precio.' ' .$value['tipo_moneda'], 0, 'C');
+
+            $espace = $espace + 7;
+        }
+
+        //folio
+        $pdf->SetXY(92, 60.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $reference, 0, 'C');
+
+        //fecha
+        $pdf->SetXY(90, 70.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $fecha, 0, 'C');
+
+
+
+       // total
+        $pdf->SetXY(118, 170);
+        $pdf->SetFont('Arial', 'B', 8);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
+
+        $pdf->Output();
+        // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
+
+        // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
     }
 
     public function Success(){

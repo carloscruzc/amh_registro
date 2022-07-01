@@ -157,6 +157,7 @@
 
                                                     <input type="text" id="clave_socio" name="clave_socio" value="<?= $datos['clave_socio'] ?>">
                                                     <input type="text" id="email_usuario" name="email_usuario" value="<?= $datos['usuario'] ?>">
+                                                    <input type="text" id="metodo_pago" name="metodo_pago" value="">
                                                 </form>
 
                                             </div>
@@ -254,6 +255,7 @@
 
             $('#forma_pago').on('change', function(e) {
                 var tipo = $(this).val();
+                $("#metodo_pago").val(tipo);
                 // alert(tipo);
                 if (tipo == 'Paypal') {
                     // $(".form_compra").attr('action','/OrdenPago/PagarPaypal');
@@ -448,6 +450,7 @@
                 // var metodo_pago = $("#metodo_pago").val();
                 var clave = $("#clave").val();
                 var usuario = $("#email_usuario").val();
+                var metodo_pago = $("#metodo_pago").val();
 
 
                 if (precios.length <= 0) {
@@ -499,7 +502,8 @@
                                 data: {
                                     'array': JSON.stringify(precios),
                                     clave,
-                                    usuario
+                                    usuario,
+                                    metodo_pago
                                 },
                                 cache: false,
                                 dataType: "json",
@@ -514,11 +518,12 @@
                                     console.log(respuesta);
 
                                     if (respuesta.status == 'success') {
-                                        $(".form_compra").submit();
+                                        
                                         // $("#img_qr").attr("src", respuesta.src);
                                         // $("#img_qr").css('display', 'block');
                                         Swal.fire("¡Se genero su compra!", "", "success").
                                         then((value) => {
+                                            $(".form_compra").submit();
                                             window.location.reload();
                                         });
                                     }

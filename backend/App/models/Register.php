@@ -199,7 +199,7 @@ sql;
   public static function inserPendientePago($data){ 
     $mysqli = Database::getInstance(1);
     $query=<<<sql
-    INSERT INTO pendiente_pago (id_producto, user_id, reference, clave	,fecha, monto, status, comprado_en) VALUES (:id_producto, :user_id, :reference, :clave, :fecha, :monto, :status, 1);
+    INSERT INTO pendiente_pago (id_producto, user_id, reference, clave	,fecha, monto, tipo_pago,status, comprado_en) VALUES (:id_producto, :user_id, :reference, :clave, :fecha, :monto, :tipo_pago,:status, 1);
 sql;
 
   $parametros = array(
@@ -209,12 +209,24 @@ sql;
     ':clave'=>$data->_clave,
     ':fecha'=>$data->_fecha,
     ':monto'=>$data->_monto,
-    // ':tipo_pago'=>$data->_tipo_pago,
+    ':tipo_pago'=>$data->_tipo_pago,
     ':status'=>$data->_status
         
   );
   $id = $mysqli->insert($query,$parametros);
   return $id;
+}
+
+public static function getProductosPendientesPagoByUser($user_id){
+  $mysqli = Database::getInstance();
+  $query=<<<sql
+  SELECT ua.monto_congreso as amout_due,ua.clave_socio,p.*,pp.*
+  FROM utilerias_administradores ua 
+  INNER JOIN pendiente_pago pp ON(ua.user_id = pp.user_id)
+  INNER JOIN productos p ON (p.id_producto = pp.id_producto)
+  WHERE pp.user_id = $user_id AND pp.status = 0
+sql;
+  return $mysqli->queryAll($query);
 }
 
     
