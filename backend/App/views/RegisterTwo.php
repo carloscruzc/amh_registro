@@ -47,12 +47,12 @@ echo $header;
                                                     </div>
                                                 </div>
                                                 <!--form panels-->
-                                                <?php var_dump($dataUser);?>
+                                                <?php //var_dump($dataUser);?>
                                                 <div class="row">
                                                     <div class="col-12 col-lg-12 m-auto">
                                                         <form class="multisteps-form__form" id="add" action="/Register/passThree" method="POST">
                                                             <!--single form panel-->
-                                                            <input type="text" name="dataUser" value='<?php echo serialize($dataUser)?>' >
+                                                            <input type="hidden" name="dataUser" value='<?php echo serialize($dataUser)?>' >
                                                             <div id="card_two" class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" id="card_one" data-animation="FadeIn">
                                                                 <div class="row text-center">
                                                                     <div class="col-10 mx-auto">
@@ -140,7 +140,7 @@ echo $header;
     $(document).ready(function() {
 
         $("#btncheck2").on("click",function(){
-            alert($(this).val());
+            // alert($(this).val());
             $("#add").attr('action','/Register/passThree');
             $("#add").submit();
         });
