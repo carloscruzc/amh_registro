@@ -103,7 +103,10 @@ echo $header;
                                                                         </div>
                                                                         <div class="row text-center mt-1">
                                                                             <div class="col-10 mx-auto">
-                                                                                <p class="mb-0 text-sm">Una vez que el pago haya sido ifentificado, usted recibirá su factura dentro de las 48 horas posteriores. Para reportar retrasos, favor de enviar un correo con su comprobante de pago adjunto a apm@psiquiatrasapm.org.mx recuerde que la expedición de facturas solo podrá realizarse en el mes correspondiente al pago.</p>
+                                                                                <p class="mb-0 text-sm">Una vez que el pago haya sido identificado, usted recibirá su factura 
+                                                                                    dentro de las 48 horas posteriores. Para reportar retrasos, favor de enviar un correo con su 
+                                                                                    comprobante de pago adjunto a secretario@hepatologia.org.mx. recuerde que la expedición de 
+                                                                                    facturas solo podrá realizarse en el mes correspondiente al pago.</p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="button-row d-flex mt-1">

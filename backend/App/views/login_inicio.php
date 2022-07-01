@@ -6,7 +6,7 @@ echo $header;
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>VI Congreso Mundial de Patología Dual</title>
+    <title>XVII CONGRESO NACIONAL DE HEPATOLOGÍA 2022</title>
 
 </head>
 <body>

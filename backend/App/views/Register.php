@@ -70,9 +70,9 @@ echo $header;
                                                                     <div class="row mt-3">
                                                                         <div class="col-12 col-sm-6">
                                                                             <label>Correo Electrónico*</label>
-                                                                            <input type="text" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
-                                                                            <input type="text" id="email_register" name="email_register" value="<?= $data['usuario'] ?>">
-                                                                            <input type="text" id="id_categoria" name="id_categoria" value="<?= $data['id_categoria'] ?>">
+                                                                            <input type="hidden" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
+                                                                            <input type="hidden" id="email_register" name="email_register" value="<?= $data['usuario'] ?>">
+                                                                            <input type="hidden" id="id_categoria" name="id_categoria" value="<?= $data['id_categoria'] ?>">
                                                                             <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no" value="<?= $data['usuario'] ?>">
                                                                             <span class="mb-0 text-sm" id="error" style="display:none;color:red;">Correo incorrecto</span>
                                                                         </div>
@@ -83,7 +83,7 @@ echo $header;
                                                                         </div>
                                                                         <input type="hidden" id="email_validado" name="email_validado">
 
-                                                                        <p class="mb-0 text-sm">Todas las notificaciones de la WADD y la APM, incluyendo las facuras e información general del evento, solo serán enviadas a este correo electrónico.</p>
+                                                                        <p class="mb-0 text-sm">Todas las notificaciones incluyendo las facuras e información general del evento, solo serán enviadas a este correo electrónico.</p>
                                                                     </div>
                                                                     <div class="row mt-3">
                                                                         <div class="col-12 col-sm-2">

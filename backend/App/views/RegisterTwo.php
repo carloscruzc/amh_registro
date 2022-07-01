@@ -1,5 +1,5 @@
 <?php
-echo $header;
+echo $header; 
 ?>
 
 <body>
@@ -9,9 +9,9 @@ echo $header;
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
-                        <img src="/assets/img/logos/apmn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        VI Congreso Mundial de Patología Dual
+                        <img src="/assets/img/logos/amh.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
+                        <!--<img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">-->
+                        ASOCIACIÓN MEXICANA DE HEPATOLOGÍA
                     </a>
 
                     <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
@@ -57,13 +57,13 @@ echo $header;
                                                                 <div class="row text-center">
                                                                     <div class="col-10 mx-auto">
                                                                         <h5 class="font-weight-normal">Muy Importante</h5>
-                                                                        <p>La Asociación Psiquiátrica Mexicana es una sociedad sin fines de lucro, y puede expedir
-                                                                            comprobantes deducibles de impuestos para personas físicas y morales mexicanas.
-                                                                            Una vez que tu pago haya sido procesado, recibirás tu comprobante dentro de las primeras
-                                                                            48 horas. En caso de no recibirlo, favor de enviar un correo con el comprobante adjunto a
-                                                                            apm@psiquiatrasapm.org.mx. Recuerda que los comprobantes fiscales solo pueden ser
-                                                                            emitidos en el mes en el cual realizaste tu pago.
-                                                                            Si necesitas factura, por favor selecciona la opción en los botones siguientes.
+                                                                        <p>La Asociación Mexicana de Hepatología es una sociedad sin fines de lucro, 
+                                                                            y puede expedir comprobantes deducibles de impuestos para personas físicas y 
+                                                                            morales mexicanas. Una vez que tu pago haya sido procesado, recibirás tu comprobante 
+                                                                            dentro de las primeras 48 horas. En caso de no recibirlo, favor de enviar un correo con 
+                                                                            el comprobante adjunto a secretario@hepatologia.org.mx. Recuerda que los comprobantes 
+                                                                            fiscales solo pueden ser emitidos en el mes en el cual realizaste tu pago. Si necesitas factura,
+                                                                             por favor selecciona la opción en los botones siguientes.
                                                                         </p>
                                                                     </div>
                                                                 </div>
