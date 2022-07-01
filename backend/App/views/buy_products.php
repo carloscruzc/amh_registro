@@ -32,10 +32,10 @@
 
 
                 </nav>
-               
+
                 <div id="cont_menu_end">
 
-                
+
 
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -51,7 +51,7 @@
                             </a>
                         </li>
 
-                       <!--  <li class="nav-item d-flex align-items-center">
+                        <!--  <li class="nav-item d-flex align-items-center">
                             <a href="/Login/cerrarSession" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-power-off me-sm-1"></i>
                                 <span class="d-sm-inline ">Logout</span>
@@ -102,8 +102,6 @@
                     <p style="font-size: 14px">(Seleccione a continuación lo que desea pagar y presione el boton de pagar y muestre el codigo de pago en caja)</p>
                 </div>
                 <div class="card-body px-5 pb-5">
-                <input type="text" id="clave_socio" name="clave_socio" value="<?=$datos['clave_socio']?>">
-                <input type="text" id="email_usuario" name="email_usuario" value="<?=$datos['usuario']?>">
 
 
                     <div class="row">
@@ -128,7 +126,8 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <!-- <p>Su pago en dolares es: $ <span id="total"><?//= $total_pago ?></span> USD</p> -->
+                                                <!-- <p>Su pago en dolares es: $ <span id="total"><? //= $total_pago 
+                                                                                                    ?></span> USD</p> -->
                                                 <p>Su pago en pesos mexicanos es: $ <span id="total_mx"><?= $total_pago_mx ?></span> </p>
 
                                             </div>
@@ -148,17 +147,23 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                            <select id="forma_pago" name="forma_pago" class="form-control">
+                                                <select id="forma_pago" name="forma_pago" class="form-control">
                                                     <option value="">Seleccione una Opción</option>
                                                     <option value="Transferencia">Depósito/Transferencia</option>
                                                     <option value="Paypal">Paypal</option>
                                                 </select>
 
+                                                <form class="form_compra" method="POST" action="" target="_blank">
+
+                                                    <input type="text" id="clave_socio" name="clave_socio" value="<?= $datos['clave_socio'] ?>">
+                                                    <input type="text" id="email_usuario" name="email_usuario" value="<?= $datos['usuario'] ?>">
+                                                </form>
+
                                             </div>
 
                                             <div class="col-md-6" style="display: flex; justify-content: end;">
 
-                                               
+
 
                                                 <button class="btn btn-primary" id="btn_pago" <?= $btn_block ?>>Proceder al pago</button>
                                             </div>
@@ -247,29 +252,46 @@
     <script>
         $(document).ready(function() {
 
+            $('#forma_pago').on('change', function(e) {
+                var tipo = $(this).val();
+                // alert(tipo);
+                if (tipo == 'Paypal') {
+                    // $(".form_compra").attr('action','/OrdenPago/PagarPaypal');
+                    $(".form_compra").attr('action', 'https://www.paypal.com/es/cgi-bin/webscr');
+                    // $(".btn_comprar").val('Paypal');
+                    // $(".tipo_pago").val('Paypal');
+                } else if (tipo == 'Transferencia') {
+                    $(".form_compra").attr('action', '/Register/ticketAll');
+                    // $(".btn_comprar").val('Efectivo');
+                    // $(".tipo_pago").val('Efectivo');
+
+                }
+
+            });
+
             // var precios=<?php echo json_encode($array_precios); ?>;
 
             var precios = [];
             var productos = [];
             var total = 0;
 
-            if($("#clave_socio").val() != ''){
+            if ($("#clave_socio").val() != '') {
                 precios.push({
-                        'id_product': 1,
-                        'precio': 0,
-                        'cantidad': 1
-                    });
-                    sumarPrecios(precios);
+                    'id_product': 1,
+                    'precio': 0,
+                    'cantidad': 1
+                });
+                sumarPrecios(precios);
 
-                    productos.push({
-                        'id_product': 1,
-                        'precio': 0,
-                        'cantidad': 1,
-                        'nombre_producto': 'Congreso'
-                    });
+                productos.push({
+                    'id_product': 1,
+                    'precio': 0,
+                    'cantidad': 1,
+                    'nombre_producto': 'Congreso'
+                });
 
-                    $("#check_curso_1").prop('checked', true);
-                    $("#check_curso_1").prop('disabled', true);
+                $("#check_curso_1").prop('checked', true);
+                $("#check_curso_1").prop('disabled', true);
             }
 
             // if (precios.length <= 0) {
@@ -431,16 +453,13 @@
                 if (precios.length <= 0) {
 
                     Swal.fire("¡Debes seleccionar al menos un producto!", "", "warning")
-                   
 
-                }
-                else if(precios.length >= 2 && $("#forma_pago").val() == '' && $("#clave_socio").val() != ''){
+
+                } else if (precios.length >= 2 && $("#forma_pago").val() == '' && $("#clave_socio").val() != '') {
                     Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
-                }
-                else if($("#forma_pago").val() == '' && $("#clave_socio").val() == ''){
+                } else if ($("#forma_pago").val() == '' && $("#clave_socio").val() == '') {
                     Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
-                }
-                else {
+                } else {
                     var plantilla_productos = '';
 
                     plantilla_productos += `<ul>`;
@@ -495,6 +514,7 @@
                                     console.log(respuesta);
 
                                     if (respuesta.status == 'success') {
+                                        $(".form_compra").submit();
                                         // $("#img_qr").attr("src", respuesta.src);
                                         // $("#img_qr").css('display', 'block');
                                         Swal.fire("¡Se genero su compra!", "", "success").

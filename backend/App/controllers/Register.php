@@ -1348,6 +1348,72 @@ html;
            
         }
 
+
+        public function ticketAll($clave = null, $id_curso = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
+
+        $usuario = $_POST['usuario'];
+        $datos_user = RegisterDao::getUser($usuario)[0];
+
+        var_dump($datos_user);
+
+        exit;
+        
+        $metodo_pago = $_POST['metodo_pago'];
+        $user_id = $_SESSION['user_id'];
+        $clave = $_POST['clave'];
+        
+
+        $productos = TalleresDao::getCarritoByIdUser($user_id);
+
+        // var_dump($productos);
+        // exit;
+
+
+
+        foreach($productos as $key => $value){
+
+            if($value['es_congreso'] == 1){
+                $precio = $value['amout_due'];
+            }else if($value['es_servicio'] == 1){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1){
+                $precio = $value['precio_publico'];
+            }
+           
+            $documento = new \stdClass();  
+
+            $nombre_curso = $value['nombre'];
+            $id_producto = $value['id_producto'];
+            $user_id = $datos_user['user_id'];
+            $reference = $datos_user['reference'];
+            $fecha =  date("Y-m-d");
+            // $monto = $value['precio_publico'];
+            $monto = $precio;
+            $tipo_pago = $metodo_pago;
+            $status = 0;
+    
+            $documento->_id_producto = $id_producto;
+            $documento->_user_id = $user_id;
+            $documento->_reference = $reference;
+            $documento->_fecha = $fecha;
+            $documento->_monto = $monto;
+            $documento->_tipo_pago = $tipo_pago;
+            $documento->_clave = $clave;
+            $documento->_status = $status;
+
+            $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
+
+            if(!$existe){
+                $id = TalleresDao::inserPendientePago($documento); 
+                $delete = TalleresDao::deleteItem($value['id_carrito']);
+            }
+                // $delete = TalleresDao::deleteItem($value['id_carrito']);
+
+        }
+    }
+
     public function Success(){
 
         $register = new \stdClass();
