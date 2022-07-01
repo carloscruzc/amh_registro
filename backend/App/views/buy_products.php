@@ -155,9 +155,29 @@
 
                                                 <form class="form_compra" method="POST" action="" target="_blank">
 
-                                                    <input type="text" id="clave_socio" name="clave_socio" value="<?= $datos['clave_socio'] ?>">
-                                                    <input type="text" id="email_usuario" name="email_usuario" value="<?= $datos['usuario'] ?>">
-                                                    <input type="text" id="metodo_pago" name="metodo_pago" value="">
+                                                    <input type="hidden" id="clave_socio" name="clave_socio" value="<?= $datos['clave_socio'] ?>">
+                                                    <input type="hidden" id="email_usuario" name="email_usuario" value="<?= $datos['usuario'] ?>">
+                                                    <input type="hidden" id="metodo_pago" name="metodo_pago" value="">
+                                                    <input type="hidden" id="clave" name="clave" value="<?= $clave ?>">
+
+                                                    <hr>
+
+                                                    <input type='hidden' id='business' name='business' value='aspsiqm@prodigy.net.mx'>
+                                                    <input type='hidden' id='item_name' name='item_name' value='<?= $producto_s ?>'>
+                                                    <input type='hidden' id='item_number' name='item_number' value="<?= $clave ?>">
+                                                    <input type='hidden' id='amount' name='amount' value='<?= $total ?>'>
+                                                    <input type='hidden' id='currency_code' name='currency_code' value='MXN'>
+                                                    <input type='hidden' id='notify_url' name='notify_url' value=''>
+                                                    <input type='hidden' id='return' name='return' value='https://registro.dualdisorderswaddmexico2022.com/ComprobantePago/'>
+                                                    <input type="hidden" id="cmd" name="cmd" value="_xclick">
+                                                    <input type="hidden" id="order" name="order" value="<?= $clave ?>">
+
+
+                                                </form>
+
+                                                <form id="form_compra_paypal" method="POST" >
+                                                    <input type="hidden" id="tipo_pago_paypal" name="tipo_pago_paypal">
+                                                    <input type='hidden' id='clave_paypal' name='clave_paypal' value="<?=$clave?>"> 
                                                 </form>
 
                                             </div>
@@ -180,7 +200,7 @@
                         <div class="col-md-4">
                             <div id="cont-image">
                                 <img src="<?= $src_qr ?>" id="img_qr" style="width: auto; display: block; margin: 0 auto;<?= $ocultar ?>" alt="">
-                                <input type="hidden" id="clave" name="clave" value="<?= $clave ?>">
+
 
                             </div>
                             <div style="display: flex; justify-content: center;">
@@ -261,9 +281,10 @@
                     // $(".form_compra").attr('action','/OrdenPago/PagarPaypal');
                     $(".form_compra").attr('action', 'https://www.paypal.com/es/cgi-bin/webscr');
                     // $(".btn_comprar").val('Paypal');
-                    // $(".tipo_pago").val('Paypal');
+                    $("#tipo_pago_paypal").val('Paypal');
                 } else if (tipo == 'Transferencia') {
                     $(".form_compra").attr('action', '/Register/ticketAll');
+                    $("#tipo_pago_paypal").val('');
                     // $(".btn_comprar").val('Efectivo');
                     // $(".tipo_pago").val('Efectivo');
 
@@ -291,6 +312,8 @@
                     'cantidad': 1,
                     'nombre_producto': 'Congreso'
                 });
+
+                sumarProductos(productos);
 
                 $("#check_curso_1").prop('checked', true);
                 $("#check_curso_1").prop('disabled', true);
@@ -322,6 +345,7 @@
                         'cantidad': cantidad
                     });
                     sumarPrecios(precios);
+                    
 
                     productos.push({
                         'id_product': id_product,
@@ -329,6 +353,8 @@
                         'cantidad': cantidad,
                         'nombre_producto': nombre_producto
                     });
+
+                    sumarProductos(productos);
 
                 } else if (!this.checked) {
 
@@ -373,8 +399,9 @@
 
                     // });
                 }
-                console.log(productos);
+                // console.log(productos);
                 sumarPrecios(precios);
+                sumarProductos(productos);
 
             });
 
@@ -430,11 +457,15 @@
                     sumaPrecios += parseInt(precio.precio * precio.cantidad);
                     sumaArticulos += parseInt(precio.cantidad);
 
+
                 });
+
+                
 
                 console.log("Suma precios " + sumaPrecios);
 
                 $("#total").html(sumaPrecios);
+                $("#amount").val(sumaPrecios);
 
                 // $("#total_mx").html(($("#tipo_cambio").val() * sumaPrecios).toFixed(2));
                 $("#total_mx").html((sumaPrecios).toFixed(2));
@@ -444,6 +475,25 @@
                 $("#productos_agregados").html(sumaArticulos);
 
             }
+
+            function sumarProductos(productos) {
+                console.log(productos);
+                var nombreProductos = '';
+
+                productos.forEach(function(producto, index) {
+
+                    console.log("precio " + index + " | id_product: " + producto.id_product + " precio: " + parseInt(producto.precio) + " cantidad: " + parseInt(producto.cantidad) + "producto" + producto.nombre_producto)
+
+                    nombreProductos += producto.nombre_producto+',';
+                });
+
+                console.log(nombreProductos);
+                $("#item_name").val(nombreProductos);
+                
+
+            }
+
+
 
             $("#btn_pago").on("click", function(event) {
                 event.preventDefault();
@@ -496,44 +546,87 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
 
-                            $.ajax({
-                                url: "/Register/generaterQr",
-                                type: "POST",
-                                data: {
-                                    'array': JSON.stringify(precios),
-                                    clave,
-                                    usuario,
-                                    metodo_pago
-                                },
-                                cache: false,
-                                dataType: "json",
-                                // contentType: false,
-                                // processData: false,
-                                beforeSend: function() {
-                                    console.log("Procesando....");
+                            console.log($("#total_mx").text());
 
-                                },
-                                success: function(respuesta) {
+                            if ($("#total_mx").text() == '0.00') {
+                                $.ajax({
+                                    url: "/Register/generaterQr",
+                                    type: "POST",
+                                    data: {
+                                        'array': JSON.stringify(precios),
+                                        clave,
+                                        usuario,
+                                        metodo_pago
+                                    },
+                                    cache: false,
+                                    dataType: "json",
+                                    // contentType: false,
+                                    // processData: false,
+                                    beforeSend: function() {
+                                        console.log("Procesando....");
 
-                                    console.log(respuesta);
+                                    },
+                                    success: function(respuesta) {
 
-                                    if (respuesta.status == 'success') {
-                                        
-                                        // $("#img_qr").attr("src", respuesta.src);
-                                        // $("#img_qr").css('display', 'block');
-                                        Swal.fire("¡Se genero su compra!", "", "success").
-                                        then((value) => {
-                                            $(".form_compra").submit();
-                                            window.location.reload();
-                                        });
+                                        console.log(respuesta);
+
+                                        if (respuesta.status == 'success') {
+
+                                            Swal.fire("¡Se genero su preregistro, correctamente!", "", "success").
+                                            then((value) => {
+                                                // $(".form_compra").submit();
+                                                location.href = '/Inicio';
+                                            });
+                                        }
+
+                                    },
+                                    error: function(respuesta) {
+                                        console.log(respuesta);
                                     }
 
-                                },
-                                error: function(respuesta) {
-                                    console.log(respuesta);
-                                }
+                                });
 
-                            });
+                            }
+                            else {
+                                $.ajax({
+                                    url: "/Register/generaterQr",
+                                    type: "POST",
+                                    data: {
+                                        'array': JSON.stringify(precios),
+                                        clave,
+                                        usuario,
+                                        metodo_pago
+                                    },
+                                    cache: false,
+                                    dataType: "json",
+                                    // contentType: false,
+                                    // processData: false,
+                                    beforeSend: function() {
+                                        console.log("Procesando....");
+
+                                    },
+                                    success: function(respuesta) {
+
+                                        console.log(respuesta);
+
+                                        if (respuesta.status == 'success') {
+
+                                            Swal.fire("¡Se genero su preregistro, correctamente!", "", "success").
+                                            then((value) => {
+                                                $(".form_compra").submit();
+                                                location.href = '/Inicio';
+                                            });
+                                        }
+
+                                    },
+                                    error: function(respuesta) {
+                                        console.log(respuesta);
+                                    }
+
+                                });
+                            }
+
+
                         }
                     })
                 }

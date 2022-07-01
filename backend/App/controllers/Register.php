@@ -858,6 +858,7 @@ html;
 //                 $numero_productos = '';
 
 //         }
+$clave = $this->generateRandomString();
 
         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
@@ -946,7 +947,7 @@ html;
 
         View::set('header',$header);  
         View::set('datos',$data_user);
-        // View::set('clave',$clave);    
+        View::set('clave',$clave);    
         View::set('checks',$checks);
         // View::set('src_qr',$src_qr); 
         // View::set('btn_block',$btn_block); 
@@ -1277,11 +1278,13 @@ html;
     }
 
     public function generaterQr(){
+        date_default_timezone_set('America/Mexico_City');
 
             $bandera = false;
     
     
-            $clave = $this->generateRandomString(); 
+            // $clave = $this->generateRandomString();
+           $clave = $_POST['clave'];  
            $usuario = $_POST['usuario']; 
            $tipo_pago = $_POST['metodo_pago']; 
            
@@ -1308,7 +1311,7 @@ html;
                 
                     $id_producto = $value['id_product'];  
                     $monto = $value['precio'];                
-                    $status = 0;
+                    
     
                     $documento->_id_producto = $id_producto;
                     $documento->_user_id = $user_id;
@@ -1316,9 +1319,23 @@ html;
                     $documento->_fecha = $fecha;
                     $documento->_monto = $monto;
                     $documento->_tipo_pago = $tipo_pago;
-                    $documento->_clave = $clave;
-                    $documento->_status = $status;
-    
+                    $documento->_clave = $clave;                    
+
+                    if($id_producto == 1 && $monto == 0){
+                        //pendiente pago correcto
+                        $status = 1;
+
+                        $data = new \stdClass();
+                        $data->_user_id = $user_id;
+                        $data->_id_producto = $id_producto;
+                        
+                        $insert_asigna = RegisterDao::insertAsignaProducto($data);
+                    }else{
+                        $status = 0;
+                    }
+                    $documento->_status = $status;                   
+                    
+
                     $id = RegisterDao::inserPendientePago($documento); 
     
                     if($id){
@@ -1487,10 +1504,10 @@ html;
 
 
        // total
-        $pdf->SetXY(118, 170);
-        $pdf->SetFont('Arial', 'B', 8);  
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
+        // $pdf->SetXY(118, 170);
+        // $pdf->SetFont('Arial', 'B', 8);  
+        // $pdf->SetTextColor(0, 0, 0);
+        // $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
 
         $pdf->Output();
         // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
