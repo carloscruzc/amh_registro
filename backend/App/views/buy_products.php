@@ -32,10 +32,10 @@
 
 
                 </nav>
-               
+
                 <div id="cont_menu_end">
 
-                
+
 
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
@@ -51,7 +51,7 @@
                             </a>
                         </li>
 
-                       <!--  <li class="nav-item d-flex align-items-center">
+                        <!--  <li class="nav-item d-flex align-items-center">
                             <a href="/Login/cerrarSession" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-power-off me-sm-1"></i>
                                 <span class="d-sm-inline ">Logout</span>
@@ -104,7 +104,6 @@
                 <div class="card-body px-5 pb-5">
 
 
-
                     <div class="row">
                         <div class="col-md-8">
 
@@ -127,8 +126,8 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <p>Su pago en dolares es: $ <span id="total"><?= $total_pago ?></span> USD</p>
-
+                                                <!-- <p>Su pago en dolares es: $ <span id="total"><? //= $total_pago 
+                                                                                                    ?></span> USD</p> -->
                                                 <p>Su pago en pesos mexicanos es: $ <span id="total_mx"><?= $total_pago_mx ?></span> </p>
 
                                             </div>
@@ -148,11 +147,44 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
+                                                <select id="forma_pago" name="forma_pago" class="form-control">
+                                                    <option value="">Seleccione una Opción</option>
+                                                    <option value="Transferencia">Depósito/Transferencia</option>
+                                                    <option value="Paypal">Paypal</option>
+                                                </select>
 
+                                                <form class="form_compra" method="POST" action="" target="_blank">
+
+                                                    <input type="hidden" id="clave_socio" name="clave_socio" value="<?= $datos['clave_socio'] ?>">
+                                                    <input type="hidden" id="email_usuario" name="email_usuario" value="<?= $datos['usuario'] ?>">
+                                                    <input type="hidden" id="metodo_pago" name="metodo_pago" value="">
+                                                    <input type="hidden" id="clave" name="clave" value="<?= $clave ?>">
+
+                                                    <hr>
+
+                                                    <input type='hidden' id='business' name='business' value='aspsiqm@prodigy.net.mx'>
+                                                    <input type='hidden' id='item_name' name='item_name' value='<?= $producto_s ?>'>
+                                                    <input type='hidden' id='item_number' name='item_number' value="<?= $clave ?>">
+                                                    <input type='hidden' id='amount' name='amount' value='<?= $total ?>'>
+                                                    <input type='hidden' id='currency_code' name='currency_code' value='MXN'>
+                                                    <input type='hidden' id='notify_url' name='notify_url' value=''>
+                                                    <input type='hidden' id='return' name='return' value='https://registro.dualdisorderswaddmexico2022.com/ComprobantePago/'>
+                                                    <input type="hidden" id="cmd" name="cmd" value="_xclick">
+                                                    <input type="hidden" id="order" name="order" value="<?= $clave ?>">
+
+
+                                                </form>
+
+                                                <form id="form_compra_paypal" method="POST" >
+                                                    <input type="hidden" id="tipo_pago_paypal" name="tipo_pago_paypal">
+                                                    <input type='hidden' id='clave_paypal' name='clave_paypal' value="<?=$clave?>"> 
+                                                </form>
 
                                             </div>
 
                                             <div class="col-md-6" style="display: flex; justify-content: end;">
+
+
 
                                                 <button class="btn btn-primary" id="btn_pago" <?= $btn_block ?>>Proceder al pago</button>
                                             </div>
@@ -168,7 +200,7 @@
                         <div class="col-md-4">
                             <div id="cont-image">
                                 <img src="<?= $src_qr ?>" id="img_qr" style="width: auto; display: block; margin: 0 auto;<?= $ocultar ?>" alt="">
-                                <input type="hidden" id="clave" name="clave" value="<?= $clave ?>">
+
 
                             </div>
                             <div style="display: flex; justify-content: center;">
@@ -241,11 +273,51 @@
     <script>
         $(document).ready(function() {
 
+            $('#forma_pago').on('change', function(e) {
+                var tipo = $(this).val();
+                $("#metodo_pago").val(tipo);
+                // alert(tipo);
+                if (tipo == 'Paypal') {
+                    // $(".form_compra").attr('action','/OrdenPago/PagarPaypal');
+                    $(".form_compra").attr('action', 'https://www.paypal.com/es/cgi-bin/webscr');
+                    // $(".btn_comprar").val('Paypal');
+                    $("#tipo_pago_paypal").val('Paypal');
+                } else if (tipo == 'Transferencia') {
+                    $(".form_compra").attr('action', '/Register/ticketAll');
+                    $("#tipo_pago_paypal").val('');
+                    // $(".btn_comprar").val('Efectivo');
+                    // $(".tipo_pago").val('Efectivo');
+
+                }
+
+            });
+
             // var precios=<?php echo json_encode($array_precios); ?>;
 
             var precios = [];
             var productos = [];
             var total = 0;
+
+            if ($("#clave_socio").val() != '') {
+                precios.push({
+                    'id_product': 1,
+                    'precio': 0,
+                    'cantidad': 1
+                });
+                sumarPrecios(precios);
+
+                productos.push({
+                    'id_product': 1,
+                    'precio': 0,
+                    'cantidad': 1,
+                    'nombre_producto': 'Congreso'
+                });
+
+                sumarProductos(productos);
+
+                $("#check_curso_1").prop('checked', true);
+                $("#check_curso_1").prop('disabled', true);
+            }
 
             // if (precios.length <= 0) {
 
@@ -273,6 +345,7 @@
                         'cantidad': cantidad
                     });
                     sumarPrecios(precios);
+                    
 
                     productos.push({
                         'id_product': id_product,
@@ -280,6 +353,8 @@
                         'cantidad': cantidad,
                         'nombre_producto': nombre_producto
                     });
+
+                    sumarProductos(productos);
 
                 } else if (!this.checked) {
 
@@ -298,42 +373,35 @@
                         }
                     }
 
-                    $.ajax({
-                        url: "/Home/removePendientesPago",
-                        type: "POST",
-                        data: {
-                            id_product,cantidad
-                        },
-                        cache: false,
-                        beforeSend: function() {
-                            console.log("Procesando....");
+                    // $.ajax({
+                    //     url: "/Home/removePendientesPago",
+                    //     type: "POST",
+                    //     data: {
+                    //         id_product,cantidad
+                    //     },
+                    //     cache: false,
+                    //     beforeSend: function() {
+                    //         console.log("Procesando....");
 
-                        },
-                        success: function(respuesta) {
+                    //     },
+                    //     success: function(respuesta) {
 
-                            console.log(respuesta);
-                            if(respuesta == "success"){
-                                location.reload();
-                            }
+                    //         console.log(respuesta);
+                    //         if(respuesta == "success"){
+                    //             location.reload();
+                    //         }
 
-                            // if (respuesta.status == 'success') {
-                            //     $("#img_qr").attr("src", respuesta.src);
-                            //     $("#img_qr").css('display', 'block');
-                            //     Swal.fire("¡Mantenga a la mano su codigo QR para pagar en linea de cajas!", "", "success").
-                            //     then((value) => {
-                            //         window.location.reload();
-                            //     });
-                            // }
 
-                        },
-                        error: function(respuesta) {
-                            console.log(respuesta);
-                        }
+                    //     },
+                    //     error: function(respuesta) {
+                    //         console.log(respuesta);
+                    //     }
 
-                    });
+                    // });
                 }
-                console.log(productos);
+                // console.log(productos);
                 sumarPrecios(precios);
+                sumarProductos(productos);
 
             });
 
@@ -389,13 +457,18 @@
                     sumaPrecios += parseInt(precio.precio * precio.cantidad);
                     sumaArticulos += parseInt(precio.cantidad);
 
+
                 });
+
+                
 
                 console.log("Suma precios " + sumaPrecios);
 
                 $("#total").html(sumaPrecios);
+                $("#amount").val(sumaPrecios);
 
-                $("#total_mx").html(($("#tipo_cambio").val() * sumaPrecios).toFixed(2));
+                // $("#total_mx").html(($("#tipo_cambio").val() * sumaPrecios).toFixed(2));
+                $("#total_mx").html((sumaPrecios).toFixed(2));
 
                 console.log("Suma Articulos " + sumaArticulos);
 
@@ -403,16 +476,42 @@
 
             }
 
+            function sumarProductos(productos) {
+                console.log(productos);
+                var nombreProductos = '';
+
+                productos.forEach(function(producto, index) {
+
+                    console.log("precio " + index + " | id_product: " + producto.id_product + " precio: " + parseInt(producto.precio) + " cantidad: " + parseInt(producto.cantidad) + "producto" + producto.nombre_producto)
+
+                    nombreProductos += producto.nombre_producto+',';
+                });
+
+                console.log(nombreProductos);
+                $("#item_name").val(nombreProductos);
+                
+
+            }
+
+
+
             $("#btn_pago").on("click", function(event) {
                 event.preventDefault();
                 // var metodo_pago = $("#metodo_pago").val();
                 var clave = $("#clave").val();
+                var usuario = $("#email_usuario").val();
+                var metodo_pago = $("#metodo_pago").val();
+
 
                 if (precios.length <= 0) {
 
                     Swal.fire("¡Debes seleccionar al menos un producto!", "", "warning")
-                   
 
+
+                } else if (precios.length >= 2 && $("#forma_pago").val() == '' && $("#clave_socio").val() != '') {
+                    Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
+                } else if ($("#forma_pago").val() == '' && $("#clave_socio").val() == '') {
+                    Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
                 } else {
                     var plantilla_productos = '';
 
@@ -428,10 +527,10 @@
                     });
 
                     plantilla_productos += `</ul>`;
-                    plantilla_productos += `<p><strong>Total en dolares: $ ${$("#total").text()} USD </strong></p>`;
+                    // plantilla_productos += `<p><strong>Total en dolares: $ ${$("#total").text()} USD </strong></p>`;
                     plantilla_productos += `<p><strong>Total en pesos mexicanos: $ ${$("#total_mx").text()}</strong></p>`;
 
-                    plantilla_productos += `<p>Confirme su selección y de clic en procesar compra y espere su turno en línea de cajas.</p>`;
+                    // plantilla_productos += `<p>Confirme su selección y de clic en procesar compra y espere su turno en línea de cajas.</p>`;
 
 
                     Swal.fire({
@@ -447,40 +546,87 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
 
-                            $.ajax({
-                                url: "/Home/generaterQr",
-                                type: "POST",
-                                data: {
-                                    'array': JSON.stringify(precios),
-                                    clave
-                                },
-                                cache: false,
-                                dataType: "json",
-                                // contentType: false,
-                                // processData: false,
-                                beforeSend: function() {
-                                    console.log("Procesando....");
+                            console.log($("#total_mx").text());
 
-                                },
-                                success: function(respuesta) {
+                            if ($("#total_mx").text() == '0.00') {
+                                $.ajax({
+                                    url: "/Register/generaterQr",
+                                    type: "POST",
+                                    data: {
+                                        'array': JSON.stringify(precios),
+                                        clave,
+                                        usuario,
+                                        metodo_pago
+                                    },
+                                    cache: false,
+                                    dataType: "json",
+                                    // contentType: false,
+                                    // processData: false,
+                                    beforeSend: function() {
+                                        console.log("Procesando....");
 
-                                    console.log(respuesta);
+                                    },
+                                    success: function(respuesta) {
 
-                                    if (respuesta.status == 'success') {
-                                        $("#img_qr").attr("src", respuesta.src);
-                                        $("#img_qr").css('display', 'block');
-                                        Swal.fire("¡Mantenga a la mano su codigo QR para pagar en linea de cajas!", "", "success").
-                                        then((value) => {
-                                            window.location.reload();
-                                        });
+                                        console.log(respuesta);
+
+                                        if (respuesta.status == 'success') {
+
+                                            Swal.fire("¡Se genero su preregistro, correctamente!", "", "success").
+                                            then((value) => {
+                                                // $(".form_compra").submit();
+                                                location.href = '/Inicio';
+                                            });
+                                        }
+
+                                    },
+                                    error: function(respuesta) {
+                                        console.log(respuesta);
                                     }
 
-                                },
-                                error: function(respuesta) {
-                                    console.log(respuesta);
-                                }
+                                });
 
-                            });
+                            }
+                            else {
+                                $.ajax({
+                                    url: "/Register/generaterQr",
+                                    type: "POST",
+                                    data: {
+                                        'array': JSON.stringify(precios),
+                                        clave,
+                                        usuario,
+                                        metodo_pago
+                                    },
+                                    cache: false,
+                                    dataType: "json",
+                                    // contentType: false,
+                                    // processData: false,
+                                    beforeSend: function() {
+                                        console.log("Procesando....");
+
+                                    },
+                                    success: function(respuesta) {
+
+                                        console.log(respuesta);
+
+                                        if (respuesta.status == 'success') {
+
+                                            Swal.fire("¡Se genero su preregistro, correctamente!", "", "success").
+                                            then((value) => {
+                                                $(".form_compra").submit();
+                                                location.href = '/Inicio';
+                                            });
+                                        }
+
+                                    },
+                                    error: function(respuesta) {
+                                        console.log(respuesta);
+                                    }
+
+                                });
+                            }
+
+
                         }
                     })
                 }
