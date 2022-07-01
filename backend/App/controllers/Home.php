@@ -464,9 +464,7 @@ html;
     public function getData(){
       echo $_POST['datos'];
     }
-
-
-
+    
     public function abrirConstancia($clave, $id_producto, $no_horas = NULL)
     {
 

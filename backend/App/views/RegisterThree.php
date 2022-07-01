@@ -76,21 +76,23 @@ echo $header;
                                                                                 <label>RFC *</label>
                                                                                 <input class="multisteps-form__input form-control" type="text" id="code_iva" name="code_iva" placeholder="eg. CPJ41250AS" maxlength="13" onfocus="focused(this)" onfocusout="defocused(this)">
                                                                             </div>
-                                                                            <div class="col-12 col-sm-4 mt-1 mt-sm-0">
+                                                                            <!-- <div class="col-12 col-sm-4 mt-1 mt-sm-0">
                                                                                 <label>Método de Pago *</label>
                                                                                 <select class="multisteps-form__select form-control all_input_select" name="payment_method_iva" id="payment_method_iva">
                                                                                     <option value="" disabled selected>Selecciona una Opción</option>
                                                                                     <option value="ELECTRONIC TRANSFER">ELECTRONIC TRANSFER</option>
                                                                                     <option value="CREDIT OR DEBIT CARD">CREDIT OR DEBIT CARD</option>
                                                                                 </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row mt-1">
-                                                                            <div class="col-12 col-sm-5">
+                                                                            </div> -->
+
+                                                                            <div class="col-md-4 col-sm-12">
                                                                                 <label>Correo Electrónico facturación * </label>
                                                                                 <input class="multisteps-form__input form-control" type="text" id="email_receipt_iva" name="email_receipt_iva" placeholder="eg. user@domain.com" onfocus="focused(this)" onfocusout="defocused(this)">
                                                                                 <span class="mb-0 text-sm" id="error_email_send" style="display:none;color:red;">Wrong email</span>
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="row mt-1">
+                                                                            
                                                                             <!-- <div class="col-12 col-sm-2">
                                                                                 <label>C.P *</label>
                                                                                 <input class="multisteps-form__input form-control" type="text" id="postal_code_iva" name="postal_code_iva" maxlength="5" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="eg. 50398">

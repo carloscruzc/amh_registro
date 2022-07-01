@@ -171,7 +171,7 @@ sql;
   {
     $mysqli = Database::getInstance(true);
     $query = <<<sql
-    UPDATE utilerias_administradores SET business_name_iva = :business_name_iva, code_iva = :code_iva, payment_method_iva = :payment_method_iva, email_receipt_iva = :email_receipt_iva  WHERE usuario = :usuario;
+    UPDATE utilerias_administradores SET business_name_iva = :business_name_iva, code_iva = :code_iva, email_receipt_iva = :email_receipt_iva  WHERE usuario = :usuario;
 sql;
 
 
@@ -179,13 +179,43 @@ sql;
     $parametros = array(
       ':business_name_iva' => $user->_business_name_iva,
       ':code_iva' => $user->_code_iva,
-      ':payment_method_iva' => $user->_payment_method_iva,
       ':email_receipt_iva' => $user->_email_receipt_iva,
       ':usuario' => $user->_email
     );
 
     return $mysqli->update($query, $parametros);
   }
+
+  public static function getDataUser($user){
+    $mysqli = Database::getInstance(true);
+    $query=<<<sql
+    SELECT * FROM utilerias_administradores WHERE usuario = '$user'
+sql;
+    return $mysqli->queryOne($query);
+  }
+
+
+  /* Pendiente de Pago */
+  public static function inserPendientePago($data){ 
+    $mysqli = Database::getInstance(1);
+    $query=<<<sql
+    INSERT INTO pendiente_pago (id_producto, user_id, reference, clave	,fecha, monto, status, comprado_en) VALUES (:id_producto, :user_id, :reference, :clave, :fecha, :monto, :status, 1);
+sql;
+
+  $parametros = array(
+    ':id_producto'=>$data->_id_producto,
+    ':user_id'=>$data->_user_id,
+    ':reference'=>$data->_reference,
+    ':clave'=>$data->_clave,
+    ':fecha'=>$data->_fecha,
+    ':monto'=>$data->_monto,
+    // ':tipo_pago'=>$data->_tipo_pago,
+    ':status'=>$data->_status
+        
+  );
+  $id = $mysqli->insert($query,$parametros);
+  return $id;
+}
 
     
 }

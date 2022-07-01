@@ -102,7 +102,8 @@
                     <p style="font-size: 14px">(Seleccione a continuación lo que desea pagar y presione el boton de pagar y muestre el codigo de pago en caja)</p>
                 </div>
                 <div class="card-body px-5 pb-5">
-
+                <input type="text" id="clave_socio" name="clave_socio" value="<?=$datos['clave_socio']?>">
+                <input type="text" id="email_usuario" name="email_usuario" value="<?=$datos['usuario']?>">
 
 
                     <div class="row">
@@ -147,11 +148,17 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-
+                                            <select id="forma_pago" name="forma_pago" class="form-control">
+                                                    <option value="">Seleccione una Opción</option>
+                                                    <option value="Transferencia">Depósito/Transferencia</option>
+                                                    <option value="Paypal">Paypal</option>
+                                                </select>
 
                                             </div>
 
                                             <div class="col-md-6" style="display: flex; justify-content: end;">
+
+                                               
 
                                                 <button class="btn btn-primary" id="btn_pago" <?= $btn_block ?>>Proceder al pago</button>
                                             </div>
@@ -245,6 +252,25 @@
             var precios = [];
             var productos = [];
             var total = 0;
+
+            if($("#clave_socio").val() != ''){
+                precios.push({
+                        'id_product': 1,
+                        'precio': 0,
+                        'cantidad': 1
+                    });
+                    sumarPrecios(precios);
+
+                    productos.push({
+                        'id_product': 1,
+                        'precio': 0,
+                        'cantidad': 1,
+                        'nombre_producto': 'Congreso'
+                    });
+
+                    $("#check_curso_1").prop('checked', true);
+                    $("#check_curso_1").prop('disabled', true);
+            }
 
             // if (precios.length <= 0) {
 
@@ -399,13 +425,22 @@
                 event.preventDefault();
                 // var metodo_pago = $("#metodo_pago").val();
                 var clave = $("#clave").val();
+                var usuario = $("#email_usuario").val();
+
 
                 if (precios.length <= 0) {
 
                     Swal.fire("¡Debes seleccionar al menos un producto!", "", "warning")
                    
 
-                } else {
+                }
+                else if(precios.length >= 2 && $("#forma_pago").val() == '' && $("#clave_socio").val() != ''){
+                    Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
+                }
+                else if($("#forma_pago").val() == '' && $("#clave_socio").val() == ''){
+                    Swal.fire("¡Debes seleccionar un metodo de pago!", "", "warning")
+                }
+                else {
                     var plantilla_productos = '';
 
                     plantilla_productos += `<ul>`;
@@ -420,10 +455,10 @@
                     });
 
                     plantilla_productos += `</ul>`;
-                    plantilla_productos += `<p><strong>Total en dolares: $ ${$("#total").text()} USD </strong></p>`;
+                    // plantilla_productos += `<p><strong>Total en dolares: $ ${$("#total").text()} USD </strong></p>`;
                     plantilla_productos += `<p><strong>Total en pesos mexicanos: $ ${$("#total_mx").text()}</strong></p>`;
 
-                    plantilla_productos += `<p>Confirme su selección y de clic en procesar compra y espere su turno en línea de cajas.</p>`;
+                    // plantilla_productos += `<p>Confirme su selección y de clic en procesar compra y espere su turno en línea de cajas.</p>`;
 
 
                     Swal.fire({
@@ -440,11 +475,12 @@
                         if (result.isConfirmed) {
 
                             $.ajax({
-                                url: "/Home/generaterQr",
+                                url: "/Register/generaterQr",
                                 type: "POST",
                                 data: {
                                     'array': JSON.stringify(precios),
-                                    clave
+                                    clave,
+                                    usuario
                                 },
                                 cache: false,
                                 dataType: "json",
@@ -459,9 +495,9 @@
                                     console.log(respuesta);
 
                                     if (respuesta.status == 'success') {
-                                        $("#img_qr").attr("src", respuesta.src);
-                                        $("#img_qr").css('display', 'block');
-                                        Swal.fire("¡Mantenga a la mano su codigo QR para pagar en linea de cajas!", "", "success").
+                                        // $("#img_qr").attr("src", respuesta.src);
+                                        // $("#img_qr").css('display', 'block');
+                                        Swal.fire("¡Se genero su compra!", "", "success").
                                         then((value) => {
                                             window.location.reload();
                                         });
