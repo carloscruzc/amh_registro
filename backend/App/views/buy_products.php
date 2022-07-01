@@ -127,8 +127,7 @@
                                             </div>
 
                                             <div class="col-md-6">
-                                                <p>Su pago en dolares es: $ <span id="total"><?= $total_pago ?></span> USD</p>
-
+                                                <!-- <p>Su pago en dolares es: $ <span id="total"><?//= $total_pago ?></span> USD</p> -->
                                                 <p>Su pago en pesos mexicanos es: $ <span id="total_mx"><?= $total_pago_mx ?></span> </p>
 
                                             </div>
@@ -298,39 +297,31 @@
                         }
                     }
 
-                    $.ajax({
-                        url: "/Home/removePendientesPago",
-                        type: "POST",
-                        data: {
-                            id_product,cantidad
-                        },
-                        cache: false,
-                        beforeSend: function() {
-                            console.log("Procesando....");
+                    // $.ajax({
+                    //     url: "/Home/removePendientesPago",
+                    //     type: "POST",
+                    //     data: {
+                    //         id_product,cantidad
+                    //     },
+                    //     cache: false,
+                    //     beforeSend: function() {
+                    //         console.log("Procesando....");
 
-                        },
-                        success: function(respuesta) {
+                    //     },
+                    //     success: function(respuesta) {
 
-                            console.log(respuesta);
-                            if(respuesta == "success"){
-                                location.reload();
-                            }
+                    //         console.log(respuesta);
+                    //         if(respuesta == "success"){
+                    //             location.reload();
+                    //         }
 
-                            // if (respuesta.status == 'success') {
-                            //     $("#img_qr").attr("src", respuesta.src);
-                            //     $("#img_qr").css('display', 'block');
-                            //     Swal.fire("¡Mantenga a la mano su codigo QR para pagar en linea de cajas!", "", "success").
-                            //     then((value) => {
-                            //         window.location.reload();
-                            //     });
-                            // }
 
-                        },
-                        error: function(respuesta) {
-                            console.log(respuesta);
-                        }
+                    //     },
+                    //     error: function(respuesta) {
+                    //         console.log(respuesta);
+                    //     }
 
-                    });
+                    // });
                 }
                 console.log(productos);
                 sumarPrecios(precios);
@@ -395,7 +386,8 @@
 
                 $("#total").html(sumaPrecios);
 
-                $("#total_mx").html(($("#tipo_cambio").val() * sumaPrecios).toFixed(2));
+                // $("#total_mx").html(($("#tipo_cambio").val() * sumaPrecios).toFixed(2));
+                $("#total_mx").html((sumaPrecios).toFixed(2));
 
                 console.log("Suma Articulos " + sumaArticulos);
 
