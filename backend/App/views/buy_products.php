@@ -546,6 +546,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
 
+                            
                             console.log($("#total_mx").text());
 
                             if ($("#total_mx").text() == '0.00') {
@@ -588,6 +589,7 @@
 
                             }
                             else {
+                                var enviar_email = 1;
                                 $.ajax({
                                     url: "/Register/generaterQr",
                                     type: "POST",
@@ -595,7 +597,8 @@
                                         'array': JSON.stringify(precios),
                                         clave,
                                         usuario,
-                                        metodo_pago
+                                        metodo_pago,
+                                        enviar_email
                                     },
                                     cache: false,
                                     dataType: "json",

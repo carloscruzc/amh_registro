@@ -8,6 +8,7 @@ use \Core\MasterDom;
 use \App\models\Register AS RegisterDao;
 use \App\models\Login AS LoginDao;
 use \App\models\Home AS HomeDao;
+use \App\models\Miler;
 
 class Register{
     private $_contenedor;
@@ -1307,6 +1308,7 @@ html;
         date_default_timezone_set('America/Mexico_City');
 
             $bandera = false;
+            $total = 0;
     
     
             // $clave = $this->generateRandomString();
@@ -1371,6 +1373,7 @@ html;
                     // echo 'Se inserta '.$i. 'veces' .' la cantidad '.$value['cantidad'];
                     // echo "<br>";
                 }
+                $total += $monto;
            }
     
            if($bandera){
@@ -1379,6 +1382,24 @@ html;
                     'code' => $clave
             
                 ];
+
+                if(isset($_POST['enviar_email'])){
+
+                    $msg = [
+                        'nombre' => $datos_user['nombre'].' '.$datos_user['apellidop'].' '.$datos_user['apellidom'],
+                        'metodo_pago' => $tipo_pago,
+                        'referencia' => $reference,
+                        'importe_pagar' => $total,
+                        'fecha_limite_pago' =>$fecha,
+                        'email' => $usuario
+                    ];
+        
+                    $mailer = new Mailer();
+                    $mailer->mailerPago($msg);
+
+                }
+                
+                
            }else{
                 $res = [
                     'status' => 'fail',
@@ -1387,6 +1408,8 @@ html;
                 ];
     
            }
+
+
     
           
            echo json_encode($res);
