@@ -54,6 +54,29 @@ echo $header;
                                                             <!--single form panel-->
                                                             <input type="hidden" name="dataUser" value='<?php echo serialize($dataUser)?>' >
                                                             <div id="card_two" class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" id="card_one" data-animation="FadeIn">
+
+                                                                <?php if ($dataUser['categorias'] == 3): ?>
+                                                                    <div class="row text-center">
+                                                                        <div class="col-10 mx-auto">
+                                                                            <h5 class="font-weight-normal">Residente</h5>
+                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de residencia o carta de residencia, cons ellos del hospital 
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                <?php elseif($dataUser['categorias'] == 5):?>
+                                                                    <div class="row text-center">
+                                                                        <div class="col-10 mx-auto">
+                                                                            <h5 class="font-weight-normal">Estudiante</h5>
+                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de la escuela, de lo contrario debera cubrir el costo total. 
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>    
+
+                                                                <?php endif?>
+
+                                                                
+
                                                                 <div class="row text-center">
                                                                     <div class="col-10 mx-auto">
                                                                         <h5 class="font-weight-normal">Muy Importante</h5>

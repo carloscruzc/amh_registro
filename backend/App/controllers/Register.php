@@ -551,11 +551,21 @@ html;
 
 html;
 
-        //Acarrear los datos
+        //Acarrear los datoss 
         $data = unserialize($_POST['dataUser']);
 
-        // echo $data['email'];
-        // var_dump($data);
+        if($data['especialidades'] == null){
+            $data['especialidades'] = '';
+        }
+
+        $date = date('Y-m-d');
+        $str_nombre = str_split($data['nombre']);
+        $str_apellidop = str_split($data['apellidop']);
+        $str_apellidom = str_split($data['apellidom']);
+
+        $fecha = explode('-',$date);
+
+        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
 
         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
@@ -568,6 +578,7 @@ html;
         $documento->_apellidop = $data['apellidop'];
         $documento->_apellidom = $data['apellidom'];        
         $documento->_telephone = $data['telephone'];
+        $documento->_referencia = $refernecia;
         $documento->_categorias = $data['categorias'];
         $documento->_especialidades = $data['especialidades'];
         $documento->_nationality = $data['nationality'];
@@ -633,14 +644,29 @@ html;
         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
 
+        if($data['especialidades'] == null){
+            $data['especialidades'] = '';
+        }
+
+      
+        $date = date('Y-m-d');
+        $str_nombre = str_split($data['nombre']);
+        $str_apellidop = str_split($data['apellidop']);
+        $str_apellidom = str_split($data['apellidom']);
+
+        $fecha = explode('-',$date);
+
+        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+
         $documento = new \stdClass();
 
         $documento->_email = $data['email'];
         $documento->_prefijo = $data['title'];
-        $documento->_nombre = $data['nombre'];;
+        $documento->_nombre = $data['nombre'];
         $documento->_apellidop = $data['apellidop'];
         $documento->_apellidom = $data['apellidom'];        
         $documento->_telephone = $data['telephone'];
+        $documento->_referencia = $refernecia;
         $documento->_categorias = $data['categorias'];
         $documento->_especialidades = $data['especialidades'];
         $documento->_nationality = $data['nationality'];

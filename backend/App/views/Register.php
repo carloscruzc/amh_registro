@@ -70,7 +70,7 @@ echo $header;
                                                                     <div class="row mt-3">
                                                                         <div class="col-12 col-sm-6">
                                                                             <label>Correo Electrónico*</label>
-                                                                            <input type="hidden" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
+                                                                            <input type="text" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
                                                                             <input type="hidden" id="email_register" name="email_register" value="<?= $data['usuario'] ?>">
                                                                             <input type="hidden" id="id_categoria" name="id_categoria" value="<?= $data['id_categoria'] ?>">
                                                                             <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no" value="<?= $data['usuario'] ?>">
@@ -257,15 +257,17 @@ echo $header;
 <script>
     $(document).ready(function() {
 
+
         //codigo de beca
         if ($("#codigo_beca").val() == '' || $("#codigo_beca").val() == 0) {
             $("#btn_next_1").show();
             $("#add").attr('action', '/Register/passTwo');
+            $("#cont-especialidades").hide();
         }else{
             $("#add").attr('action', '/Register/UpdateData');
             $("#btn_next_update").show();
             $("#cont-categoria").hide();
-            $("#cont-especialidades").hide();
+            $("#cont-especialidades").show();
             // $("#especialidades").css('display','none');
             // $("#label-especialidades").css('display','none');
         }
@@ -359,7 +361,8 @@ echo $header;
         $("#categorias").on("change", function() {
             id_categoria = $(this).val();
 
-            if (id_categoria == 2) {
+            //Especialista y residente
+            if (id_categoria == 2 || id_categoria == 3) {
                 $("#cont-especialidades").show();
             } else {
                 $("#cont-especialidades").hide();
