@@ -17,9 +17,9 @@ echo $header;
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
-                        <img src="/assets/img/logos/apmn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        VI Congreso Mundial de Patología Dual
+                        <img src="/assets/img/logos/amh.png" height="40" alt="">
+                        <!-- <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;"> -->
+                        XVII Congreso Nacional de Hepatología
                     </a>
 
                     <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
@@ -70,10 +70,10 @@ echo $header;
                                                                     <div class="row mt-3">
                                                                         <div class="col-12 col-sm-6">
                                                                             <label>Correo Electrónico*</label>
-                                                                            <input type="text" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
+                                                                            <input type="hidden" id="codigo_beca" name="codigo_beca" value="<?= $data['codigo_beca'] ?>">
                                                                             <input type="hidden" id="email_register" name="email_register" value="<?= $data['usuario'] ?>">
                                                                             <input type="hidden" id="id_categoria" name="id_categoria" value="<?= $data['id_categoria'] ?>">
-                                                                            <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no" value="<?= $data['usuario'] ?>">
+                                                                            <input class="multisteps-form__input form-control all_input" type="email" id="email" name="email" placeholder="eg. user@domain.com" autocomplete="no" value="<?= $data['usuario'] ?>" readonly>
                                                                             <span class="mb-0 text-sm" id="error" style="display:none;color:red;">Correo incorrecto</span>
                                                                         </div>
                                                                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
@@ -97,12 +97,12 @@ echo $header;
                                                                         </div>
                                                                         <div class="col-12 col-sm-4">
                                                                             <label>Nombre *</label>
-                                                                            <input class="multisteps-form__input form-control all_input" type="text" id="nombre" name="nombre" maxlength="15" placeholder="eg. Christopher" required disabled value="<?= $data['nombre'] ?>">
+                                                                            <input class="multisteps-form__input form-control all_input" style="text-transform:uppercase;" type="text" id="nombre" name="nombre" maxlength="15" placeholder="eg. Christopher" required disabled value="<?= $data['nombre'] ?>">
                                                                         </div>
 
                                                                         <div class="col-12 col-sm-5">
                                                                             <label>Primer apellido *</label>
-                                                                            <input class="multisteps-form__input form-control all_input" type="text" id="apellidop" name="apellidop" maxlength="15" placeholder="eg. Jones" disabled value="<?= $data['apellidop'] ?>">
+                                                                            <input class="multisteps-form__input form-control all_input" style="text-transform:uppercase;" type="text" id="apellidop" name="apellidop" maxlength="15" placeholder="eg. Jones" disabled value="<?= $data['apellidop'] ?>">
                                                                         </div>
 
                                                                     </div>
@@ -110,7 +110,7 @@ echo $header;
 
                                                                         <div class="col-12 col-sm-5 mt-3 mt-sm-0">
                                                                             <label>Segundo apellido</label>
-                                                                            <input class="multisteps-form__input form-control" type="text" id="apellidom" name="apellidom" maxlength="15" placeholder="eg. Wilson" disabled value="<?= $data['apellidom'] ?>">
+                                                                            <input class="multisteps-form__input form-control" style="text-transform:uppercase;" type="text" id="apellidom" name="apellidom" maxlength="15" placeholder="eg. Wilson" disabled value="<?= $data['apellidom'] ?>">
                                                                         </div>
 
                                                                         <div class="col-12 col-sm-4">
