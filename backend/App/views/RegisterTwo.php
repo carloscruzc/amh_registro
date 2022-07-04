@@ -59,7 +59,7 @@ echo $header;
                                                                     <div class="row text-center">
                                                                         <div class="col-10 mx-auto">
                                                                             <h5 class="font-weight-normal">Residente</h5>
-                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de residencia o carta de residencia, cons ellos del hospital 
+                                                                            <p class="bg-gradient-red-info">Para poder acceder al evento deberá presentar crdencial vigente de residencia o carta de residencia, cons ellos del hospital 
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -68,7 +68,7 @@ echo $header;
                                                                     <div class="row text-center">
                                                                         <div class="col-10 mx-auto">
                                                                             <h5 class="font-weight-normal">Estudiante</h5>
-                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de la escuela, de lo contrario debera cubrir el costo total. 
+                                                                            <p class="bg-gradient-red-info">Para poder acceder al evento deberá presentar crdencial vigente de la escuela, de lo contrario debera cubrir el costo total. 
                                                                             </p>
                                                                         </div>
                                                                     </div>    

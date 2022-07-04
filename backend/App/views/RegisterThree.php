@@ -74,7 +74,7 @@ echo $header;
                                                                             </div>
                                                                             <div class="col-12 col-sm-4 mt-1 mt-sm-0">
                                                                                 <label>RFC *</label>
-                                                                                <input class="multisteps-form__input form-control" style="text-transform:uppercase;" type="text" id="code_iva" name="code_iva" placeholder="eg. CPJ41250AS" maxlength="13" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                                <input class="multisteps-form__input form-control" type="text" id="code_iva" name="code_iva" placeholder="eg. CPJ41250AS" maxlength="13" onfocus="focused(this)" onfocusout="defocused(this)" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" >
                                                                             </div>
                                                                             <!-- <div class="col-12 col-sm-4 mt-1 mt-sm-0">
                                                                                 <label>Método de Pago *</label>

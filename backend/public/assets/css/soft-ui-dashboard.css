@@ -21332,6 +21332,11 @@ label,
   transition: opacity 0.3 ease;
 }
 
+.bg-gradient-red-info {
+  background-color: red;
+  color: white;
+}
+
 .bg-gradient-primary {
   /* morado rosa */
   background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
