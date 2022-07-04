@@ -111,7 +111,7 @@ sql;
     {
         $mysqli = Database::getInstance();
         $query = <<<sql
-      SELECT * FROM paises ORDER BY country ASC
+      SELECT * FROM paises WHERE id_pais != 156 ORDER BY country ASC
 sql;
         return $mysqli->queryAll($query);
     }

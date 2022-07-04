@@ -1964,6 +1964,7 @@ html;
         $country = '';
         foreach (RegisterDao::getCountryAll() as $key => $value) {
             $country.=<<<html
+        <option value="156">{$value['country']}</option>    
         <option value="{$value['id_pais']}">{$value['country']}</option>
 html;
         }
