@@ -236,7 +236,7 @@ html;
                 $status = '<span class="badge badge-danger">Carga un Archivo PDF valido</span>';
             }
 
-            if ($value['tipo_pago'] == "Efectivo" || $value['tipo_pago'] == "") {
+            if ($value['tipo_pago'] == "Efectivo" || $value['tipo_pago'] == "Transferencia" || $value['tipo_pago'] == "") {
 
                 $reimprimir_ticket = '<a href="/comprobantePago/ticketImp/' . $value["clave"] . '" class="btn bg-pink btn-icon-only morado-musa-text text-center"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Reimprimir Ticket" target="_blank"><i class="fas fa-file"></i></a>';
             } else if ($value['tipo_pago'] == "Paypal" && empty($value['url_archivo'])) {
@@ -245,11 +245,22 @@ html;
 
                 foreach (ComprobantePagoDao::getAllComprobantesbyClave($id_user, $value['clave']) as $key => $value) {
 
-                    if ($value['es_congreso'] == 1) {
+                    if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
                         $precio = $value['amout_due'];
-                    } else if ($value['es_servicio'] == 1) {
+                    }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                        $precio = 0;
+                        $checked = 'checked';
+                    }
+                    else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
                         $precio = $value['precio_publico'];
-                    } else if ($value['es_curso'] == 1) {
+                    }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                        $precio = 0;
+                        $precio = $value['precio_publico'];
+                    }
+                    else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                        $precio = $value['precio_publico'];
+                    }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                        $precio = 0;
                         $precio = $value['precio_publico'];
                     }
 
@@ -307,13 +318,25 @@ html;
 
             foreach (ComprobantePagoDao::getAllComprobantesbyClave($id_user, $value['clave']) as $key => $value2) {
 
-                if ($value2['es_congreso'] == 1) {
+                if($value2['es_congreso'] == 1 && $value2['clave_socio'] == ""){
                     $precio = $value2['amout_due'];
-                } else if ($value2['es_servicio'] == 1) {
+                }elseif($value2['es_congreso'] == 1 && $value2['clave_socio'] != ""){
+                    $precio = 0;
+                    
+                }
+                else if($value2['es_servicio'] == 1 && $value2['clave_socio'] == ""){
                     $precio = $value2['precio_publico'];
-                } else if ($value2['es_curso'] == 1) {
+                }else if($value2['es_servicio'] == 1 && $value2['clave_socio'] != ""){
+                    
                     $precio = $value2['precio_publico'];
                 }
+                else if($value2['es_curso'] == 1  && $value2['clave_socio'] == ""){
+                    $precio = $value2['precio_publico'];
+                }else if($value2['es_curso'] == 1  && $value2['clave_socio'] != ""){
+                   
+                    $precio = $value2['precio_publico'];
+                }
+                
 
                 if($value2['comprado_en'] == 1){
                     $comprado_en = '<span style="text-decoration: underline;">Sito web</span>';
@@ -453,11 +476,16 @@ html;
         foreach ($productos as $key => $value) {
 
 
-            if ($value['es_congreso'] == 1) {
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
                 $precio = $value['amout_due'];
-            } else if ($value['es_servicio'] == 1) {
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+               
+            }
+            else if($value['es_servicio'] == 1 ){
                 $precio = $value['precio_publico'];
-            } else if ($value['es_curso'] == 1) {
+            }
+            else if($value['es_curso'] == 1){
                 $precio = $value['precio_publico'];
             }
 
