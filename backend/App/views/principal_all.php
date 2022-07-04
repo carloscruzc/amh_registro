@@ -102,7 +102,7 @@
                             </div>
                         </div> -->
 
-                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
+                        <!-- <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Talleres/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/9_1.png); background-size: contain;">
                                     <div class="card-body mt-md-3 text-center content-card-home">
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
                         <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/ComprobantePago/">
@@ -152,7 +152,7 @@
 
                        
 
-                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
+                        <!-- <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <div class="row">
                                 <div class="col-12 col-md-12">
                                     <a href="/Account/">
@@ -168,9 +168,9 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
+                        <!-- <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="/Congreso/">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/Mesa_de_trabajo_congreso_1.png);background-size: contain;  object-position: center center;">
                                     <div class="card-body mt-md-3 text-center content-card-home">
@@ -181,9 +181,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
-                        <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
+                        <!-- <div class="col-6 m-auto m-md-0 col-lg-3 col-md-4 my-md-3 mt-4">
                             <a href="javascript:0;" id="abrir_trivia">
                                 <div class="card card-link btn-menu-home m-auto"  style="background-image: url(/img/SMNP_Iconos/Mesa_de_trabajo_11.png);background-size: contain;  object-position: center center;">
                                     <div class="card-body mt-md-3 text-center content-card-home">
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
                         
 
