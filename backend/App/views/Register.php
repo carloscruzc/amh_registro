@@ -183,7 +183,8 @@ echo $header;
                                                                         <div class="col-12 col-sm-4">
                                                                             <label>País *</label>
                                                                             <select class="multisteps-form__select form-control all_input_select" name="nationality" id="nationality" onchange="actualizaEdos();" disabled>
-                                                                                <option value="" disabled selected>Selecciona una Opción</option>
+                                                                               <option value="" disabled selected>Selecciona una Opción</option> 
+                                                                                <option value="156">Mexico</option> 
                                                                                 <?php echo $idCountry; ?>
                                                                             </select>
                                                                         </div>
