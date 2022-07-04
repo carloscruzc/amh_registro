@@ -292,10 +292,15 @@
 
             });
 
-            // var precios=<?php echo json_encode($array_precios); ?>;
+             var precios=<?php echo json_encode($array_precios); ?>;
+             var productos=<?php echo json_encode($array_productos); ?>;
 
-            var precios = [];
-            var productos = [];
+
+             console.log(precios);
+             console.log(productos);
+
+            // var precios = [];
+            // var productos = [];
             var total = 0;
 
             if ($("#clave_socio").val() != '') {
@@ -304,7 +309,7 @@
                     'precio': 0,
                     'cantidad': 1
                 });
-                sumarPrecios(precios);
+                // sumarPrecios(precios);
 
                 productos.push({
                     'id_product': 1,
@@ -313,7 +318,7 @@
                     'nombre_producto': 'Congreso'
                 });
 
-                sumarProductos(productos);
+                // sumarProductos(productos);
 
                 $("#check_curso_1").prop('checked', true);
                 $("#check_curso_1").prop('disabled', true);
@@ -365,10 +370,14 @@
                             precios.splice(i, 1);
 
                             productos.splice(i, 1);
+                            sumarPrecios(precios);
+                            sumarProductos(productos);
                         } else if (precios[i].id_product === id_product && precios[i].cantidad === cantidad) {
                             precios.splice(i, 1);
 
                             productos.splice(i, 1);
+                            sumarPrecios(precios);
+                            sumarProductos(productos);
 
                         }
                     }
@@ -400,8 +409,8 @@
                     // });
                 }
                 // console.log(productos);
-                sumarPrecios(precios);
-                sumarProductos(productos);
+                // sumarPrecios(precios);
+                // sumarProductos(productos);
 
             });
 
@@ -447,8 +456,11 @@
             function sumarPrecios(precios) {
                 console.log(precios);
 
-                var sumaPrecios = <?= $total_pago ?>;
-                var sumaArticulos = <?= $total_productos ?>;
+                // var sumaPrecios = <?= $total_pago ?>;
+                // var sumaArticulos = <?= $total_productos ?>;
+
+                var sumaPrecios = 0;
+                var sumaArticulos = 0;
 
                 precios.forEach(function(precio, index) {
 
@@ -482,7 +494,7 @@
 
                 productos.forEach(function(producto, index) {
 
-                    console.log("precio " + index + " | id_product: " + producto.id_product + " precio: " + parseInt(producto.precio) + " cantidad: " + parseInt(producto.cantidad) + "producto" + producto.nombre_producto)
+                    console.log("precio " + index + " | id_product: " + producto.id_product + " precio: " + parseInt(producto.precio) + " cantidad: " + parseInt(producto.cantidad) + " producto: " + producto.nombre_producto)
 
                     nombreProductos += producto.nombre_producto+',';
                 });

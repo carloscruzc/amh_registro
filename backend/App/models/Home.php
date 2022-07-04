@@ -166,27 +166,27 @@ sql;
     return $mysqli->queryOne($query);
   }
 
-//   public static function getProductosNoComprados($id){
-//     $mysqli = Database::getInstance();
-//     $query=<<<sql
-//     SELECT p.id_producto, p.nombre as nombre_producto, p.precio_publico, p.tipo_moneda, p.max_compra, p.es_congreso, p.es_servicio, p.es_curso, ua.clave_socio, ua.monto_congreso as amout_due 
-//     FROM productos p
-//     INNER JOIN utilerias_administradores ua
-//     WHERE id_producto NOT IN (SELECT id_producto FROM pendiente_pago WHERE user_id = $id) AND ua.user_id = $id;
-// sql;
-//     return $mysqli->queryAll($query);
-//   }
-
   public static function getProductosNoComprados($id){
     $mysqli = Database::getInstance();
     $query=<<<sql
     SELECT p.id_producto, p.nombre as nombre_producto, p.precio_publico, p.tipo_moneda, p.max_compra, p.es_congreso, p.es_servicio, p.es_curso, ua.clave_socio, ua.monto_congreso as amout_due 
     FROM productos p
     INNER JOIN utilerias_administradores ua
-    WHERE ua.user_id = $id;
+    WHERE id_producto NOT IN (SELECT id_producto FROM pendiente_pago WHERE user_id = $id) AND ua.user_id = $id;
 sql;
     return $mysqli->queryAll($query);
   }
+
+//   public static function getProductosNoComprados($id){
+//     $mysqli = Database::getInstance();
+//     $query=<<<sql
+//     SELECT p.id_producto, p.nombre as nombre_producto, p.precio_publico, p.tipo_moneda, p.max_compra, p.es_congreso, p.es_servicio, p.es_curso, ua.clave_socio, ua.monto_congreso as amout_due 
+//     FROM productos p
+//     INNER JOIN utilerias_administradores ua
+//     WHERE ua.user_id = $id;
+// sql;
+//     return $mysqli->queryAll($query);
+//   }
 
   public static function getTipoCambio(){
     $mysqli = Database::getInstance();
