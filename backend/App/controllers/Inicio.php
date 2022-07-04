@@ -66,7 +66,7 @@ class Inicio{
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
         <title>
-           Login - VI Congreso Mundial de Patología Dual
+           Login - XVII Congreso Nacional de Hepatología
         </title>
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />

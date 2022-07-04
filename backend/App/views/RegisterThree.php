@@ -9,9 +9,9 @@ echo $header;
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
-                        <img src="/assets/img/logos/apmn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        VI Congreso Mundial de Patología Dual
+                        <img src="/assets/img/logos/amh.png" height="40" alt="">
+                        <!-- <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;"> -->
+                        XVII Congreso Nacional de Hepatología
                     </a>
 
                     <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
@@ -47,13 +47,13 @@ echo $header;
                                                     </div>
                                                 </div>
                                                 <!--form panels-->
-                                                <?php var_dump($dataUser);?>
+                                                <!--<?php var_dump($dataUser);?>-->
                                                 <div class="row">
                                                     <div class="col-12 col-lg-12 m-auto">
-                                                        <input type="text" id="email" name="email" value="<?php echo $dataUser['email'] ?>">
+                                                        <input type="hidden" id="email" name="email" value="<?php echo $dataUser['email'] ?>">
                                                         <form class="multisteps-form__form" id="add"  method="POST">
                                                             <!--single form panel-->
-                                                            <input type="text" name="dataUser" value='<?php echo serialize($dataUser)?>' >
+                                                            <input type="hidden" name="dataUser" value='<?php echo serialize($dataUser)?>' >
                                                             <div class="row text-center">
                                                                     <div class="row text-center">
                                                                         <div class="row text-center mt-1">
@@ -74,7 +74,7 @@ echo $header;
                                                                             </div>
                                                                             <div class="col-12 col-sm-4 mt-1 mt-sm-0">
                                                                                 <label>RFC *</label>
-                                                                                <input class="multisteps-form__input form-control" type="text" id="code_iva" name="code_iva" placeholder="eg. CPJ41250AS" maxlength="13" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                                <input class="multisteps-form__input form-control" type="text" id="code_iva" name="code_iva" placeholder="eg. CPJ41250AS" maxlength="13" onfocus="focused(this)" onfocusout="defocused(this)" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                                                             </div>
                                                                             <!-- <div class="col-12 col-sm-4 mt-1 mt-sm-0">
                                                                                 <label>Método de Pago *</label>
@@ -88,7 +88,7 @@ echo $header;
                                                                             <div class="col-md-4 col-sm-12">
                                                                                 <label>Correo Electrónico facturación * </label>
                                                                                 <input class="multisteps-form__input form-control" type="text" id="email_receipt_iva" name="email_receipt_iva" placeholder="eg. user@domain.com" onfocus="focused(this)" onfocusout="defocused(this)">
-                                                                                <span class="mb-0 text-sm" id="error_email_send" style="display:none;color:red;">Wrong email</span>
+                                                                                <span class="mb-0 text-sm" id="error_email_send" style="display:none;color:red;">Correo electrónico incorrecto</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="row mt-1">

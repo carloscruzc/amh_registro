@@ -9,9 +9,9 @@ echo $header;
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid">
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
-                        <img src="/assets/img/logos/amh.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">
-                        <!--<img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;">-->
-                        ASOCIACIÓN MEXICANA DE HEPATOLOGÍA
+                        <img src="/assets/img/logos/amh.png" height="40" alt="">
+                        <!-- <img src="/assets/img/logos/waddn.png" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 5px;"> -->
+                        XVII Congreso Nacional de Hepatología
                     </a>
 
                     <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
@@ -59,7 +59,7 @@ echo $header;
                                                                     <div class="row text-center">
                                                                         <div class="col-10 mx-auto">
                                                                             <h5 class="font-weight-normal">Residente</h5>
-                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de residencia o carta de residencia, cons ellos del hospital 
+                                                                            <p class="bg-gradient-red-info">Para poder acceder al evento deberá presentar credencial vigente de residencia o carta de residencia, con sellos del hospital.
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -68,7 +68,7 @@ echo $header;
                                                                     <div class="row text-center">
                                                                         <div class="col-10 mx-auto">
                                                                             <h5 class="font-weight-normal">Estudiante</h5>
-                                                                            <p>Para poder acceder al evento deberá presentar crdencial vigente de la escuela, de lo contrario debera cubrir el costo total. 
+                                                                            <p class="bg-gradient-red-info">Para poder acceder al evento deberá presentar credencial vigente de la escuela, de lo contrario deberá cubrir el costo total. 
                                                                             </p>
                                                                         </div>
                                                                     </div>    
