@@ -339,10 +339,10 @@ html;
         <option value="{$value['id_especialidad']}">{$value['nombre']}</option>
 html;
         }
-        View::set('header',$extraHeader);
-        View::set('footer',$extraFooter);
-        View::set('idCountry',$this->getCountry());
-        View::set('especialidades',$especialidades);
+        // View::set('header',$extraHeader);
+        // View::set('footer',$extraFooter);
+        // View::set('idCountry',$this->getCountry());
+        // View::set('especialidades',$especialidades);
         View::render("Register");
     }
 
