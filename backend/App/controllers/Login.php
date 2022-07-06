@@ -282,13 +282,13 @@ html;
 html;
         }
 
-//             $paises = LoginDao::getPais();
-//             $optionPais = '';
-//             foreach($paises as $key => $value){
-//                 $optionPais .= <<<html
-//                         <option value="{$value['id_pais']}">{$value['pais']}</option>
-// html;
-//             }
+        $paises = LoginDao::getPais();
+        $optionPais = '';
+        foreach($paises as $key => $value){
+            $optionPais .= <<<html
+                    <option value="{$value['id_pais']}">{$value['pais']}</option>
+html;
+        }
 
 //             foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
 //                 $optionState = '';
@@ -302,7 +302,7 @@ html;
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
         View::set('optionEspecialidad', $optionEspecialidad);
-        // View::set('optionPais', $optionPais);
+        View::set('optionPais', $optionPais);
         // View::set('optionState', $optionState);
         View::render("login");
     }
