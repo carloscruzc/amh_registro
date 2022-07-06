@@ -612,38 +612,38 @@ html;
         View::render('RegisterThree');
     }
 
-//     public function updateFiscalData(){
-//         $business_name_iva = $_POST['business_name_iva'];
-//         $code_iva = $_POST['code_iva'];
-//         // $payment_method_iva = $_POST['payment_method_iva'];
-//         $email_receipt_iva = $_POST['email_receipt_iva'];
+    public function updateFiscalData(){
+        $business_name_iva = $_POST['business_name_iva'];
+        $code_iva = $_POST['code_iva'];
+        // $payment_method_iva = $_POST['payment_method_iva'];
+        $email_receipt_iva = $_POST['email_receipt_iva'];
 
-//         $data = unserialize($_POST['dataUser']);
+        $data = unserialize($_POST['dataUser']);
 
-//         $documento = new \stdClass();
+        $documento = new \stdClass();
 
-//         $documento->_business_name_iva = $business_name_iva;
-//         $documento->_code_iva = $code_iva;
-//         // $documento->_payment_method_iva = $payment_method_iva;
-//         $documento->_email_receipt_iva = $email_receipt_iva;
-//         $documento->_email = $data['email'];
+        $documento->_business_name_iva = $business_name_iva;
+        $documento->_code_iva = $code_iva;
+        // $documento->_payment_method_iva = $payment_method_iva;
+        $documento->_email_receipt_iva = $email_receipt_iva;
+        $documento->_email = $data['email'];
  
 
-//         $update_fiscal_data = RegisterDao::updateFiscalData($documento);
+        $update_fiscal_data = RegisterDao::updateFiscalData($documento);
 
-//         // echo $business_name_iva;
-//         // echo $code_iva;
-//         // echo $payment_method_iva;
-//         // echo $email_receipt_iva;
-//         // echo $data['email'];
+        // echo $business_name_iva;
+        // echo $code_iva;
+        // echo $payment_method_iva;
+        // echo $email_receipt_iva;
+        // echo $data['email'];
 
-//         if($update_fiscal_data){
-//             echo "success";
-//         }else{
-//             echo "fail";
-//         }
+        if($update_fiscal_data){
+            echo "success";
+        }else{
+            echo "fail";
+        }
 
-//     }
+    }
 
 //     public function passFinalize_(){
 
