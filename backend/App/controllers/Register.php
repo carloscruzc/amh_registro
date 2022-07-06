@@ -381,103 +381,103 @@ html;
 
 //     }
 
-//     public function passTwo(){
-//         $extraHeader =<<<html
-//         <meta charset="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//         <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//         <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
-//         <title>
-//             Registro - XVII Congreso Nacional de Hepatología
-//         </title>
-//          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//          <!-- Nucleo Icons -->
-//          <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- Font Awesome Icons -->
-//          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//         <!-- Nucleo Icons -->
-//         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- Font Awesome Icons -->
-//         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+    public function passTwo(){
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
+        <title>
+            Registro - XVII Congreso Nacional de Hepatología
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
         
         
 
-// html;
-//         $extraFooter =<<<html
+html;
+        $extraFooter =<<<html
      
-//         <script src="/js/jquery.min.js"></script>
-//         <script src="/js/validate/jquery.validate.js"></script>
-//         <script src="/js/alertify/alertify.min.js"></script>
-//         <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-//        <!--   Core JS Files   -->
-//           <script src="../../../assets/js/core/popper.min.js"></script>
-//           <script src="../../../assets/js/core/bootstrap.min.js"></script>
-//           <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/multistep-form.js"></script>
-//           <!-- Kanban scripts -->
-//           <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
-//           <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
-//           <script>
-//             var win = navigator.platform.indexOf('Win') > -1;
-//             if (win && document.querySelector('#sidenav-scrollbar')) {
-//               var options = {
-//                 damping: '0.5'
-//               }
-//               Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-//             }
-//           </script>
-//           <!-- Github buttons -->
-//           <script async defer src="https://buttons.github.io/buttons.js"></script>
-//           <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-//           <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-// html;
+html;
         
 
-//         $email = $_POST['confirm_email'];
-//         $prefijo = $_POST['title'];
-//         $nombre = $_POST['nombre'];
-//         $apellidop = $_POST['apellidop'];
-//         $apellidom = $_POST['apellidom'];
-//         $telephone = $_POST['telephone'];
-//         $categorias = $_POST['categorias'];
-//         $especialidades = $_POST['especialidades'];
-//         $nationality = $_POST['nationality'];
-//         $state = $_POST['state'];
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        $categorias = $_POST['categorias'];
+        $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
 
-//         $data = [
-//             'email' => $email,
-//             'title' => $prefijo,
-//             'nombre' => $nombre,
-//             'apellidop' => $apellidop,
-//             'apellidom' => $apellidom,
-//             'telephone' => $telephone,
-//             'categorias' => $categorias,
-//             'especialidades' => $especialidades,
-//             'nationality' => $nationality,
-//             'state' => $state
-//         ];
+        $data = [
+            'email' => $email,
+            'title' => $prefijo,
+            'nombre' => $nombre,
+            'apellidop' => $apellidop,
+            'apellidom' => $apellidom,
+            'telephone' => $telephone,
+            'categorias' => $categorias,
+            'especialidades' => $especialidades,
+            'nationality' => $nationality,
+            'state' => $state
+        ];
 
-//         View::set('dataUser',$data);
-//         View::set('header',$extraHeader);
-//         View::set('footer',$extraFooter);
-//         View::render('RegisterTwo');
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterTwo');
 
-//     }
+    }
 
 //     public function passThree(){
 
