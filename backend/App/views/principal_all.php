@@ -53,11 +53,12 @@
                                 <i class="fa fa-user me-sm-0"></i>
                                 <!-- <span class="d-sm-inline d-none">Mi Cuenta</span> -->
                                 <?php
-                                    $apellido = $datos['surname'];                                    
+                                
+                                    $apellido = $datos['apellidop'];                                    
                                     $arr1 = str_split($apellido);                         
                                    
                                 ?>
-                                <span class="d-sm-inline d-none"><?php echo $datos['name_user'] ." ".$arr1[0].".";?></span>
+                                <span class="d-sm-inline d-none"><?php echo $datos['nombre'] ." ".$arr1[0].".";?></span>
                             </a>
                         </li>
                     </ul>

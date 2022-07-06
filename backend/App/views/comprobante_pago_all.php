@@ -84,7 +84,7 @@
                                         <tr>
                                             <!-- <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7"></th> -->
                                             <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7" style="width:30%">Nombre del Curso o Congreso</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estatus</th>
+                                            <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estatus</th> -->
                                             <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Monto a Pagar</th>
                                             <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Metodo de Pago</th>   
                                             <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Ticket</th>                                     

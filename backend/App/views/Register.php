@@ -137,18 +137,9 @@ echo $header;
                                                                         <label id="label-especialidades">Especialidades *</label>
                                                                             <select class="multisteps-form__select form-control all_input_select" name="especialidades" id="especialidades" disabled>
                                                                                 <option value="" disabled selected>Selecciona una Opción</option>
-                                                                                <option value="Psychiatrist">Psiquiatría</option>
-                                                                                <option value="Child_Psychiatry">Psiquiatría infantil</option>
-                                                                                <option value="Neurology">Neurología</option>
-                                                                                <option value="Pediatric_Neurology">Neurología Pediátrica</option>
-                                                                                <option value="Paidapsychiatry">Paidopsiquiatría</option>
-                                                                                <option value="Pedagogy">Pedagogía</option>
-                                                                                <option value="Psychogeriatrics">Psicogeriatría</option>
-                                                                                <option value="Psychology">Psicología</option>
-                                                                                <option value="Clinical_psychology">Psicología clínica</option>
-                                                                                <option value="Residents">Residentes</option>
-                                                                                <option value="Students">Estudiantes</option>
-                                                                                <option value="Others">Otros</option>
+                                                                                <option value="gastroenterologia ">Gastroenterología</option>
+                                                                                <option value="hepatologia">Hepatología</option>                                                                                
+                                                                                <option value="Otros">Otros</option>
 
                                                                             </select>
 

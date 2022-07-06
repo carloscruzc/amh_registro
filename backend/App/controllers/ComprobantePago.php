@@ -138,82 +138,6 @@ html;
 
 
 
-    //     public function getAllComprobantesPagoById($id_user){
-
-    //         $html = "";
-    //         foreach (ComprobantePagoDao::getAllComprobantes($id_user) as $key => $value) {
-
-    //             if ($value['status'] == 0 ) {
-    //                 $icon_status = '<i class="fa fad fa-hourglass" style="color: #4eb8f7;"></i>';
-    //                 $status = '<span class="badge badge-info">En espera de validación</span>';
-    //             } else if ($value['status'] == 1 ){
-    //                 $icon_status = '<i class="far fa-check-circle" style="color: #269f61;"></i>';
-    //                 $status = '<span class="badge badge-success">Aceptado</span>';
-
-    //             }
-    //             else{
-    //                 $icon_status = '<i class="far fa-times-circle" style="color: red;"></i>';
-    //                 $status = '<span class="badge badge-danger">Carga un Archivo PDF valido</span>';
-    //             }
-
-
-
-    //             if (empty($value['url_archivo']) || $value['url_archivo'] == '') {
-    //                 $button_comprobante = '<form method="POST" enctype="multipart/form-data" action="/ComprobantePago/uploadComprobante" data-id-pp='.$value["id_pendiente_pago"].'>
-    //                                         <input type="hidden" name="id_pendiente_pago" id="id_pendiente_pago" value="'.$value["id_pendiente_pago"].'"/>
-    //                                         <input type="file" accept="application/pdf" class="form-control" id="file-input" name="file-input" style="width: auto; margin: 0 auto;">
-    //                                         <button class="btn btn-primary btn-only-icon mt-2" type="submit">Subir</button>
-    //                                         </form>';
-    //             } else {
-    //                 $button_comprobante = '<a href="/comprobantesPago/'.$value["url_archivo"].'" class="btn bg-pink btn-icon-only morado-musa-text text-center"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Ver Comprobante" target="_blank"><i class="fas fa-print"> </i></a>';
-    //             }
-
-    // //             $estatus = '';
-    // //             if ($value['status'] == 1) {
-    // //                 $estatus .= <<<html
-    // //                 <span class="badge badge-success">Activo</span>
-    // // html;
-    // //             } else {
-    // //                 $estatus .= <<<html
-    // //                 <span class="badge badge-success">Inactivo</span>
-    // // html;
-    // //             }
-    //             $html .= <<<html
-    //             <tr>
-    //                 <td >
-    //                     <div class="text-center"> 
-
-    //                             <p>{$icon_status} {$value['nombre']}</p>                       
-    //                     </div>
-    //                 </td>
-
-    //                 <td style="text-align:left; vertical-align:middle;" > 
-
-    //                     <div class="text-center">
-    //                         <p>{$status}</p>
-    //                     </div>
-
-    //                 </td>
-
-    //                 <td style="text-align:left; vertical-align:middle;" > 
-
-    //                     <div class="text-center">
-    //                         <p>{$value['tipo_pago']}</p>
-    //                     </div>
-
-    //                 </td>  
-
-
-    //                 <td  class="text-center">
-    //                    {$button_comprobante}
-
-    //                 </td>
-    //         </tr>
-    // html;
-    //         }
-
-    //         return $html;
-    //     }
 
     public function getAllComprobantesPagoById($id_user)
     {
@@ -225,16 +149,16 @@ html;
 
             $precio = 0;
 
-            if ($value['status'] == 0) {
-                $icon_status = '<i class="fa fad fa-hourglass" style="color: #4eb8f7;"></i>';
-                $status = '<span class="badge badge-info">En espera de validación</span>';
-            } else if ($value['status'] == 1) {
-                $icon_status = '<i class="far fa-check-circle" style="color: #269f61;"></i>';
-                $status = '<span class="badge badge-success">Aceptado</span>';
-            } else {
-                $icon_status = '<i class="far fa-times-circle" style="color: red;"></i>';
-                $status = '<span class="badge badge-danger">Carga un Archivo PDF valido</span>';
-            }
+            // if ($value['status'] == 0) {
+            //     // $icon_status = '<i class="fa fad fa-hourglass" style="color: #4eb8f7;"></i>';
+            //     $status = '<span class="badge badge-info">En espera de validación</span>';
+            // } else if ($value['status'] == 1) {
+            //     // $icon_status = '<i class="far fa-check-circle" style="color: #269f61;"></i>';
+            //     $status = '<span class="badge badge-success">Aceptado</span>';
+            // } else {
+            //     // $icon_status = '<i class="far fa-times-circle" style="color: red;"></i>';
+            //     $status = '<span class="badge badge-danger">Carga un Archivo PDF valido</span>';
+            // }
 
             if ($value['tipo_pago'] == "Efectivo" || $value['tipo_pago'] == "Transferencia" || $value['tipo_pago'] == "") {
 
@@ -243,7 +167,7 @@ html;
                 $total_array_paypal = array();
                 $nombre_producto = '';
 
-                foreach (ComprobantePagoDao::getAllComprobantesbyClave($id_user, $value['clave']) as $key => $value) {
+                foreach (ComprobantePagoDao::getAllComprobantes($id_user, $value['clave']) as $key => $value) {
 
                     if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
                         $precio = $value['amout_due'];
@@ -292,6 +216,7 @@ html;
             if (empty($value['url_archivo']) || $value['url_archivo'] == '') {
                 $button_comprobante = '<form method="POST" enctype="multipart/form-data" action="/ComprobantePago/uploadComprobante" data-id-pp=' . $value["id_pendiente_pago"] . '>
                                     <input type="hidden" name="id_pendiente_pago" id="id_pendiente_pago" value="' . $value["id_pendiente_pago"] . '"/>
+                                    <input type="hidden" name="clave" id="clave" value="' . $value["clave"] . '"/>
                                     <input type="file" accept="application/pdf" class="form-control" id="file-input" name="file-input" style="width: auto; margin: 0 auto;">
                                     <button class="btn btn-primary btn-only-icon mt-2" type="submit">Subir</button>
                                     </form>';
@@ -317,6 +242,8 @@ html;
 html;
 
             foreach (ComprobantePagoDao::getAllComprobantesbyClave($id_user, $value['clave']) as $key => $value2) {
+
+                
 
                 if($value2['es_congreso'] == 1 && $value2['clave_socio'] == ""){
                     $precio = $value2['amout_due'];
@@ -346,13 +273,30 @@ html;
                     $comprado_en = '';
                 }
 
-                array_push($total_array, $precio);
 
-                $precio = number_format($precio, 2);
+                if ($value2['status'] == 0) {
+                    $icon_status = '<i class="fa fad fa-hourglass" style="color: #4eb8f7;"></i>';
+                    $status = '<span class="badge badge-info">En espera de validación</span>';
+                } else if ($value2['status'] == 1) {
+                    $icon_status = '<i class="far fa-check-circle" style="color: #269f61;"></i>';
+                    $status = '<span class="badge badge-success">Aceptado</span>';
+                } else {
+                    $icon_status = '<i class="far fa-times-circle" style="color: red;"></i>';
+                    $status = '<span class="badge badge-danger">Carga un Archivo PDF valido</span>';
+                }
 
-                $html .= <<<html
-                    <p>{$icon_status} {$value2['nombre']} $ {$precio} {$comprado_en}</p>
+                if($value2['status'] == 0){
+                    array_push($total_array, $precio);
+
+                    $precio = number_format($precio, 2);
+                }
+    
+                    $html .= <<<html
+                        <p>{$icon_status} {$value2['nombre']} $ {$precio} {$comprado_en} - {$status}</p>
 html;
+                
+
+               
             }
             $total = number_format(array_sum($total_array), 2);
             // <p>{$icon_status} {$value['nombre']}</p>                       
@@ -360,14 +304,7 @@ html;
                 </div>
             </td>
      
-            <td style="text-align:left; vertical-align:middle;" > 
-                
-                <div class="text-center">
-                    <p>{$status}</p>
-                    
-                </div>
-              
-            </td>
+            
 
             <td style="text-align:left; vertical-align:middle;" >                 
                 <div class="text-center">                
@@ -534,6 +471,7 @@ html;
     {
         $numero_rand = $this->generateRandomString();
         $id_pendiente_pago = $_POST['id_pendiente_pago'];
+        $clave = $_POST['clave'];
         $file = $_FILES["file-input"];
 
         if ($file['name'] != "") {
@@ -542,6 +480,7 @@ html;
 
                 $documento = new \stdClass();
                 $documento->_id_pendiente_pago = $id_pendiente_pago;
+                $documento->_clave = $clave;
                 $documento->_url = $numero_rand . ".pdf";
 
                 $id = ComprobantePagoDao::updateComprobante($documento);

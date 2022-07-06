@@ -116,7 +116,7 @@ sql;
       FROM productos pro         
       INNER JOIN pendiente_pago pp ON (pp.id_producto = pro.id_producto)
       INNER JOIN utilerias_administradores ua ON(pp.user_id = ua.user_id)
-      WHERE pp.user_id = $user_id AND pp.clave = '$clave' 
+      WHERE pp.user_id = $user_id AND pp.clave = '$clave' and pp.status = 0
 sql;
       return $mysqli->queryAll($query);
 
