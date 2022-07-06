@@ -1105,6 +1105,7 @@ html;
 
 
 $productos_pendientes_comprados = HomeDao::getProductosPendComprados($data_user['user_id']);
+var_dump($productos_pendientes_comprados);
 $checks = '';
 $checked = '';
 $total_productos = 0;
