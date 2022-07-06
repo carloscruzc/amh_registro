@@ -314,119 +314,119 @@ html;
         View::render("login");
     }
 
-    public function getEstadoPais(){
-        $pais = $_POST['pais'];
+    // public function getEstadoPais(){
+    //     $pais = $_POST['pais'];
 
-        if (isset($pais)) {
-            $Paises = LoginDao::getStateByCountry($pais);
+    //     if (isset($pais)) {
+    //         $Paises = LoginDao::getStateByCountry($pais);
 
-            echo json_encode($Paises);
-        }
-    }
+    //         echo json_encode($Paises);
+    //     }
+    // }
 
-    public function saveData()
-    {
-        $data = new \stdClass();            
-        $data->_nombre = MasterDom::getData('nombre');
-        $data->_apellidop = MasterDom::getData('apellidop');
-        $data->_apellidom = MasterDom::getData('apellidom');
-        $data->_email = MasterDom::getData('email');
-        $data->_prefijo = MasterDom::getData('prefijo');
-        $data->_especialidad = MasterDom::getData('especialidad');
-        $data->_telefono = MasterDom::getData('telefono');
-        $data->_pais = MasterDom::getData('pais');
-        $data->_estado = MasterDom::getData('estado');
-        $data->_identificador = MasterDom::getData('estado');
-        // $data->_utilerias_administrador_id = $_SESSION['utilerias_administradores_id'];
+    // public function saveData()
+    // {
+    //     $data = new \stdClass();            
+    //     $data->_nombre = MasterDom::getData('nombre');
+    //     $data->_apellidop = MasterDom::getData('apellidop');
+    //     $data->_apellidom = MasterDom::getData('apellidom');
+    //     $data->_email = MasterDom::getData('email');
+    //     $data->_prefijo = MasterDom::getData('prefijo');
+    //     $data->_especialidad = MasterDom::getData('especialidad');
+    //     $data->_telefono = MasterDom::getData('telefono');
+    //     $data->_pais = MasterDom::getData('pais');
+    //     $data->_estado = MasterDom::getData('estado');
+    //     $data->_identificador = MasterDom::getData('estado');
+    //     // $data->_utilerias_administrador_id = $_SESSION['utilerias_administradores_id'];
 
-        $id = LoginDao::insert($data);
-        if ($id >= 1) {
-            echo "success";
-            // $this->alerta($id,'add');
-            //header('Location: /PickUp');
-        } else {
-            echo "error";
-            // header('Location: /PickUp');
-            //var_dump($id);
-        }
-    }
+    //     $id = LoginDao::insert($data);
+    //     if ($id >= 1) {
+    //         echo "success";
+    //         // $this->alerta($id,'add');
+    //         //header('Location: /PickUp');
+    //     } else {
+    //         echo "error";
+    //         // header('Location: /PickUp');
+    //         //var_dump($id);
+    //     }
+    // }
 
-    public function cerrarSession(){
-        session_start();
-        // unset($_SESSION);
-        // session_unset();
-        session_destroy();
-        header("Location: /Inicio/");
-    }
+    // public function cerrarSession(){
+    //     session_start();
+    //     // unset($_SESSION);
+    //     // session_unset();
+    //     session_destroy();
+    //     header("Location: /Inicio/");
+    // }
 
-    public function verificarUsuario(){
-        $usuario = new \stdClass();
-        $usuario->_usuario = MasterDom::getData("usuario");
-        // $usuario->_password = MD5(MasterDom::getData("password"));
-        $usuario->_password = MasterDom::getData("password");
-        // var_dump($usuario);
-        $user = LoginDao::getUserRAById($usuario);
-        // 
+    // public function verificarUsuario(){
+    //     $usuario = new \stdClass();
+    //     $usuario->_usuario = MasterDom::getData("usuario");
+    //     // $usuario->_password = MD5(MasterDom::getData("password"));
+    //     $usuario->_password = MasterDom::getData("password");
+    //     // var_dump($usuario);
+    //     $user = LoginDao::getUserRAById($usuario);
+    //     // 
 
-        if (count($user)>=1) {
-            $user['name_user'] = utf8_encode($user['nombre']);
-            echo json_encode($user);
-        }
-    }
+    //     if (count($user)>=1) {
+    //         $user['name_user'] = utf8_encode($user['nombre']);
+    //         echo json_encode($user);
+    //     }
+    // }
 
-    public function isUserValidate(){
-        echo (count(LoginDao::getUserByEmail($_POST['usuario']))>=1)? 'true' : 'false';
-    }
+    // public function isUserValidate(){
+    //     echo (count(LoginDao::getUserByEmail($_POST['usuario']))>=1)? 'true' : 'false';
+    // }
 
-    public function crearSession(){
-        $usuario = new \stdClass();
-        $usuario->_usuario = MasterDom::getData("usuario");
-        // $usuario->_password = MD5(MasterDom::getData("password"));
-        $usuario->_password = MasterDom::getData("password");
-        $user = LoginDao::getUserRAById($usuario);
+    // public function crearSession(){
+    //     $usuario = new \stdClass();
+    //     $usuario->_usuario = MasterDom::getData("usuario");
+    //     // $usuario->_password = MD5(MasterDom::getData("password"));
+    //     $usuario->_password = MasterDom::getData("password");
+    //     $user = LoginDao::getUserRAById($usuario);
 
     
-        if($user['status'] == 0){
-            //entrar a actualizar datos 
-            $user = json_encode($user);
+    //     if($user['status'] == 0){
+    //         //entrar a actualizar datos 
+    //         $user = json_encode($user);
 
          
 
-            header("location: /Register/?d=".base64_encode($user));
+    //         header("location: /Register/?d=".base64_encode($user));
             
-        }else{
-            session_start();
-            $_SESSION['usuario'] = $user['usuario'];
-            $_SESSION['nombre'] = $user['nombre'];
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['clave_socio'] = $user['clave_socio'];
+    //     }else{
+    //         session_start();
+    //         $_SESSION['usuario'] = $user['usuario'];
+    //         $_SESSION['nombre'] = $user['nombre'];
+    //         $_SESSION['user_id'] = $user['user_id'];
+    //         $_SESSION['clave_socio'] = $user['clave_socio'];
 
-            header("location: /Home/");
+    //         header("location: /Home/");
            
-        }
+    //     }
         
         
-    }
+    // }
 
-    public function crearSessionFinalize(){
-        $usuario = new \stdClass();
-        $usuario->_usuario = $_POST['usuario'];
+    // public function crearSessionFinalize(){
+    //     $usuario = new \stdClass();
+    //     $usuario->_usuario = $_POST['usuario'];
     
-        $user = LoginDao::getUserRAById($usuario);
+    //     $user = LoginDao::getUserRAById($usuario);
         
-        session_start();
-        $_SESSION['usuario'] = $user['usuario'];
-        $_SESSION['nombre'] = $user['nombre'];
-        $_SESSION['user_id'] = $user['user_id'];
+    //     session_start();
+    //     $_SESSION['usuario'] = $user['usuario'];
+    //     $_SESSION['nombre'] = $user['nombre'];
+    //     $_SESSION['user_id'] = $user['user_id'];
 
-        // var_dump($usuario);
-        // echo "<br>";
-        // var_dump($_SESSION);
-        // exit;
+    //     // var_dump($usuario);
+    //     // echo "<br>";
+    //     // var_dump($_SESSION);
+    //     // exit;
 
-        header("location: /Home/");
-        // echo "Hola";
-    }
+    //     header("location: /Home/");
+    //     // echo "Hola";
+    // }
 
     
 }
