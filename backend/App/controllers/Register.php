@@ -8,7 +8,6 @@ use \Core\MasterDom;
 use \App\models\Register AS RegisterDao;
 use \App\models\Login AS LoginDao;
 use \App\models\Home AS HomeDao;
-use \App\models\Miler;
 
 class Register{
 
