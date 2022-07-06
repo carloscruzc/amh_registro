@@ -7,7 +7,7 @@ use \Core\View;
 use \Core\MasterDom;
 use \App\models\Register AS RegisterDao;
 use \App\models\Login AS LoginDao;
-use \App\models\Home AS HomeDao;
+// use \App\models\Home AS HomeDao;
 
 class Register{
 
