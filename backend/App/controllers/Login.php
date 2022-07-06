@@ -8,13 +8,6 @@ use App\models\Login as LoginDao;
 use App\models\Usuarios as UsuariosDao;
 
 class Login{
-    private $_contenedor;
-
-
-    // public function index() {
-
-    //     View::render("login_inicio");
-    // }
 
     public function index() {
         
