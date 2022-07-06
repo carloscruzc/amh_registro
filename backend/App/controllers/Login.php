@@ -11,12 +11,12 @@ class Login{
     private $_contenedor;
 
 
-    // public function index() {
-
-    //     View::render("login_inicio");
-    // }
-
     public function index() {
+
+        View::render("login_inicio");
+    }
+
+    public function index1() {
         
         $extraHeader =<<<html
         <!DOCTYPE html>
