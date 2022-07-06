@@ -1903,18 +1903,18 @@ html;
 //         }
 //     }
 
-//     public function getCategorias()
-//     {
-//         // $id_categoria = $_POST['id_categoria'];
+    public function getCategorias()
+    {
+        // $id_categoria = $_POST['id_categoria'];
 
-//         // if (isset($id_categoria)) {
-//             $posiciones = LoginDao::getCategorias();
+        // if (isset($id_categoria)) {
+            $posiciones = LoginDao::getCategorias();
 
-//             echo json_encode($posiciones);
-//             //var_dump($posiciones);
+            echo json_encode($posiciones);
+            //var_dump($posiciones);
 
-//         // }
-//     }
+        // }
+    }
 
 //     public function alerta($id, $parametro, $type_deposit, $name_register, $costo, $limit_pay, $reference_user){
 //         $regreso = "/Login/";
