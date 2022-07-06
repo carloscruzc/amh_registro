@@ -290,20 +290,20 @@ html;
 html;
         }
 
-//             foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
-//                 $optionState = '';
-//                 $selectedEstado = ($value['id_estado'] == $value['id_estado']) ? 'selected' : '';  
-//                 $optionState .= <<<html
-//                         <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
-// html;
-//             }
+        foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
+            $optionState = '';
+            $selectedEstado = ($value['id_estado'] == $value['id_estado']) ? 'selected' : '';  
+            $optionState .= <<<html
+                    <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
+html;
+        }
        
 
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
         View::set('optionEspecialidad', $optionEspecialidad);
         View::set('optionPais', $optionPais);
-        // View::set('optionState', $optionState);
+        View::set('optionState', $optionState);
         View::render("login");
     }
 
