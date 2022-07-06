@@ -331,9 +331,18 @@ html;
       </script>
       
 html;
+
+        $especialidades = '';
+        foreach (RegisterDao::getAllEspecialidades() as $key => $value) {
+            $especialidades.=<<<html
+           
+        <option value="{$value['id_especialidad']}">{$value['nombre']}</option>
+html;
+        }
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
         View::set('idCountry',$this->getCountry());
+        View::set('especialidades',$especialidades);
         View::render("Register");
     }
 
@@ -887,7 +896,7 @@ html;
                 $numero_productos = '';
 
         }
-$clave = $this->generateRandomString();
+        $clave = $this->generateRandomString();
 
         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
@@ -989,8 +998,6 @@ html;
         View::set('array_precios',$array_precios);
         View::set('array_productos',$array_productos);
         View::render("buy_products");
-        
-
     }
 
     public function passFinalize(){

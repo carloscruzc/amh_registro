@@ -137,9 +137,8 @@ echo $header;
                                                                         <label id="label-especialidades">Especialidades *</label>
                                                                             <select class="multisteps-form__select form-control all_input_select" name="especialidades" id="especialidades" disabled>
                                                                                 <option value="" disabled selected>Selecciona una Opción</option>
-                                                                                <option value="gastroenterologia ">Gastroenterología</option>
-                                                                                <option value="hepatologia">Hepatología</option>                                                                                
-                                                                                <option value="Otros">Otros</option>
+                                                                                
+                                                                                <?=$especialidades?>
 
                                                                             </select>
 
