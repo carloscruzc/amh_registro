@@ -280,37 +280,37 @@ class Login{
         
 // html;
 
-            $especialidades = LoginDao::getAllEspecialidades();
-            $optionEspecialidad = '';
+//             $especialidades = LoginDao::getAllEspecialidades();
+//             $optionEspecialidad = '';
 
-            foreach($especialidades as $key => $value){
-                $optionEspecialidad .= <<<html
-                    <option value="{$value['nombre']}">{$value['nombre']}</option>
-html;
-            }
+//             foreach($especialidades as $key => $value){
+//                 $optionEspecialidad .= <<<html
+//                     <option value="{$value['nombre']}">{$value['nombre']}</option>
+// html;
+//             }
 
-            $paises = LoginDao::getPais();
-            $optionPais = '';
-            foreach($paises as $key => $value){
-                $optionPais .= <<<html
-                        <option value="{$value['id_pais']}">{$value['pais']}</option>
-html;
-            }
+//             $paises = LoginDao::getPais();
+//             $optionPais = '';
+//             foreach($paises as $key => $value){
+//                 $optionPais .= <<<html
+//                         <option value="{$value['id_pais']}">{$value['pais']}</option>
+// html;
+//             }
 
-            foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
-                $optionState = '';
-                $selectedEstado = ($value['id_estado'] == $value['id_estado']) ? 'selected' : '';  
-                $optionState .= <<<html
-                        <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
-html;
-            }
+//             foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
+//                 $optionState = '';
+//                 $selectedEstado = ($value['id_estado'] == $value['id_estado']) ? 'selected' : '';  
+//                 $optionState .= <<<html
+//                         <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
+// html;
+//             }
        
 
-        // View::set('header',$extraHeader);
-        // View::set('footer',$extraFooter);
-        View::set('optionEspecialidad', $optionEspecialidad);
-        View::set('optionPais', $optionPais);
-        View::set('optionState', $optionState);
+//         // View::set('header',$extraHeader);
+//         // View::set('footer',$extraFooter);
+//         View::set('optionEspecialidad', $optionEspecialidad);
+//         View::set('optionPais', $optionPais);
+//         View::set('optionState', $optionState);
         View::render("login");
     }
 
