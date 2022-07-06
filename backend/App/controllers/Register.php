@@ -1004,8 +1004,7 @@ html;
         $user_email = $_GET['e'];
         $user_email = base64_decode($user_email);
 
-        // echo $user_email;
-        // exit;
+
 
         $data_user = HomeDao::getDataUser($user_email);       
 
@@ -1298,7 +1297,7 @@ html;
         
 
         // View::set('header',$header);  
-        // View::set('datos',$data_user);
+        View::set('datos',$data_user);
         // // View::set('clave',$clave);    
         // View::set('checks',$checks);
         // // View::set('src_qr',$src_qr); 
