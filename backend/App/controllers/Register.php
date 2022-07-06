@@ -345,41 +345,41 @@ html;
         
     }
 
-//     public function UpdateData(){
+    public function UpdateData(){
 
-//         $email = $_POST['confirm_email'];
-//         $prefijo = $_POST['title'];
-//         $nombre = $_POST['nombre'];
-//         $apellidop = $_POST['apellidop'];
-//         $apellidom = $_POST['apellidom'];
-//         $telephone = $_POST['telephone'];
-//         // $categorias = $_POST['categorias'];
-//         // $especialidades = $_POST['especialidades'];
-//         $nationality = $_POST['nationality'];
-//         $state = $_POST['state'];
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        // $categorias = $_POST['categorias'];
+        // $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
 
-//         $documento = new \stdClass();
+        $documento = new \stdClass();
 
-//         $documento->_email = $email;
-//         $documento->_prefijo = $prefijo;
-//         $documento->_nombre = $nombre;
-//         $documento->_apellidop = $apellidop;
-//         $documento->_apellidom = $apellidom;
+        $documento->_email = $email;
+        $documento->_prefijo = $prefijo;
+        $documento->_nombre = $nombre;
+        $documento->_apellidop = $apellidop;
+        $documento->_apellidom = $apellidom;
         
-//         $documento->_telephone = $telephone;
-//         $documento->_nationality = $nationality;
-//         $documento->_state= $state;
+        $documento->_telephone = $telephone;
+        $documento->_nationality = $nationality;
+        $documento->_state= $state;
 
-//         $id = RegisterDao::updateBecado($documento);
+        $id = RegisterDao::updateBecado($documento);
 
-//         if($id){
-//             echo "success";
-//         }else{
-//             echo "fail";
-//         }
+        if($id){
+            echo "success";
+        }else{
+            echo "fail";
+        }
 
 
-//     }
+    }
 
     public function passTwo(){
         $extraHeader =<<<html
@@ -479,138 +479,138 @@ html;
 
     }
 
-//     public function passThree(){
+    public function passThree(){
 
-//         $extraHeader =<<<html
-//         <meta charset="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//         <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//         <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
-//         <title>
-//             Registro - XVII Congreso Nacional de Hepatología
-//         </title>
-//          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//          <!-- Nucleo Icons -->
-//          <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- Font Awesome Icons -->
-//          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//         <!-- Nucleo Icons -->
-//         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- Font Awesome Icons -->
-//         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
+        <title>
+            Registro - XVII Congreso Nacional de Hepatología
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
         
         
 
-// html;
-//         $extraFooter =<<<html
+html;
+        $extraFooter =<<<html
      
-//         <script src="/js/jquery.min.js"></script>
-//         <script src="/js/validate/jquery.validate.js"></script>
-//         <script src="/js/alertify/alertify.min.js"></script>
-//         <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-//        <!--   Core JS Files   -->
-//           <script src="../../../assets/js/core/popper.min.js"></script>
-//           <script src="../../../assets/js/core/bootstrap.min.js"></script>
-//           <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/multistep-form.js"></script>
-//           <!-- Kanban scripts -->
-//           <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
-//           <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
-//           <script>
-//             var win = navigator.platform.indexOf('Win') > -1;
-//             if (win && document.querySelector('#sidenav-scrollbar')) {
-//               var options = {
-//                 damping: '0.5'
-//               }
-//               Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-//             }
-//           </script>
-//           <!-- Github buttons -->
-//           <script async defer src="https://buttons.github.io/buttons.js"></script>
-//           <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-//           <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-//           <script>
-//           $(document).ready(function(){
-//             $('#email_receipt_iva').on('keypress', function() {
-//                 var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value);
-//                 if(!re) {
-//                     $('#error_email_send').show();
-//                 } else {
-//                     $('#error_email_send').hide();
-//                 }
-//             })
-//           });
-//           </script>
+          <script>
+          $(document).ready(function(){
+            $('#email_receipt_iva').on('keypress', function() {
+                var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value);
+                if(!re) {
+                    $('#error_email_send').show();
+                } else {
+                    $('#error_email_send').hide();
+                }
+            })
+          });
+          </script>
           
 
-// html;
+html;
 
-//         //Acarrear los datoss 
-//         $data = unserialize($_POST['dataUser']);
+        //Acarrear los datoss 
+        $data = unserialize($_POST['dataUser']);
 
-//         if($data['especialidades'] == null){
-//             $data['especialidades'] = '';
-//         }
+        if($data['especialidades'] == null){
+            $data['especialidades'] = '';
+        }
 
-//         $date = date('Y-m-d');
-//         $str_nombre = str_split($data['nombre']);
-//         $str_apellidop = str_split($data['apellidop']);
-//         $str_apellidom = str_split($data['apellidom']);
+        $date = date('Y-m-d');
+        $str_nombre = str_split($data['nombre']);
+        $str_apellidop = str_split($data['apellidop']);
+        $str_apellidom = str_split($data['apellidom']);
 
-//         $fecha = explode('-',$date);
+        $fecha = explode('-',$date);
 
-//         $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
 
-//         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
-
-
-//         $documento = new \stdClass();
-
-//         $documento->_email = $data['email'];
-//         $documento->_prefijo = $data['title'];
-//         $documento->_nombre = $data['nombre'];;
-//         $documento->_apellidop = $data['apellidop'];
-//         $documento->_apellidom = $data['apellidom'];        
-//         $documento->_telephone = $data['telephone'];
-//         $documento->_referencia = $refernecia;
-//         $documento->_categorias = $data['categorias'];
-//         $documento->_especialidades = $data['especialidades'];
-//         $documento->_nationality = $data['nationality'];
-//         $documento->_state= $data['state'];
-//         $documento->_monto_congreso= $monto_congreso;
-
-//         $existe_user = RegisterDao::getUser($data['email']);
+        $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
 
-//         if($existe_user){
-//             //Actualizar
-//             $id = RegisterDao::UpdateUser($documento);
-//         }else{
-//             $id = RegisterDao::insertNewUser($documento);
-//         }
+        $documento = new \stdClass();
+
+        $documento->_email = $data['email'];
+        $documento->_prefijo = $data['title'];
+        $documento->_nombre = $data['nombre'];;
+        $documento->_apellidop = $data['apellidop'];
+        $documento->_apellidom = $data['apellidom'];        
+        $documento->_telephone = $data['telephone'];
+        $documento->_referencia = $refernecia;
+        $documento->_categorias = $data['categorias'];
+        $documento->_especialidades = $data['especialidades'];
+        $documento->_nationality = $data['nationality'];
+        $documento->_state= $data['state'];
+        $documento->_monto_congreso= $monto_congreso;
+
+        $existe_user = RegisterDao::getUser($data['email']);
+
+
+        if($existe_user){
+            //Actualizar
+            $id = RegisterDao::UpdateUser($documento);
+        }else{
+            $id = RegisterDao::insertNewUser($documento);
+        }
 
         
 
-//         View::set('dataUser',$data);
-//         View::set('header',$extraHeader);
-//         View::set('footer',$extraFooter);
-//         View::render('RegisterThree');
-//     }
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterThree');
+    }
 
 //     public function updateFiscalData(){
 //         $business_name_iva = $_POST['business_name_iva'];
