@@ -341,7 +341,8 @@ class Register{
         // View::set('footer',$extraFooter);
         // View::set('idCountry',$this->getCountry());
         // View::set('especialidades',$especialidades);
-        View::render("Register");
+        // View::render("Register");
+        echo "Register";
     }
 
     public function UpdateData(){
