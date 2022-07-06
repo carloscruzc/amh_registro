@@ -289,9 +289,10 @@ html;
                     <option value="{$value['id_pais']}">{$value['pais']}</option>
 html;
         }
-
+        
+        $optionState = '';
         foreach(LoginDao::getStateByCountry($value['id_pais']) as $key => $value){
-            $optionState = '';
+            
             $selectedEstado = ($value['id_estado'] == $value['id_estado']) ? 'selected' : '';  
             $optionState .= <<<html
                     <option value="{$value['id_estado']}" $selectedEstado>{$value['estado']}</option>
