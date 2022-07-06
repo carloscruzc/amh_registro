@@ -273,14 +273,14 @@ html;
         
 html;
 
-//             $especialidades = LoginDao::getAllEspecialidades();
-//             $optionEspecialidad = '';
+        $especialidades = LoginDao::getAllEspecialidades();
+        $optionEspecialidad = '';
 
-//             foreach($especialidades as $key => $value){
-//                 $optionEspecialidad .= <<<html
-//                     <option value="{$value['nombre']}">{$value['nombre']}</option>
-// html;
-//             }
+        foreach($especialidades as $key => $value){
+            $optionEspecialidad .= <<<html
+                <option value="{$value['nombre']}">{$value['nombre']}</option>
+html;
+        }
 
 //             $paises = LoginDao::getPais();
 //             $optionPais = '';
@@ -301,7 +301,7 @@ html;
 
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
-        // View::set('optionEspecialidad', $optionEspecialidad);
+        View::set('optionEspecialidad', $optionEspecialidad);
         // View::set('optionPais', $optionPais);
         // View::set('optionState', $optionState);
         View::render("login");
