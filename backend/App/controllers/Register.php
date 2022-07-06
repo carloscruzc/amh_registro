@@ -339,1254 +339,1254 @@ html;
         }
         View::set('header',$extraHeader);
         View::set('footer',$extraFooter);
-        // View::set('idCountry',$this->getCountry());
+        View::set('idCountry',$this->getCountry());
         View::set('especialidades',$especialidades);
         View::render("Register");
-        // echo "Register";
+        
     }
 
-//     public function UpdateData(){
+    public function UpdateData(){
 
-//         $email = $_POST['confirm_email'];
-//         $prefijo = $_POST['title'];
-//         $nombre = $_POST['nombre'];
-//         $apellidop = $_POST['apellidop'];
-//         $apellidom = $_POST['apellidom'];
-//         $telephone = $_POST['telephone'];
-//         // $categorias = $_POST['categorias'];
-//         // $especialidades = $_POST['especialidades'];
-//         $nationality = $_POST['nationality'];
-//         $state = $_POST['state'];
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        // $categorias = $_POST['categorias'];
+        // $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
 
-//         $documento = new \stdClass();
+        $documento = new \stdClass();
 
-//         $documento->_email = $email;
-//         $documento->_prefijo = $prefijo;
-//         $documento->_nombre = $nombre;
-//         $documento->_apellidop = $apellidop;
-//         $documento->_apellidom = $apellidom;
+        $documento->_email = $email;
+        $documento->_prefijo = $prefijo;
+        $documento->_nombre = $nombre;
+        $documento->_apellidop = $apellidop;
+        $documento->_apellidom = $apellidom;
         
-//         $documento->_telephone = $telephone;
-//         $documento->_nationality = $nationality;
-//         $documento->_state= $state;
+        $documento->_telephone = $telephone;
+        $documento->_nationality = $nationality;
+        $documento->_state= $state;
 
-//         $id = RegisterDao::updateBecado($documento);
+        $id = RegisterDao::updateBecado($documento);
 
-//         if($id){
-//             echo "success";
-//         }else{
-//             echo "fail";
-//         }
+        if($id){
+            echo "success";
+        }else{
+            echo "fail";
+        }
 
 
-//     }
+    }
 
-//     public function passTwo(){
-//         $extraHeader =<<<html
-//         <meta charset="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//         <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//         <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
-//         <title>
-//             Registro - XVII Congreso Nacional de Hepatología
-//         </title>
-//          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//          <!-- Nucleo Icons -->
-//          <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- Font Awesome Icons -->
-//          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//         <!-- Nucleo Icons -->
-//         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- Font Awesome Icons -->
-//         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+    public function passTwo(){
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
+        <title>
+            Registro - XVII Congreso Nacional de Hepatología
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
         
         
 
-// html;
-//         $extraFooter =<<<html
+html;
+        $extraFooter =<<<html
      
-//         <script src="/js/jquery.min.js"></script>
-//         <script src="/js/validate/jquery.validate.js"></script>
-//         <script src="/js/alertify/alertify.min.js"></script>
-//         <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-//        <!--   Core JS Files   -->
-//           <script src="../../../assets/js/core/popper.min.js"></script>
-//           <script src="../../../assets/js/core/bootstrap.min.js"></script>
-//           <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/multistep-form.js"></script>
-//           <!-- Kanban scripts -->
-//           <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
-//           <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
-//           <script>
-//             var win = navigator.platform.indexOf('Win') > -1;
-//             if (win && document.querySelector('#sidenav-scrollbar')) {
-//               var options = {
-//                 damping: '0.5'
-//               }
-//               Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-//             }
-//           </script>
-//           <!-- Github buttons -->
-//           <script async defer src="https://buttons.github.io/buttons.js"></script>
-//           <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-//           <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-// html;
+html;
         
 
-//         $email = $_POST['confirm_email'];
-//         $prefijo = $_POST['title'];
-//         $nombre = $_POST['nombre'];
-//         $apellidop = $_POST['apellidop'];
-//         $apellidom = $_POST['apellidom'];
-//         $telephone = $_POST['telephone'];
-//         $categorias = $_POST['categorias'];
-//         $especialidades = $_POST['especialidades'];
-//         $nationality = $_POST['nationality'];
-//         $state = $_POST['state'];
+        $email = $_POST['confirm_email'];
+        $prefijo = $_POST['title'];
+        $nombre = $_POST['nombre'];
+        $apellidop = $_POST['apellidop'];
+        $apellidom = $_POST['apellidom'];
+        $telephone = $_POST['telephone'];
+        $categorias = $_POST['categorias'];
+        $especialidades = $_POST['especialidades'];
+        $nationality = $_POST['nationality'];
+        $state = $_POST['state'];
 
-//         $data = [
-//             'email' => $email,
-//             'title' => $prefijo,
-//             'nombre' => $nombre,
-//             'apellidop' => $apellidop,
-//             'apellidom' => $apellidom,
-//             'telephone' => $telephone,
-//             'categorias' => $categorias,
-//             'especialidades' => $especialidades,
-//             'nationality' => $nationality,
-//             'state' => $state
-//         ];
+        $data = [
+            'email' => $email,
+            'title' => $prefijo,
+            'nombre' => $nombre,
+            'apellidop' => $apellidop,
+            'apellidom' => $apellidom,
+            'telephone' => $telephone,
+            'categorias' => $categorias,
+            'especialidades' => $especialidades,
+            'nationality' => $nationality,
+            'state' => $state
+        ];
 
-//         View::set('dataUser',$data);
-//         View::set('header',$extraHeader);
-//         View::set('footer',$extraFooter);
-//         View::render('RegisterTwo');
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterTwo');
 
-//     }
+    }
 
-//     public function passThree(){
+    public function passThree(){
 
-//         $extraHeader =<<<html
-//         <meta charset="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//         <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//         <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
-//         <title>
-//             Registro - XVII Congreso Nacional de Hepatología
-//         </title>
-//          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//          <!-- Nucleo Icons -->
-//          <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- Font Awesome Icons -->
-//          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//          <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//          <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//         <!-- Nucleo Icons -->
-//         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- Font Awesome Icons -->
-//         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <!-- CSS Files -->
-//         <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//         <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+        $extraHeader =<<<html
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="../../../assets/img/logos/apmn.png">
+        <title>
+            Registro - XVII Congreso Nacional de Hepatología
+        </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+        <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
         
         
 
-// html;
-//         $extraFooter =<<<html
+html;
+        $extraFooter =<<<html
      
-//         <script src="/js/jquery.min.js"></script>
-//         <script src="/js/validate/jquery.validate.js"></script>
-//         <script src="/js/alertify/alertify.min.js"></script>
-//         <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-//        <!--   Core JS Files   -->
-//           <script src="../../../assets/js/core/popper.min.js"></script>
-//           <script src="../../../assets/js/core/bootstrap.min.js"></script>
-//           <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
-//           <script src="../../../assets/js/plugins/multistep-form.js"></script>
-//           <!-- Kanban scripts -->
-//           <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
-//           <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
-//           <script>
-//             var win = navigator.platform.indexOf('Win') > -1;
-//             if (win && document.querySelector('#sidenav-scrollbar')) {
-//               var options = {
-//                 damping: '0.5'
-//               }
-//               Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-//             }
-//           </script>
-//           <!-- Github buttons -->
-//           <script async defer src="https://buttons.github.io/buttons.js"></script>
-//           <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-//           <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/validate/jquery.validate.js"></script>
+        <script src="/js/alertify/alertify.min.js"></script>
+        <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+       <!--   Core JS Files   -->
+          <script src="../../../assets/js/core/popper.min.js"></script>
+          <script src="../../../assets/js/core/bootstrap.min.js"></script>
+          <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+          <script src="../../../assets/js/plugins/multistep-form.js"></script>
+          <!-- Kanban scripts -->
+          <script src="../../../assets/js/plugins/dragula/dragula.min.js"></script>
+          <script src="../../../assets/js/plugins/jkanban/jkanban.js"></script>
+          <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+              var options = {
+                damping: '0.5'
+              }
+              Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+          </script>
+          <!-- Github buttons -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-//           <script>
-//           $(document).ready(function(){
-//             $('#email_receipt_iva').on('keypress', function() {
-//                 var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value);
-//                 if(!re) {
-//                     $('#error_email_send').show();
-//                 } else {
-//                     $('#error_email_send').hide();
-//                 }
-//             })
-//           });
-//           </script>
+          <script>
+          $(document).ready(function(){
+            $('#email_receipt_iva').on('keypress', function() {
+                var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(this.value);
+                if(!re) {
+                    $('#error_email_send').show();
+                } else {
+                    $('#error_email_send').hide();
+                }
+            })
+          });
+          </script>
           
 
-// html;
+html;
 
-//         //Acarrear los datoss 
-//         $data = unserialize($_POST['dataUser']);
+        //Acarrear los datoss 
+        $data = unserialize($_POST['dataUser']);
 
-//         if($data['especialidades'] == null){
-//             $data['especialidades'] = '';
-//         }
+        if($data['especialidades'] == null){
+            $data['especialidades'] = '';
+        }
 
-//         $date = date('Y-m-d');
-//         $str_nombre = str_split($data['nombre']);
-//         $str_apellidop = str_split($data['apellidop']);
-//         $str_apellidom = str_split($data['apellidom']);
+        $date = date('Y-m-d');
+        $str_nombre = str_split($data['nombre']);
+        $str_apellidop = str_split($data['apellidop']);
+        $str_apellidom = str_split($data['apellidom']);
 
-//         $fecha = explode('-',$date);
+        $fecha = explode('-',$date);
 
-//         $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
 
-//         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
-
-
-//         $documento = new \stdClass();
-
-//         $documento->_email = $data['email'];
-//         $documento->_prefijo = $data['title'];
-//         $documento->_nombre = $data['nombre'];;
-//         $documento->_apellidop = $data['apellidop'];
-//         $documento->_apellidom = $data['apellidom'];        
-//         $documento->_telephone = $data['telephone'];
-//         $documento->_referencia = $refernecia;
-//         $documento->_categorias = $data['categorias'];
-//         $documento->_especialidades = $data['especialidades'];
-//         $documento->_nationality = $data['nationality'];
-//         $documento->_state= $data['state'];
-//         $documento->_monto_congreso= $monto_congreso;
-
-//         $existe_user = RegisterDao::getUser($data['email']);
+        $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
 
-//         if($existe_user){
-//             //Actualizar
-//             $id = RegisterDao::UpdateUser($documento);
-//         }else{
-//             $id = RegisterDao::insertNewUser($documento);
-//         }
+        $documento = new \stdClass();
+
+        $documento->_email = $data['email'];
+        $documento->_prefijo = $data['title'];
+        $documento->_nombre = $data['nombre'];;
+        $documento->_apellidop = $data['apellidop'];
+        $documento->_apellidom = $data['apellidom'];        
+        $documento->_telephone = $data['telephone'];
+        $documento->_referencia = $refernecia;
+        $documento->_categorias = $data['categorias'];
+        $documento->_especialidades = $data['especialidades'];
+        $documento->_nationality = $data['nationality'];
+        $documento->_state= $data['state'];
+        $documento->_monto_congreso= $monto_congreso;
+
+        $existe_user = RegisterDao::getUser($data['email']);
+
+
+        if($existe_user){
+            //Actualizar
+            $id = RegisterDao::UpdateUser($documento);
+        }else{
+            $id = RegisterDao::insertNewUser($documento);
+        }
 
         
 
-//         View::set('dataUser',$data);
-//         View::set('header',$extraHeader);
-//         View::set('footer',$extraFooter);
-//         View::render('RegisterThree');
-//     }
+        View::set('dataUser',$data);
+        View::set('header',$extraHeader);
+        View::set('footer',$extraFooter);
+        View::render('RegisterThree');
+    }
 
-//     public function updateFiscalData(){
-//         $business_name_iva = $_POST['business_name_iva'];
-//         $code_iva = $_POST['code_iva'];
-//         // $payment_method_iva = $_POST['payment_method_iva'];
-//         $email_receipt_iva = $_POST['email_receipt_iva'];
+    public function updateFiscalData(){
+        $business_name_iva = $_POST['business_name_iva'];
+        $code_iva = $_POST['code_iva'];
+        // $payment_method_iva = $_POST['payment_method_iva'];
+        $email_receipt_iva = $_POST['email_receipt_iva'];
 
-//         $data = unserialize($_POST['dataUser']);
+        $data = unserialize($_POST['dataUser']);
 
-//         $documento = new \stdClass();
+        $documento = new \stdClass();
 
-//         $documento->_business_name_iva = $business_name_iva;
-//         $documento->_code_iva = $code_iva;
-//         // $documento->_payment_method_iva = $payment_method_iva;
-//         $documento->_email_receipt_iva = $email_receipt_iva;
-//         $documento->_email = $data['email'];
+        $documento->_business_name_iva = $business_name_iva;
+        $documento->_code_iva = $code_iva;
+        // $documento->_payment_method_iva = $payment_method_iva;
+        $documento->_email_receipt_iva = $email_receipt_iva;
+        $documento->_email = $data['email'];
  
 
-//         $update_fiscal_data = RegisterDao::updateFiscalData($documento);
+        $update_fiscal_data = RegisterDao::updateFiscalData($documento);
 
-//         // echo $business_name_iva;
-//         // echo $code_iva;
-//         // echo $payment_method_iva;
-//         // echo $email_receipt_iva;
-//         // echo $data['email'];
+        // echo $business_name_iva;
+        // echo $code_iva;
+        // echo $payment_method_iva;
+        // echo $email_receipt_iva;
+        // echo $data['email'];
 
-//         if($update_fiscal_data){
-//             echo "success";
-//         }else{
-//             echo "fail";
-//         }
+        if($update_fiscal_data){
+            echo "success";
+        }else{
+            echo "fail";
+        }
 
-//     }
+    }
 
-//     public function passFinalize_(){
+    public function passFinalize_(){
 
-//         //Acarrear los datos
-//         $data = unserialize($_POST['dataUser']);
+        //Acarrear los datos
+        $data = unserialize($_POST['dataUser']);
 
-//         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
+        $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
 
-//         if($data['especialidades'] == null){
-//             $data['especialidades'] = '';
-//         }
+        if($data['especialidades'] == null){
+            $data['especialidades'] = '';
+        }
 
       
-//         $date = date('Y-m-d');
-//         $str_nombre = str_split($data['nombre']);
-//         $str_apellidop = str_split($data['apellidop']);
-//         $str_apellidom = str_split($data['apellidom']);
+        $date = date('Y-m-d');
+        $str_nombre = str_split($data['nombre']);
+        $str_apellidop = str_split($data['apellidop']);
+        $str_apellidom = str_split($data['apellidom']);
 
-//         $fecha = explode('-',$date);
+        $fecha = explode('-',$date);
 
-//         $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
 
-//         $documento = new \stdClass();
+        $documento = new \stdClass();
 
-//         $documento->_email = $data['email'];
-//         $documento->_prefijo = $data['title'];
-//         $documento->_nombre = $data['nombre'];
-//         $documento->_apellidop = $data['apellidop'];
-//         $documento->_apellidom = $data['apellidom'];        
-//         $documento->_telephone = $data['telephone'];
-//         $documento->_referencia = $refernecia;
-//         $documento->_categorias = $data['categorias'];
-//         $documento->_especialidades = $data['especialidades'];
-//         $documento->_nationality = $data['nationality'];
-//         $documento->_state= $data['state'];
-//         $documento->_monto_congreso= $monto_congreso;
+        $documento->_email = $data['email'];
+        $documento->_prefijo = $data['title'];
+        $documento->_nombre = $data['nombre'];
+        $documento->_apellidop = $data['apellidop'];
+        $documento->_apellidom = $data['apellidom'];        
+        $documento->_telephone = $data['telephone'];
+        $documento->_referencia = $refernecia;
+        $documento->_categorias = $data['categorias'];
+        $documento->_especialidades = $data['especialidades'];
+        $documento->_nationality = $data['nationality'];
+        $documento->_state= $data['state'];
+        $documento->_monto_congreso= $monto_congreso;
 
-//         $existe_user = RegisterDao::getUser($data['email']);
+        $existe_user = RegisterDao::getUser($data['email']);
 
-//         if($existe_user){
-//             //Actualizar
-//             $id = RegisterDao::UpdateUser($documento);
-//         }else{
-//             $id = RegisterDao::insertNewUser($documento);
-//         }
+        if($existe_user){
+            //Actualizar
+            $id = RegisterDao::UpdateUser($documento);
+        }else{
+            $id = RegisterDao::insertNewUser($documento);
+        }
 
 
 
-//         $header =<<<html
-//         <!DOCTYPE html>
-//         <html lang="es">
+        $header =<<<html
+        <!DOCTYPE html>
+        <html lang="es">
         
-//           <head>
-//             <meta charset="utf-8">
-//             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//             <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//             <link rel="icon" type="image/png" href="../../../assets/img/logos/apmn.png">
-//             <title>
-//                AMH - GRUPO LAHE
-//             </title>
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//             <!-- TEMPLATE VIEJO-->
-//             <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//             <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+            <link rel="icon" type="image/png" href="../../../assets/img/logos/apmn.png">
+            <title>
+               AMH - GRUPO LAHE
+            </title>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <!-- TEMPLATE VIEJO-->
+            <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+            <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
 
-//             <meta charset="utf-8" />
-//             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//             <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
 
-//             <!--     Fonts and icons     -->
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <!--     Fonts and icons     -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 
-//             <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-//             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-//             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-//             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-//             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
               
-//             <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
-//             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
             
-//             <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
-//             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
 
-//            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-//            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-//            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-//            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-//            <script charset="UTF-8" src="//web.webpushs.com/js/push/9d0c1476424f10b1c5e277f542d790b8_1.js" async></script>
+           <script charset="UTF-8" src="//web.webpushs.com/js/push/9d0c1476424f10b1c5e277f542d790b8_1.js" async></script>
            
-//             <!-- TEMPLATE VIEJO-->
+            <!-- TEMPLATE VIEJO-->
 
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//             <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-//             <link href="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-//             <style>
-//             .select2-container--default .select2-selection--single {
-//             height: 38px!important;
-//             border-radius: 8px!important;
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+            <link href="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+            <style>
+            .select2-container--default .select2-selection--single {
+            height: 38px!important;
+            border-radius: 8px!important;
             
-//             }
-//             .select2-container {
-//               width: 100%!important;
+            }
+            .select2-container {
+              width: 100%!important;
               
-//           }
+          }
            
-//             </style>
-//         </head>
-// html;
+            </style>
+        </head>
+html;
 
-//         $data_user = HomeDao::getDataUser($data['email']);
+        $data_user = HomeDao::getDataUser($data['email']);
 
-//         $productos_pendientes_comprados = HomeDao::getProductosPendComprados($data_user['user_id']);
-//         $checks = '';
-//         $checked = '';
-//         $total_productos = 0;
-//         $total_pago = 0;
-//         $check_disabled = '';
-//         $array_precios = [];
-//         $array_productos = [];
+        $productos_pendientes_comprados = HomeDao::getProductosPendComprados($data_user['user_id']);
+        $checks = '';
+        $checked = '';
+        $total_productos = 0;
+        $total_pago = 0;
+        $check_disabled = '';
+        $array_precios = [];
+        $array_productos = [];
 
-//         // // $clave = HomeDao::getProductosPendCompradosClave($data_user['user_id'])[0]['clave'];
+        // // $clave = HomeDao::getProductosPendCompradosClave($data_user['user_id'])[0]['clave'];
 
-//         // $clave = HomeDao::getLastQrPendientePago($data_user['user_id'])['clave'];
+        // $clave = HomeDao::getLastQrPendientePago($data_user['user_id'])['clave'];
 
      
-//         // if($clave != ""){
-//         //     // $src_qr = '/qrs/'.$productos_pendientes_comprados[0]['clave'].'.png';
-//         //     $src_qr = '/qrs/'.$clave.'.png';           
-//         //     // $btn_block = 'style = "display:none"';
-//         //     // $check_disabled = 'disabled';
-//         // }else{
-//         //     $src_qr = '';
-//         //     $btn_block = '';
+        // if($clave != ""){
+        //     // $src_qr = '/qrs/'.$productos_pendientes_comprados[0]['clave'].'.png';
+        //     $src_qr = '/qrs/'.$clave.'.png';           
+        //     // $btn_block = 'style = "display:none"';
+        //     // $check_disabled = 'disabled';
+        // }else{
+        //     $src_qr = '';
+        //     $btn_block = '';
             
-//         // }   
+        // }   
 
         
 
-//         foreach($productos_pendientes_comprados as $key => $value) {
-//             $disabled = '';
-//             $checked = '';
-//             $pend_validar ='';
+        foreach($productos_pendientes_comprados as $key => $value) {
+            $disabled = '';
+            $checked = '';
+            $pend_validar ='';
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = $value['amout_due'];
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = $value['amout_due'];
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = $value['precio_publico'];
+            }
             
-//             $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
+            $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
 
             
 
-//             if($value['estatus_compra'] == 1){
-//                 $disabled = 'disabled';
-//                 $checked = 'checked';
-//                 $pend_validar ='Pagado y validado por AMH';
-//                 // $btn_imp = '';
-//                 // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//                 // $ocultar = 'display:none;';
+            if($value['estatus_compra'] == 1){
+                $disabled = 'disabled';
+                $checked = 'checked';
+                $pend_validar ='Pagado y validado por AMH';
+                // $btn_imp = '';
+                // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+                // $ocultar = 'display:none;';
                 
-//             }else if($value['estatus_compra'] == null){
-//                 $pend_validar = 'Pendiente de Pagar';
-//                 // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//                 // $ocultar = '';
-//                 // $disabled = 'disabled';
-//                 $checked = 'checked';
-//                 $total_productos += $count_producto['numero_productos'];
-//                 $total_pago += $count_producto['numero_productos'] * $precio;
-//                 array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
-//                 array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
-//             }
+            }else if($value['estatus_compra'] == null){
+                $pend_validar = 'Pendiente de Pagar';
+                // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+                // $ocultar = '';
+                // $disabled = 'disabled';
+                $checked = 'checked';
+                $total_productos += $count_producto['numero_productos'];
+                $total_pago += $count_producto['numero_productos'] * $precio;
+                array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
+                array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
+            }
 
-//             if($value['max_compra'] <= 1){
-//                 $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//             }else{
-//                 $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
-//                 for($i = 1; $i <= $value['max_compra']; $i++){                    
-//                     $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//                 }
-//                 $numero_productos .= '</select>';
-//             }
+            if($value['max_compra'] <= 1){
+                $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+            }else{
+                $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
+                for($i = 1; $i <= $value['max_compra']; $i++){                    
+                    $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+                }
+                $numero_productos .= '</select>';
+            }
 
-//             $checks .= <<<html
-//                 <div class="row">
-//                     <div class="col-md-8">
-//                         <div class="form-check">
-//                             <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
-//                             <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                                 {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
-//                             </label>
-//                         </div>
-//                     </div>
+            $checks .= <<<html
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-check">
+                            <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
+                            <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+                                {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
+                            </label>
+                        </div>
+                    </div>
                    
-//                     <div class="col-md-2">
-//                         {$precio} - {$value['tipo_moneda']}
-//                     </div>
+                    <div class="col-md-2">
+                        {$precio} - {$value['tipo_moneda']}
+                    </div>
 
-//                     <div class="col-md-2">
-//                         {$numero_productos}
-//                     </div>
-//                 </div>
+                    <div class="col-md-2">
+                        {$numero_productos}
+                    </div>
+                </div>
 
-//                 <hr>
+                <hr>
                   
-// html;            
-//                 $numero_productos = '';
+html;            
+                $numero_productos = '';
 
-//         }
-//         $clave = $this->generateRandomString();
+        }
+        $clave = $this->generateRandomString();
 
-//         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
+        $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
 
-//         foreach($productos_no_comprados as $key => $value) {
+        foreach($productos_no_comprados as $key => $value) {
 
             
-//             // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
+            // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
 
-//                 // if($value['es_congreso'] == 1){
-//                 //     $precio = $data_user['amout_due'];
-//                 // }else if($value['es_servicio'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }else if($value['es_curso'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }
-//             // }else{
-//             //     $precio = $value['precio_publico'];
-//             // }
+                // if($value['es_congreso'] == 1){
+                //     $precio = $data_user['amout_due'];
+                // }else if($value['es_servicio'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }else if($value['es_curso'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }
+            // }else{
+            //     $precio = $value['precio_publico'];
+            // }
 
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $checked = 'checked';
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $checked = 'checked';
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
 
-//             if($value['max_compra'] <= 1){
-//                 $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//             }else{
-//                 $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
-//                 for($i = 1; $i <= $value['max_compra']; $i++){                    
-//                     $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//                 }
-//                 $numero_productos .= '</select>';
-//             }
+            if($value['max_compra'] <= 1){
+                $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+            }else{
+                $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
+                for($i = 1; $i <= $value['max_compra']; $i++){                    
+                    $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+                }
+                $numero_productos .= '</select>';
+            }
             
-//             $checks .= <<<html
+            $checks .= <<<html
 
-//             <div class="row">
-//                 <div class="col-md-8">
-//                     <div class="form-check">
-//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
-//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                             {$value['nombre_producto']}
-//                         </label>
-//                     </div>
-//                 </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-check">
+                        <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
+                        <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+                            {$value['nombre_producto']}
+                        </label>
+                    </div>
+                </div>
                
-//                 <div class="col-md-2">
-//                     {$precio} - {$value['tipo_moneda']}
-//                 </div>
+                <div class="col-md-2">
+                    {$precio} - {$value['tipo_moneda']}
+                </div>
 
-//                 <div class="col-md-2">
-//                        {$numero_productos}
-//                 </div>
+                <div class="col-md-2">
+                       {$numero_productos}
+                </div>
 
-//             </div>
+            </div>
 
-//             <hr>
+            <hr>
             
                
-// html;            
-//             $numero_productos = '';
+html;            
+            $numero_productos = '';
 
-//         }
+        }
 
-//         $tipo_cambio = HomeDao::getTipoCambio();
+        $tipo_cambio = HomeDao::getTipoCambio();
 
-//         // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
-//         $total_mx = intval($total_pago);
+        // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
+        $total_mx = intval($total_pago);
         
 
-//         View::set('header',$header);  
-//         View::set('datos',$data_user);
-//         View::set('clave',$clave);    
-//         View::set('checks',$checks);
-//         // View::set('src_qr',$src_qr); 
-//         // View::set('btn_block',$btn_block); 
-//         View::set('total_productos',$total_productos); 
-//         View::set('total_pago',$total_pago); 
-//         View::set('total_pago_mx',$total_mx); 
-//         // View::set('btn_imp',$btn_imp); 
-//         // View::set('ocultar',$ocultar);
-//         View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
-//         View::set('array_precios',$array_precios);
-//         View::set('array_productos',$array_productos);
-//         View::render("buy_products");
-//     }
+        View::set('header',$header);  
+        View::set('datos',$data_user);
+        View::set('clave',$clave);    
+        View::set('checks',$checks);
+        // View::set('src_qr',$src_qr); 
+        // View::set('btn_block',$btn_block); 
+        View::set('total_productos',$total_productos); 
+        View::set('total_pago',$total_pago); 
+        View::set('total_pago_mx',$total_mx); 
+        // View::set('btn_imp',$btn_imp); 
+        // View::set('ocultar',$ocultar);
+        View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
+        View::set('array_precios',$array_precios);
+        View::set('array_productos',$array_productos);
+        View::render("buy_products");
+    }
 
-//     public function passFinalize(){
+    public function passFinalize(){
 
-//         $user_email = $_GET['e'];
-//         $user_email = base64_decode($user_email);
+        $user_email = $_GET['e'];
+        $user_email = base64_decode($user_email);
 
-//         $data_user = HomeDao::getDataUser($user_email);       
+        $data_user = HomeDao::getDataUser($user_email);       
 
 
-//         $header =<<<html
-//         <!DOCTYPE html>
-//         <html lang="es">
+        $header =<<<html
+        <!DOCTYPE html>
+        <html lang="es">
         
-//           <head>
-//             <meta charset="utf-8">
-//             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//             <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
-//             <link rel="icon" type="image/png" href="../../../assets/img/logos/apmn.png">
-//             <title>
-//                AMH - GRUPO LAHE
-//             </title>
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//             <!-- TEMPLATE VIEJO-->
-//             <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-//             <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/logos/apmn.png">
+            <link rel="icon" type="image/png" href="../../../assets/img/logos/apmn.png">
+            <title>
+               AMH - GRUPO LAHE
+            </title>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <!-- TEMPLATE VIEJO-->
+            <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+            <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
 
-//             <meta charset="utf-8" />
-//             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-//             <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
 
-//             <!--     Fonts and icons     -->
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <!--     Fonts and icons     -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
 
-//             <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-//             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-//             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-//             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-//             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-//             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
               
-//             <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
-//             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
             
-//             <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
-//             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+            <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
 
-//            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-//            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-//            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-//            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-//            <script charset="UTF-8" src="//web.webpushs.com/js/push/9d0c1476424f10b1c5e277f542d790b8_1.js" async></script>
+           <script charset="UTF-8" src="//web.webpushs.com/js/push/9d0c1476424f10b1c5e277f542d790b8_1.js" async></script>
            
-//             <!-- TEMPLATE VIEJO-->
+            <!-- TEMPLATE VIEJO-->
 
-//             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-//             <!-- Nucleo Icons -->
-//             <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
-//             <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- Font Awesome Icons -->
-//             <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-//             <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
-//             <!-- CSS Files -->
-//             <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-//             <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-//             <link href="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-//             <style>
-//             .select2-container--default .select2-selection--single {
-//             height: 38px!important;
-//             border-radius: 8px!important;
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+            <!-- Nucleo Icons -->
+            <link href="../../../assets/css/nucleo-icons.css" rel="stylesheet" />
+            <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- Font Awesome Icons -->
+            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+            <link href="../../../assets/css/nucleo-svg.css" rel="stylesheet" />
+            <!-- CSS Files -->
+            <link id="pagestyle" href="../../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+            <link href="//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+            <style>
+            .select2-container--default .select2-selection--single {
+            height: 38px!important;
+            border-radius: 8px!important;
             
-//             }
-//             .select2-container {
-//               width: 100%!important;
+            }
+            .select2-container {
+              width: 100%!important;
               
-//           }
+          }
            
-//             </style>
-//         </head>
-// html;
+            </style>
+        </head>
+html;
 
         
 
 
-// $productos_pendientes_comprados = HomeDao::getProductosPendComprados($data_user['user_id']);
-// $checks = '';
-// $checked = '';
-// $total_productos = 0;
-// $total_pago = 0;
-// $check_disabled = '';
-// $array_precios = [];
-// $array_productos = [];
+$productos_pendientes_comprados = HomeDao::getProductosPendComprados($data_user['user_id']);
+$checks = '';
+$checked = '';
+$total_productos = 0;
+$total_pago = 0;
+$check_disabled = '';
+$array_precios = [];
+$array_productos = [];
 
-// // // $clave = HomeDao::getProductosPendCompradosClave($data_user['user_id'])[0]['clave'];
+// // $clave = HomeDao::getProductosPendCompradosClave($data_user['user_id'])[0]['clave'];
 
-// // $clave = HomeDao::getLastQrPendientePago($data_user['user_id'])['clave'];
+// $clave = HomeDao::getLastQrPendientePago($data_user['user_id'])['clave'];
 
 
-// // if($clave != ""){
-// //     // $src_qr = '/qrs/'.$productos_pendientes_comprados[0]['clave'].'.png';
-// //     $src_qr = '/qrs/'.$clave.'.png';           
-// //     // $btn_block = 'style = "display:none"';
-// //     // $check_disabled = 'disabled';
-// // }else{
-// //     $src_qr = '';
-// //     $btn_block = '';
+// if($clave != ""){
+//     // $src_qr = '/qrs/'.$productos_pendientes_comprados[0]['clave'].'.png';
+//     $src_qr = '/qrs/'.$clave.'.png';           
+//     // $btn_block = 'style = "display:none"';
+//     // $check_disabled = 'disabled';
+// }else{
+//     $src_qr = '';
+//     $btn_block = '';
     
-// // }   
+// }   
 
 
 
-// foreach($productos_pendientes_comprados as $key => $value) {
-//     $disabled = '';
-//     $checked = '';
-//     $pend_validar ='';
+foreach($productos_pendientes_comprados as $key => $value) {
+    $disabled = '';
+    $checked = '';
+    $pend_validar ='';
 
-//     if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//         $precio = $value['amout_due'];
-//     }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//         $precio = $value['amout_due'];
-//     }
-//     else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//         $precio = $value['precio_publico'];
-//     }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//         $precio = $value['precio_publico'];
-//     }
-//     else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//         $precio = $value['precio_publico'];
-//     }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//         $precio = $value['precio_publico'];
-//     }
+    if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+        $precio = $value['amout_due'];
+    }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+        $precio = $value['amout_due'];
+    }
+    else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+        $precio = $value['precio_publico'];
+    }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+        $precio = $value['precio_publico'];
+    }
+    else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+        $precio = $value['precio_publico'];
+    }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+        $precio = $value['precio_publico'];
+    }
     
-//     $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
+    $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
 
     
 
-//     if($value['estatus_compra'] == 1){
-//         $disabled = 'disabled';
-//         $checked = 'checked';
-//         $pend_validar ='Pagado y validado por AMH';
-//         // $btn_imp = '';
-//         // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//         // $ocultar = 'display:none;';
+    if($value['estatus_compra'] == 1){
+        $disabled = 'disabled';
+        $checked = 'checked';
+        $pend_validar ='Pagado y validado por AMH';
+        // $btn_imp = '';
+        // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+        // $ocultar = 'display:none;';
         
-//     }else if($value['estatus_compra'] == null){
-//         $pend_validar = 'Pendiente de Pagar';
-//         // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//         // $ocultar = '';
-//         // $disabled = 'disabled';
-//         $checked = 'checked';
-//         $total_productos += $count_producto['numero_productos'];
-//         $total_pago += $count_producto['numero_productos'] * $precio;
-//         array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
-//         array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
-//     }
+    }else if($value['estatus_compra'] == null){
+        $pend_validar = 'Pendiente de Pagar';
+        // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+        // $ocultar = '';
+        // $disabled = 'disabled';
+        $checked = 'checked';
+        $total_productos += $count_producto['numero_productos'];
+        $total_pago += $count_producto['numero_productos'] * $precio;
+        array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
+        array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
+    }
 
-//     if($value['max_compra'] <= 1){
-//         $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//     }else{
-//         $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
-//         for($i = 1; $i <= $value['max_compra']; $i++){                    
-//             $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//         }
-//         $numero_productos .= '</select>';
-//     }
+    if($value['max_compra'] <= 1){
+        $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+    }else{
+        $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
+        for($i = 1; $i <= $value['max_compra']; $i++){                    
+            $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+        }
+        $numero_productos .= '</select>';
+    }
 
-//     $checks .= <<<html
-//         <div class="row">
-//             <div class="col-md-8">
-//                 <div class="form-check">
-//                     <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
-//                     <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                         {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
-//                     </label>
-//                 </div>
-//             </div>
+    $checks .= <<<html
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-check">
+                    <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
+                    <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+                        {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
+                    </label>
+                </div>
+            </div>
            
-//             <div class="col-md-2">
-//                 {$precio} - {$value['tipo_moneda']}
-//             </div>
+            <div class="col-md-2">
+                {$precio} - {$value['tipo_moneda']}
+            </div>
 
-//             <div class="col-md-2">
-//                 {$numero_productos}
-//             </div>
-//         </div>
+            <div class="col-md-2">
+                {$numero_productos}
+            </div>
+        </div>
 
-//         <hr>
+        <hr>
           
-// html;            
-//         $numero_productos = '';
+html;            
+        $numero_productos = '';
 
-// }
-// $clave = $this->generateRandomString();
+}
+$clave = $this->generateRandomString();
 
-//         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
+        $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
-//         foreach($productos_no_comprados as $key => $value) {
+        foreach($productos_no_comprados as $key => $value) {
 
             
-//             // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
+            // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
 
-//                 // if($value['es_congreso'] == 1){
-//                 //     $precio = $data_user['amout_due'];
-//                 // }else if($value['es_servicio'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }else if($value['es_curso'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }
-//             // }else{
-//             //     $precio = $value['precio_publico'];
-//             // }
+                // if($value['es_congreso'] == 1){
+                //     $precio = $data_user['amout_due'];
+                // }else if($value['es_servicio'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }else if($value['es_curso'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }
+            // }else{
+            //     $precio = $value['precio_publico'];
+            // }
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
 
-//             if($value['max_compra'] <= 1){
-//                 $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//             }else{
-//                 $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
-//                 for($i = 1; $i <= $value['max_compra']; $i++){                    
-//                     $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//                 }
-//                 $numero_productos .= '</select>';
-//             }
+            if($value['max_compra'] <= 1){
+                $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+            }else{
+                $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
+                for($i = 1; $i <= $value['max_compra']; $i++){                    
+                    $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+                }
+                $numero_productos .= '</select>';
+            }
             
-//             $checks .= <<<html
+            $checks .= <<<html
 
-//             <div class="row">
-//                 <div class="col-md-8">
-//                     <div class="form-check">
-//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
-//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                             {$value['nombre_producto']}
-//                         </label>
-//                     </div>
-//                 </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-check">
+                        <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
+                        <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+                            {$value['nombre_producto']}
+                        </label>
+                    </div>
+                </div>
                
-//                 <div class="col-md-2">
-//                     {$precio} - {$value['tipo_moneda']}
-//                 </div>
+                <div class="col-md-2">
+                    {$precio} - {$value['tipo_moneda']}
+                </div>
 
-//                 <div class="col-md-2">
-//                        {$numero_productos}
-//                 </div>
+                <div class="col-md-2">
+                       {$numero_productos}
+                </div>
 
-//             </div>
+            </div>
 
-//             <hr>
+            <hr>
             
                
-// html;            
-//             $numero_productos = '';
+html;            
+            $numero_productos = '';
 
-//         }
+        }
 
-//         $tipo_cambio = HomeDao::getTipoCambio();
+        $tipo_cambio = HomeDao::getTipoCambio();
 
-//         // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
-//         $total_mx = intval($total_pago);
+        // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
+        $total_mx = intval($total_pago);
         
 
-//         View::set('header',$header);  
-//         View::set('datos',$data_user);
-//         // View::set('clave',$clave);    
-//         View::set('checks',$checks);
-//         // View::set('src_qr',$src_qr); 
-//         // View::set('btn_block',$btn_block); 
-//         View::set('total_productos',$total_productos); 
-//         View::set('total_pago',$total_pago); 
-//         View::set('total_pago_mx',$total_mx); 
-//         // View::set('btn_imp',$btn_imp); 
-//         // View::set('ocultar',$ocultar);
-//         View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
-//         View::set('array_precios',$array_precios);
-//         View::set('array_productos',$array_productos);
-//         View::render("buy_products");
+        View::set('header',$header);  
+        View::set('datos',$data_user);
+        // View::set('clave',$clave);    
+        View::set('checks',$checks);
+        // View::set('src_qr',$src_qr); 
+        // View::set('btn_block',$btn_block); 
+        View::set('total_productos',$total_productos); 
+        View::set('total_pago',$total_pago); 
+        View::set('total_pago_mx',$total_mx); 
+        // View::set('btn_imp',$btn_imp); 
+        // View::set('ocultar',$ocultar);
+        View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
+        View::set('array_precios',$array_precios);
+        View::set('array_productos',$array_productos);
+        View::render("buy_products");
         
 
-//     }
+    }
 
     
-//     function generateRandomString($length = 10)
-//     {
-//         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
-//     }
+    function generateRandomString($length = 10)
+    {
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    }
 
-//     public function generaterQr(){
-//         date_default_timezone_set('America/Mexico_City');
+    public function generaterQr(){
+        date_default_timezone_set('America/Mexico_City');
 
-//             $bandera = false;
-//             $total = 0;
+            $bandera = false;
+            $total = 0;
     
     
-//             // $clave = $this->generateRandomString();
-//            $clave = $_POST['clave'];  
-//            $usuario = $_POST['usuario']; 
-//            $tipo_pago = $_POST['metodo_pago']; 
+            // $clave = $this->generateRandomString();
+           $clave = $_POST['clave'];  
+           $usuario = $_POST['usuario']; 
+           $tipo_pago = $_POST['metodo_pago']; 
            
-//             $datos = json_decode($_POST['array'],true);
+            $datos = json_decode($_POST['array'],true);
     
-//             $datos_user = RegisterDao::getDataUser($usuario);
-//             // $metodo_pago = $_POST['metodo_pago'];
+            $datos_user = RegisterDao::getDataUser($usuario);
+            // $metodo_pago = $_POST['metodo_pago'];
 
-//             // var_dump($datos_user);
+            // var_dump($datos_user);
 
-//             // exit;
+            // exit;
             
-//             $user_id = $datos_user['user_id'];
-//             $reference = $datos_user['referencia'];
-//             // $tipo_pago = $metodo_pago;
-//             $fecha =  date("Y-m-d");
+            $user_id = $datos_user['user_id'];
+            $reference = $datos_user['referencia'];
+            // $tipo_pago = $metodo_pago;
+            $fecha =  date("Y-m-d");
     
     
-//            foreach($datos as $key => $value){                       
+           foreach($datos as $key => $value){                       
             
     
-//                 for($i = 1; $i <= $value['cantidad']; $i++){
-//                     $documento = new \stdClass();
+                for($i = 1; $i <= $value['cantidad']; $i++){
+                    $documento = new \stdClass();
                 
-//                     $id_producto = $value['id_product'];  
-//                     $monto = $value['precio'];                
+                    $id_producto = $value['id_product'];  
+                    $monto = $value['precio'];                
                     
     
-//                     $documento->_id_producto = $id_producto;
-//                     $documento->_user_id = $user_id;
-//                     $documento->_reference = $reference;
-//                     $documento->_fecha = $fecha;
-//                     $documento->_monto = $monto;
-//                     $documento->_tipo_pago = $tipo_pago;
-//                     $documento->_clave = $clave;                    
+                    $documento->_id_producto = $id_producto;
+                    $documento->_user_id = $user_id;
+                    $documento->_reference = $reference;
+                    $documento->_fecha = $fecha;
+                    $documento->_monto = $monto;
+                    $documento->_tipo_pago = $tipo_pago;
+                    $documento->_clave = $clave;                    
 
-//                     if($id_producto == 1 && $monto == 0){
-//                         //pendiente pago correcto
-//                         $status = 1;
+                    if($id_producto == 1 && $monto == 0){
+                        //pendiente pago correcto
+                        $status = 1;
 
-//                         $data = new \stdClass();
-//                         $data->_user_id = $user_id;
-//                         $data->_id_producto = $id_producto;
+                        $data = new \stdClass();
+                        $data->_user_id = $user_id;
+                        $data->_id_producto = $id_producto;
 
-//                         $existe_asigna = RegisterDao::getProductosAsignaProducto($user_id,$id_producto);
-//                         if(!$existe_asigna){
-//                             $insert_asigna = RegisterDao::insertAsignaProducto($data);
-//                         }                        
+                        $existe_asigna = RegisterDao::getProductosAsignaProducto($user_id,$id_producto);
+                        if(!$existe_asigna){
+                            $insert_asigna = RegisterDao::insertAsignaProducto($data);
+                        }                        
                         
-//                     }else{
-//                         $status = 0;
-//                     }
-//                     $documento->_status = $status;                   
+                    }else{
+                        $status = 0;
+                    }
+                    $documento->_status = $status;                   
                     
-//                     $existe_pendiente = RegisterDao::getProductosPendientesPago($user_id,$id_producto);
+                    $existe_pendiente = RegisterDao::getProductosPendientesPago($user_id,$id_producto);
                     
-//                     if($existe_pendiente){
-//                         $bandera = true;
-//                     }else{
-//                         $id = RegisterDao::inserPendientePago($documento);
-//                     }                     
+                    if($existe_pendiente){
+                        $bandera = true;
+                    }else{
+                        $id = RegisterDao::inserPendientePago($documento);
+                    }                     
     
-//                     if($id){
-//                         $bandera = true;
-//                     }
+                    if($id){
+                        $bandera = true;
+                    }
     
-//                     // echo 'Se inserta '.$i. 'veces' .' la cantidad '.$value['cantidad'];
-//                     // echo "<br>";
-//                 }
-//                 $total += $monto;
-//            }
+                    // echo 'Se inserta '.$i. 'veces' .' la cantidad '.$value['cantidad'];
+                    // echo "<br>";
+                }
+                $total += $monto;
+           }
     
-//            if($bandera){
-//                 $res = [
-//                     'status' => 'success',
-//                     'code' => $clave
+           if($bandera){
+                $res = [
+                    'status' => 'success',
+                    'code' => $clave
             
-//                 ];
+                ];
 
-//                 if(isset($_POST['enviar_email'])){
+                if(isset($_POST['enviar_email'])){
 
-//                     $msg = [
-//                         'nombre' => $datos_user['nombre'].' '.$datos_user['apellidop'].' '.$datos_user['apellidom'],
-//                         'metodo_pago' => $tipo_pago,
-//                         'referencia' => $reference,
-//                         'importe_pagar' => $total,
-//                         'fecha_limite_pago' =>$fecha,
-//                         'email' => $usuario
-//                     ];
+                    $msg = [
+                        'nombre' => $datos_user['nombre'].' '.$datos_user['apellidop'].' '.$datos_user['apellidom'],
+                        'metodo_pago' => $tipo_pago,
+                        'referencia' => $reference,
+                        'importe_pagar' => $total,
+                        'fecha_limite_pago' =>$fecha,
+                        'email' => $usuario
+                    ];
         
-//                     $mailer = new Mailer();
-//                     $mailer->mailerPago($msg);
+                    $mailer = new Mailer();
+                    $mailer->mailerPago($msg);
 
-//                 }
+                }
                 
                 
-//            }else{
-//                 $res = [
-//                     'status' => 'fail',
-//                     'code' => $clave
+           }else{
+                $res = [
+                    'status' => 'fail',
+                    'code' => $clave
             
-//                 ];
+                ];
     
-//            }
+           }
 
 
     
           
-//            echo json_encode($res);
+           echo json_encode($res);
            
-//         }
+        }
 
 
-//         public function ticketAll($clave = null, $id_curso = null)
-//     {
-//         date_default_timezone_set('America/Mexico_City');
+        public function ticketAll($clave = null, $id_curso = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
 
-//         $usuario = $_POST['email_usuario'];
-//         $datos_user = RegisterDao::getUser($usuario)[0];
+        $usuario = $_POST['email_usuario'];
+        $datos_user = RegisterDao::getUser($usuario)[0];
 
         
-//         $metodo_pago = $_POST['metodo_pago'];
+        $metodo_pago = $_POST['metodo_pago'];
 
 
-//         $user_id = $datos_user['user_id'];
-//         // $clave = $_POST['clave'];
+        $user_id = $datos_user['user_id'];
+        // $clave = $_POST['clave'];
 
-//         $productos = RegisterDao::getProductosPendientesPagoByUser($user_id);
+        $productos = RegisterDao::getProductosPendientesPagoByUser($user_id);
 
-//         foreach($productos as $key => $value){
+        foreach($productos as $key => $value){
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
            
-//             // $documento = new \stdClass();  
+            // $documento = new \stdClass();  
 
-//             $nombre_curso = $value['nombre'];
-//             $id_producto = $value['id_producto'];
-//             $user_id = $datos_user['user_id'];
-//             $reference = $datos_user['referencia'];
-//             $fecha =  date("Y-m-d");
-//             // $monto = $value['precio_publico'];
-//             $monto = $precio;
-//             $tipo_pago = $metodo_pago;
-//             $status = 0;
+            $nombre_curso = $value['nombre'];
+            $id_producto = $value['id_producto'];
+            $user_id = $datos_user['user_id'];
+            $reference = $datos_user['referencia'];
+            $fecha =  date("Y-m-d");
+            // $monto = $value['precio_publico'];
+            $monto = $precio;
+            $tipo_pago = $metodo_pago;
+            $status = 0;
     
-//             // $documento->_id_producto = $id_producto;
-//             // $documento->_user_id = $user_id;
-//             // $documento->_reference = $reference;
-//             // $documento->_fecha = $fecha;
-//             // $documento->_monto = $monto;
-//             // $documento->_tipo_pago = $tipo_pago;
-//             // $documento->_clave = $clave;
-//             // $documento->_status = $status;
+            // $documento->_id_producto = $id_producto;
+            // $documento->_user_id = $user_id;
+            // $documento->_reference = $reference;
+            // $documento->_fecha = $fecha;
+            // $documento->_monto = $monto;
+            // $documento->_tipo_pago = $tipo_pago;
+            // $documento->_clave = $clave;
+            // $documento->_status = $status;
 
-//             // $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
+            // $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
 
-//             // if(!$existe){
-//             //     $id = TalleresDao::inserPendientePago($documento); 
-//             //     $delete = TalleresDao::deleteItem($value['id_carrito']);
-//             // }
-//                 // $delete = TalleresDao::deleteItem($value['id_carrito']);
+            // if(!$existe){
+            //     $id = TalleresDao::inserPendientePago($documento); 
+            //     $delete = TalleresDao::deleteItem($value['id_carrito']);
+            // }
+                // $delete = TalleresDao::deleteItem($value['id_carrito']);
 
-//         }
+        }
 
-//         // $d = $this->fechaCastellano($fecha);
+        // $d = $this->fechaCastellano($fecha);
         
-//         $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
+        $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
 
 
-//         $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
-//         $pdf->AddPage();
-//         $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
-//         $pdf->setY(1);
-//         $pdf->SetFont('Arial', 'B', 16);
-//         $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
-//         // $pdf->SetFont('Arial', 'B', 25);
-//         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
+        $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->setY(1);
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
+        // $pdf->SetFont('Arial', 'B', 25);
+        // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
-//         $espace = 141;
-//         $total = array();
-//         foreach($productos as $key => $value){            
+        $espace = 141;
+        $total = array();
+        foreach($productos as $key => $value){            
             
             
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
 
-//             array_push($total,$precio);
+            array_push($total,$precio);
 
-//             //Nombre Curso
-//             $pdf->SetXY(30, $espace);
-//             $pdf->SetFont('Arial', 'B', 8);  
-//             $pdf->SetTextColor(0, 0, 0);
-//             $pdf->Multicell(100, 4, utf8_decode($value['nombre']), 0, 'C');
+            //Nombre Curso
+            $pdf->SetXY(30, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, utf8_decode($value['nombre']), 0, 'C');
 
-//             //Costo
-//             $pdf->SetXY(122, $espace);
-//             $pdf->SetFont('Arial', 'B', 8);  
-//             $pdf->SetTextColor(0, 0, 0);
-//             $pdf->Multicell(100, 4, '$ '.$precio.' ' .$value['tipo_moneda'], 0, 'C');
+            //Costo
+            $pdf->SetXY(122, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, '$ '.$precio.' ' .$value['tipo_moneda'], 0, 'C');
 
-//             $espace = $espace + 7;
-//         }
+            $espace = $espace + 7;
+        }
 
-//         //folio
-//         $pdf->SetXY(92, 60.5);
-//         $pdf->SetFont('Arial', 'B', 13);  
-//         $pdf->SetTextColor(0, 0, 0);
-//         $pdf->Multicell(100, 10, $reference, 0, 'C');
+        //folio
+        $pdf->SetXY(92, 60.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $reference, 0, 'C');
 
-//         //fecha
-//         $pdf->SetXY(90, 70.5);
-//         $pdf->SetFont('Arial', 'B', 13);  
-//         $pdf->SetTextColor(0, 0, 0);
-//         $pdf->Multicell(100, 10, $fecha, 0, 'C');
+        //fecha
+        $pdf->SetXY(90, 70.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $fecha, 0, 'C');
 
 
 
-//        // total
-//         // $pdf->SetXY(118, 170);
-//         // $pdf->SetFont('Arial', 'B', 8);  
-//         // $pdf->SetTextColor(0, 0, 0);
-//         // $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
+       // total
+        // $pdf->SetXY(118, 170);
+        // $pdf->SetFont('Arial', 'B', 8);  
+        // $pdf->SetTextColor(0, 0, 0);
+        // $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
 
-//         $pdf->Output();
-//         // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
+        $pdf->Output();
+        // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
 
-//         // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
-//     }
+        // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
+    }
 
 //     public function Success(){
 
@@ -1984,16 +1984,16 @@ html;
 //         View::render("alerta");
 //     }
 
-//     public function getCountry(){
-//         $country = '';
-//         foreach (RegisterDao::getCountryAll() as $key => $value) {
-//             $country.=<<<html
+    public function getCountry(){
+        $country = '';
+        foreach (RegisterDao::getCountryAll() as $key => $value) {
+            $country.=<<<html
            
-//         <option value="{$value['id_pais']}">{$value['country']}</option>
-// html;
-//         }
-//         return $country;
-//     }
+        <option value="{$value['id_pais']}">{$value['country']}</option>
+html;
+        }
+        return $country;
+    }
 
 //     public function ObtenerEstado(){
 //         $pais=$_POST['pais'];
