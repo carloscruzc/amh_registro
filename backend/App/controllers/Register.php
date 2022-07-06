@@ -1004,6 +1004,9 @@ html;
         $user_email = $_GET['e'];
         $user_email = base64_decode($user_email);
 
+        echo $user_email;
+        exit;
+
         $data_user = HomeDao::getDataUser($user_email);       
 
 
