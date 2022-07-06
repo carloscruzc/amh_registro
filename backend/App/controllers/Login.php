@@ -11,12 +11,12 @@ class Login{
     private $_contenedor;
 
 
+    // public function index() {
+
+    //     View::render("login_inicio");
+    // }
+
     public function index() {
-
-        View::render("login_inicio");
-    }
-
-    public function index1() {
         
         $extraHeader =<<<html
         <!DOCTYPE html>
@@ -306,8 +306,8 @@ html;
             }
        
 
-        View::set('header',$extraHeader);
-        View::set('footer',$extraFooter);
+        // View::set('header',$extraHeader);
+        // View::set('footer',$extraFooter);
         View::set('optionEspecialidad', $optionEspecialidad);
         View::set('optionPais', $optionPais);
         View::set('optionState', $optionState);
