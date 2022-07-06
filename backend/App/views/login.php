@@ -223,8 +223,8 @@ echo $header;
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe src="https://www.flipbookpdf.net/web/site/481d28c4f8e8bc288524792304e2adcdc0ccdfb2FBP19835591.pdf.html" frameborder="0" style="width: -webkit-fill-available;
-    max-width: -webkit-fill-available; height:700px;"></iframe>
+                    <!-- <iframe src="https://www.flipbookpdf.net/web/site/481d28c4f8e8bc288524792304e2adcdc0ccdfb2FBP19835591.pdf.html" frameborder="0" style="width: -webkit-fill-available;
+    max-width: -webkit-fill-available; height:700px;"></iframe> -->
                 </div>
                 <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
