@@ -1176,15 +1176,15 @@ $array_productos = [];
             array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
         }
 
-//         if($value['max_compra'] <= 1){
-//             $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//         }else{
-//             $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
-//             for($i = 1; $i <= $value['max_compra']; $i++){                    
-//                 $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//             }
-//             $numero_productos .= '</select>';
-//         }
+        if($value['max_compra'] <= 1){
+            $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+        }else{
+            $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'" data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'" '.$disabled.'>';
+            for($i = 1; $i <= $value['max_compra']; $i++){                    
+                $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+            }
+            $numero_productos .= '</select>';
+        }
 
 //         $checks .= <<<html
 //             <div class="row">
