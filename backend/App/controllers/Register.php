@@ -1215,86 +1215,86 @@ $array_productos = [];
 // }
             $clave = $this->generateRandomString();
 
-//         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
+        $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
-//         foreach($productos_no_comprados as $key => $value) {
+        foreach($productos_no_comprados as $key => $value) {
 
             
-//             // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
+            // if($data_user['amout_due'] != null || $data_user['amout_due'] != ''){
 
-//                 // if($value['es_congreso'] == 1){
-//                 //     $precio = $data_user['amout_due'];
-//                 // }else if($value['es_servicio'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }else if($value['es_curso'] == 1){
-//                 //     $precio = $value['precio_publico'];
-//                 // }
-//             // }else{
-//             //     $precio = $value['precio_publico'];
-//             // }
+                // if($value['es_congreso'] == 1){
+                //     $precio = $data_user['amout_due'];
+                // }else if($value['es_servicio'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }else if($value['es_curso'] == 1){
+                //     $precio = $value['precio_publico'];
+                // }
+            // }else{
+            //     $precio = $value['precio_publico'];
+            // }
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
 
-//             if($value['max_compra'] <= 1){
-//                 $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
-//             }else{
-//                 $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
-//                 for($i = 1; $i <= $value['max_compra']; $i++){                    
-//                     $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
-//                 }
-//                 $numero_productos .= '</select>';
-//             }
+            if($value['max_compra'] <= 1){
+                $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
+            }else{
+                $numero_productos = '<select class="form-control select_numero_articulos" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" data-id-producto="'.$value['id_producto'].'"  data-precio="'.$precio.'" data-nombre-producto="'.$value['nombre_producto'].'">';
+                for($i = 1; $i <= $value['max_compra']; $i++){                    
+                    $numero_productos .= '<option value="'.$i.'">'.$i.'</option>';                
+                }
+                $numero_productos .= '</select>';
+            }
             
-//             $checks .= <<<html
+            $checks .= <<<html
 
-//             <div class="row">
-//                 <div class="col-md-8">
-//                     <div class="form-check">
-//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
-//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                             {$value['nombre_producto']}
-//                         </label>
-//                     </div>
-//                 </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-check">
+                        <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
+                        <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+                            {$value['nombre_producto']}
+                        </label>
+                    </div>
+                </div>
                
-//                 <div class="col-md-2">
-//                     {$precio} - {$value['tipo_moneda']}
-//                 </div>
+                <div class="col-md-2">
+                    {$precio} - {$value['tipo_moneda']}
+                </div>
 
-//                 <div class="col-md-2">
-//                        {$numero_productos}
-//                 </div>
+                <div class="col-md-2">
+                       {$numero_productos}
+                </div>
 
-//             </div>
+            </div>
 
-//             <hr>
+            <hr>
             
                
-// html;            
-//             $numero_productos = '';
+html;            
+            $numero_productos = '';
 
-//         }
+        }
 
-//         $tipo_cambio = HomeDao::getTipoCambio();
+        $tipo_cambio = HomeDao::getTipoCambio();
 
-//         // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
-//         $total_mx = intval($total_pago);
+        // $total_mx = intval($total_pago) * floatval($tipo_cambio['tipo_cambio']);
+        $total_mx = intval($total_pago);
         
 
         View::set('header',$header);  
