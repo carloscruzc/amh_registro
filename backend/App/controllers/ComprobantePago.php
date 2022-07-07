@@ -459,7 +459,7 @@ html;
         $pdf->SetXY(88, 80);
         $pdf->SetFont('Arial', 'B', 13);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->Multicell(100, 10, utf8_encode($nombre_completo), 0, 'C');
+        $pdf->Multicell(100, 10, utf8_decode($nombre_completo), 0, 'C');
 
          //total
         // $pdf->SetXY(118, 170);
