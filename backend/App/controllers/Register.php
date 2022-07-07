@@ -1260,6 +1260,11 @@ $array_productos = [];
                 }
                 $numero_productos .= '</select>';
             }
+
+            $checks .= <<<html
+
+            <h1>fsddsf</h1>
+html;
             
 //             $checks .= <<<html
 
