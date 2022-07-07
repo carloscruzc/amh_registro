@@ -461,7 +461,7 @@ html;
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Multicell(100, 10, $nombre_completo, 0, 'C');
 
-        // //total
+         //total
         // $pdf->SetXY(118, 170);
         // $pdf->SetFont('Arial', 'B', 8);  
         // $pdf->SetTextColor(0, 0, 0);
