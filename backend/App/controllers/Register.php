@@ -1186,14 +1186,14 @@ $array_productos = [];
             $numero_productos .= '</select>';
         }
 
-        $checks .= <<<html
-        <div class="row">
+//         $checks .= <<<html
+//         <div class="row">
            
-        </div>
+//         </div>
 
-        <hr>
+//         <hr>
         
-html;            
+// html;            
         // $numero_productos = '';
 
     }
