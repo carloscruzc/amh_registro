@@ -1317,10 +1317,10 @@ $array_productos = [];
     }
 
     
-    // function generateRandomString($length = 10)
-    // {
-    //     return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
-    // }
+    function generateRandomString($length = 10)
+    {
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    }
 
 //     public function generaterQr(){
 //         date_default_timezone_set('America/Mexico_City');
