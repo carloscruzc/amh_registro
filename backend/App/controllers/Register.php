@@ -1212,6 +1212,9 @@ $array_productos = [];
 // html;            
 //             $numero_productos = '';
 
+        $checks .= <<<html
+html;
+
     }
 // }
         $clave = $this->generateRandomString();
