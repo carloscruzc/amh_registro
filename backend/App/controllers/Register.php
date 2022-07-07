@@ -1132,25 +1132,25 @@ $array_productos = [];
 
 if(count($productos_pendientes_comprados) > 0){
     foreach($productos_pendientes_comprados as $key => $value) {
-//         $disabled = '';
-//         $checked = '';
-//         $pend_validar ='';
+        $disabled = '';
+        $checked = '';
+        $pend_validar ='';
 
-//         if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//             $precio = $value['amout_due'];
-//         }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//             $precio = $value['amout_due'];
-//         }
-//         else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//             $precio = $value['precio_publico'];
-//         }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//             $precio = $value['precio_publico'];
-//         }
-//         else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//             $precio = $value['precio_publico'];
-//         }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//             $precio = $value['precio_publico'];
-//         }
+        if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+            $precio = $value['amout_due'];
+        }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+            $precio = $value['amout_due'];
+        }
+        else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+            $precio = $value['precio_publico'];
+        }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+            $precio = $value['precio_publico'];
+        }
+        else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+            $precio = $value['precio_publico'];
+        }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+            $precio = $value['precio_publico'];
+        }
         
 //         $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
 
