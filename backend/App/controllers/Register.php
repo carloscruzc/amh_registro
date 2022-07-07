@@ -1514,7 +1514,7 @@ html;
 
         // $d = $this->fechaCastellano($fecha);
         
-        $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
+        $nombre_completo = $datos_user['nombre'] . " " . $datos_user['apellidop'] . " " . $datos_user['apellidom'];
 
 
         $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
@@ -1522,7 +1522,7 @@ html;
         $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
         $pdf->setY(1);
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
+        $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 210, 300);
         // $pdf->SetFont('Arial', 'B', 25);
         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
@@ -1577,6 +1577,12 @@ html;
         $pdf->SetFont('Arial', 'B', 13);  
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Multicell(100, 10, $fecha, 0, 'C');
+
+         //nombre
+         $pdf->SetXY(90, 80);
+         $pdf->SetFont('Arial', 'B', 13);  
+         $pdf->SetTextColor(0, 0, 0);
+         $pdf->Multicell(100, 10, $nombre_completo, 0, 'C');
 
 
 
