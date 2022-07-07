@@ -1213,7 +1213,7 @@ $array_productos = [];
 
     }
 // }
-$clave = $this->generateRandomString();
+            $clave = $this->generateRandomString();
 
 //         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
