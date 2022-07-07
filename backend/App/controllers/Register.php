@@ -1213,7 +1213,7 @@ $array_productos = [];
 
     }
 // }
-// $clave = $this->generateRandomString();
+$clave = $this->generateRandomString();
 
 //         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
@@ -1299,7 +1299,7 @@ $array_productos = [];
 
         View::set('header',$header);  
         View::set('datos',$data_user);
-        // View::set('clave',$clave);    
+        View::set('clave',$clave);    
         View::set('checks',$checks);
         // // View::set('src_qr',$src_qr); 
         // // View::set('btn_block',$btn_block); 
