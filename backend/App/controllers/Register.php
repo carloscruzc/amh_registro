@@ -572,9 +572,9 @@ html;
         $str_apellidop = str_split($data['apellidop']);
         $str_apellidom = str_split($data['apellidom']);
 
-        $fecha = explode('-',$date);
+        $fecha = explode('-',$date);        
 
-        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+        $referencia = $str_nombre[0].$str_nombre[1].$str_apellidop[0].$str_apellidop[1].$fecha[0].$fecha[1].$fecha[2];
 
         $monto_congreso = RegisterDao::getMontoPago($data['categorias'])['costo'];
 
@@ -587,7 +587,7 @@ html;
         $documento->_apellidop = $data['apellidop'];
         $documento->_apellidom = $data['apellidom'];        
         $documento->_telephone = $data['telephone'];
-        $documento->_referencia = $refernecia;
+        $documento->_referencia = $referencia;
         $documento->_categorias = $data['categorias'];
         $documento->_especialidades = $data['especialidades'];
         $documento->_nationality = $data['nationality'];
@@ -665,7 +665,7 @@ html;
 
         $fecha = explode('-',$date);
 
-        $refernecia = $str_nombre[0].$str_apellidop[0].$str_apellidom[0].$fecha[0].$fecha[1].$fecha[2];
+        $referencia = $str_nombre[0].$str_nombre[1].$str_apellidop[0].$str_apellidop[1].$fecha[0].$fecha[1].$fecha[2];
 
         $documento = new \stdClass();
 
@@ -675,7 +675,7 @@ html;
         $documento->_apellidop = $data['apellidop'];
         $documento->_apellidom = $data['apellidom'];        
         $documento->_telephone = $data['telephone'];
-        $documento->_referencia = $refernecia;
+        $documento->_referencia = $referencia;
         $documento->_categorias = $data['categorias'];
         $documento->_especialidades = $data['especialidades'];
         $documento->_nationality = $data['nationality'];
