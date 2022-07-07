@@ -396,7 +396,7 @@ html;
 
         // $d = $this->fechaCastellano($fecha);
 
-        $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
+        $nombre_completo = $datos_user['nombre'] . " " . $datos_user['apellidom'] . " " . $datos_user['apellidop'];
 
 
         $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
@@ -447,13 +447,19 @@ html;
         $pdf->SetXY(90, 60);
         $pdf->SetFont('Arial', 'B', 13);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->Multicell(100, 10, $datos_user['reference'], 0, 'C');
+        $pdf->Multicell(100, 10, $datos_user['referencia'], 0, 'C');
 
         //fecha
         $pdf->SetXY(88, 70);
         $pdf->SetFont('Arial', 'B', 13);
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Multicell(100, 10, $fecha, 0, 'C');
+
+        //fecha
+        $pdf->SetXY(88, 80);
+        $pdf->SetFont('Arial', 'B', 13);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $nombre_completo, 0, 'C');
 
         // //total
         // $pdf->SetXY(118, 170);
