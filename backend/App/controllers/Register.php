@@ -1194,7 +1194,7 @@ $array_productos = [];
         <hr>
         
 html;            
-        $numero_productos = '';
+        // $numero_productos = '';
 
     }
 // }
