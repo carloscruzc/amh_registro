@@ -1213,6 +1213,8 @@ $array_productos = [];
 //             $numero_productos = '';
 
         $checks .= <<<html
+
+        <h1>jajaja</h1>
 html;
 
     }
