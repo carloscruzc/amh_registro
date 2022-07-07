@@ -1285,34 +1285,10 @@ $array_productos = [];
 
              <hr>
 html;
+
+            $numero_productos = '';
             
-//             $checks .= <<<html
 
-//             <div class="row">
-//                 <div class="col-md-8">
-//                     <div class="form-check">
-//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
-//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                             {$value['nombre_producto']}
-//                         </label>
-//                     </div>
-//                 </div>
-               
-//                 <div class="col-md-2">
-//                     {$precio} - {$value['tipo_moneda']}
-//                 </div>
-
-//                 <div class="col-md-2">
-//                        {$numero_productos}
-//                 </div>
-
-//             </div>
-
-//             <hr>
-            
-               
-// html;            
-            // $numero_productos = '';
 
         }
 
