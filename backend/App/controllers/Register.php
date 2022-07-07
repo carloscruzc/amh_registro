@@ -1130,7 +1130,7 @@ $array_productos = [];
 // }   
 
 
-if(count($productos_pendientes_comprados) > 0){
+// if(count($productos_pendientes_comprados) > 0){
     foreach($productos_pendientes_comprados as $key => $value) {
         $disabled = '';
         $checked = '';
@@ -1212,7 +1212,7 @@ if(count($productos_pendientes_comprados) > 0){
 //             $numero_productos = '';
 
     }
-}
+// }
 // $clave = $this->generateRandomString();
 
 //         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
