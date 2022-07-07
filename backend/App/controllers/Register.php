@@ -1188,7 +1188,7 @@ $array_productos = [];
 
         $checks .= <<<html
         <div class="row">
-            <div class="col-md-8">
+            <!--<div class="col-md-8">
                 <div class="form-check">
                     <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
                     <label class="form-check-label" for="check_curso_{$value['id_producto']}">
@@ -1203,7 +1203,7 @@ $array_productos = [];
 
             <div class="col-md-2">
                 {$numero_productos}
-            </div>
+            </div>-->
         </div>
 
         <hr>
