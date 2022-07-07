@@ -1261,33 +1261,33 @@ $array_productos = [];
                 $numero_productos .= '</select>';
             }
             
-            $checks .= <<<html
+//             $checks .= <<<html
 
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-check">
-                        <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
-                        <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-                            {$value['nombre_producto']}
-                        </label>
-                    </div>
-                </div>
+//             <div class="row">
+//                 <div class="col-md-8">
+//                     <div class="form-check">
+//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}" {$check_disabled}>
+//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+//                             {$value['nombre_producto']}
+//                         </label>
+//                     </div>
+//                 </div>
                
-                <div class="col-md-2">
-                    {$precio} - {$value['tipo_moneda']}
-                </div>
+//                 <div class="col-md-2">
+//                     {$precio} - {$value['tipo_moneda']}
+//                 </div>
 
-                <div class="col-md-2">
-                       {$numero_productos}
-                </div>
+//                 <div class="col-md-2">
+//                        {$numero_productos}
+//                 </div>
 
-            </div>
+//             </div>
 
-            <hr>
+//             <hr>
             
                
-html;            
-            $numero_productos = '';
+// html;            
+            // $numero_productos = '';
 
         }
 
@@ -1301,16 +1301,16 @@ html;
         View::set('datos',$data_user);
         View::set('clave',$clave);    
         View::set('checks',$checks);
-        // // View::set('src_qr',$src_qr); 
-        // // View::set('btn_block',$btn_block); 
-        // View::set('total_productos',$total_productos); 
-        // View::set('total_pago',$total_pago); 
-        // View::set('total_pago_mx',$total_mx); 
-        // // View::set('btn_imp',$btn_imp); 
-        // // View::set('ocultar',$ocultar);
-        // View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
-        // View::set('array_precios',$array_precios);
-        // View::set('array_productos',$array_productos);
+        // View::set('src_qr',$src_qr); 
+        // View::set('btn_block',$btn_block); 
+        View::set('total_productos',$total_productos); 
+        View::set('total_pago',$total_pago); 
+        View::set('total_pago_mx',$total_mx); 
+        // View::set('btn_imp',$btn_imp); 
+        // View::set('ocultar',$ocultar);
+        View::set('tipo_cambio',$tipo_cambio['tipo_cambio']);
+        View::set('array_precios',$array_precios);
+        View::set('array_productos',$array_productos);
         View::render("buy_products");
         
 
