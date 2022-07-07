@@ -1323,274 +1323,274 @@ html;
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
 
-//     public function generaterQr(){
-//         date_default_timezone_set('America/Mexico_City');
+    public function generaterQr(){
+        date_default_timezone_set('America/Mexico_City');
 
-//             $bandera = false;
-//             $total = 0;
+            $bandera = false;
+            $total = 0;
     
     
-//             // $clave = $this->generateRandomString();
-//            $clave = $_POST['clave'];  
-//            $usuario = $_POST['usuario']; 
-//            $tipo_pago = $_POST['metodo_pago']; 
+            // $clave = $this->generateRandomString();
+           $clave = $_POST['clave'];  
+           $usuario = $_POST['usuario']; 
+           $tipo_pago = $_POST['metodo_pago']; 
            
-//             $datos = json_decode($_POST['array'],true);
+            $datos = json_decode($_POST['array'],true);
     
-//             $datos_user = RegisterDao::getDataUser($usuario);
-//             // $metodo_pago = $_POST['metodo_pago'];
+            $datos_user = RegisterDao::getDataUser($usuario);
+            // $metodo_pago = $_POST['metodo_pago'];
 
-//             // var_dump($datos_user);
+            // var_dump($datos_user);
 
-//             // exit;
+            // exit;
             
-//             $user_id = $datos_user['user_id'];
-//             $reference = $datos_user['referencia'];
-//             // $tipo_pago = $metodo_pago;
-//             $fecha =  date("Y-m-d");
+            $user_id = $datos_user['user_id'];
+            $reference = $datos_user['referencia'];
+            // $tipo_pago = $metodo_pago;
+            $fecha =  date("Y-m-d");
     
     
-//            foreach($datos as $key => $value){                       
+           foreach($datos as $key => $value){                       
             
     
-//                 for($i = 1; $i <= $value['cantidad']; $i++){
-//                     $documento = new \stdClass();
+                for($i = 1; $i <= $value['cantidad']; $i++){
+                    $documento = new \stdClass();
                 
-//                     $id_producto = $value['id_product'];  
-//                     $monto = $value['precio'];                
+                    $id_producto = $value['id_product'];  
+                    $monto = $value['precio'];                
                     
     
-//                     $documento->_id_producto = $id_producto;
-//                     $documento->_user_id = $user_id;
-//                     $documento->_reference = $reference;
-//                     $documento->_fecha = $fecha;
-//                     $documento->_monto = $monto;
-//                     $documento->_tipo_pago = $tipo_pago;
-//                     $documento->_clave = $clave;                    
+                    $documento->_id_producto = $id_producto;
+                    $documento->_user_id = $user_id;
+                    $documento->_reference = $reference;
+                    $documento->_fecha = $fecha;
+                    $documento->_monto = $monto;
+                    $documento->_tipo_pago = $tipo_pago;
+                    $documento->_clave = $clave;                    
 
-//                     if($id_producto == 1 && $monto == 0){
-//                         //pendiente pago correcto
-//                         $status = 1;
+                    if($id_producto == 1 && $monto == 0){
+                        //pendiente pago correcto
+                        $status = 1;
 
-//                         $data = new \stdClass();
-//                         $data->_user_id = $user_id;
-//                         $data->_id_producto = $id_producto;
+                        $data = new \stdClass();
+                        $data->_user_id = $user_id;
+                        $data->_id_producto = $id_producto;
 
-//                         $existe_asigna = RegisterDao::getProductosAsignaProducto($user_id,$id_producto);
-//                         if(!$existe_asigna){
-//                             $insert_asigna = RegisterDao::insertAsignaProducto($data);
-//                         }                        
+                        $existe_asigna = RegisterDao::getProductosAsignaProducto($user_id,$id_producto);
+                        if(!$existe_asigna){
+                            $insert_asigna = RegisterDao::insertAsignaProducto($data);
+                        }                        
                         
-//                     }else{
-//                         $status = 0;
-//                     }
-//                     $documento->_status = $status;                   
+                    }else{
+                        $status = 0;
+                    }
+                    $documento->_status = $status;                   
                     
-//                     $existe_pendiente = RegisterDao::getProductosPendientesPago($user_id,$id_producto);
+                    $existe_pendiente = RegisterDao::getProductosPendientesPago($user_id,$id_producto);
                     
-//                     if($existe_pendiente){
-//                         $bandera = true;
-//                     }else{
-//                         $id = RegisterDao::inserPendientePago($documento);
-//                     }                     
+                    if($existe_pendiente){
+                        $bandera = true;
+                    }else{
+                        $id = RegisterDao::inserPendientePago($documento);
+                    }                     
     
-//                     if($id){
-//                         $bandera = true;
-//                     }
+                    if($id){
+                        $bandera = true;
+                    }
     
-//                     // echo 'Se inserta '.$i. 'veces' .' la cantidad '.$value['cantidad'];
-//                     // echo "<br>";
-//                 }
-//                 $total += $monto;
-//            }
+                    // echo 'Se inserta '.$i. 'veces' .' la cantidad '.$value['cantidad'];
+                    // echo "<br>";
+                }
+                $total += $monto;
+           }
     
-//            if($bandera){
-//                 $res = [
-//                     'status' => 'success',
-//                     'code' => $clave
+           if($bandera){
+                $res = [
+                    'status' => 'success',
+                    'code' => $clave
             
-//                 ];
+                ];
 
-//                 if(isset($_POST['enviar_email'])){
+                if(isset($_POST['enviar_email'])){
 
-//                     $msg = [
-//                         'nombre' => $datos_user['nombre'].' '.$datos_user['apellidop'].' '.$datos_user['apellidom'],
-//                         'metodo_pago' => $tipo_pago,
-//                         'referencia' => $reference,
-//                         'importe_pagar' => $total,
-//                         'fecha_limite_pago' =>$fecha,
-//                         'email' => $usuario
-//                     ];
+                    $msg = [
+                        'nombre' => $datos_user['nombre'].' '.$datos_user['apellidop'].' '.$datos_user['apellidom'],
+                        'metodo_pago' => $tipo_pago,
+                        'referencia' => $reference,
+                        'importe_pagar' => $total,
+                        'fecha_limite_pago' =>$fecha,
+                        'email' => $usuario
+                    ];
         
-//                     $mailer = new Mailer();
-//                     $mailer->mailerPago($msg);
+                    $mailer = new Mailer();
+                    $mailer->mailerPago($msg);
 
-//                 }
+                }
                 
                 
-//            }else{
-//                 $res = [
-//                     'status' => 'fail',
-//                     'code' => $clave
+           }else{
+                $res = [
+                    'status' => 'fail',
+                    'code' => $clave
             
-//                 ];
+                ];
     
-//            }
+           }
 
 
     
           
-//            echo json_encode($res);
+           echo json_encode($res);
            
-//         }
+        }
 
 
-//         public function ticketAll($clave = null, $id_curso = null)
-//     {
-//         date_default_timezone_set('America/Mexico_City');
+        public function ticketAll($clave = null, $id_curso = null)
+    {
+        date_default_timezone_set('America/Mexico_City');
 
-//         $usuario = $_POST['email_usuario'];
-//         $datos_user = RegisterDao::getUser($usuario)[0];
+        $usuario = $_POST['email_usuario'];
+        $datos_user = RegisterDao::getUser($usuario)[0];
 
         
-//         $metodo_pago = $_POST['metodo_pago'];
+        $metodo_pago = $_POST['metodo_pago'];
 
 
-//         $user_id = $datos_user['user_id'];
-//         // $clave = $_POST['clave'];
+        $user_id = $datos_user['user_id'];
+        // $clave = $_POST['clave'];
 
-//         $productos = RegisterDao::getProductosPendientesPagoByUser($user_id);
+        $productos = RegisterDao::getProductosPendientesPagoByUser($user_id);
 
-//         foreach($productos as $key => $value){
+        foreach($productos as $key => $value){
 
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
            
-//             // $documento = new \stdClass();  
+            // $documento = new \stdClass();  
 
-//             $nombre_curso = $value['nombre'];
-//             $id_producto = $value['id_producto'];
-//             $user_id = $datos_user['user_id'];
-//             $reference = $datos_user['referencia'];
-//             $fecha =  date("Y-m-d");
-//             // $monto = $value['precio_publico'];
-//             $monto = $precio;
-//             $tipo_pago = $metodo_pago;
-//             $status = 0;
+            $nombre_curso = $value['nombre'];
+            $id_producto = $value['id_producto'];
+            $user_id = $datos_user['user_id'];
+            $reference = $datos_user['referencia'];
+            $fecha =  date("Y-m-d");
+            // $monto = $value['precio_publico'];
+            $monto = $precio;
+            $tipo_pago = $metodo_pago;
+            $status = 0;
     
-//             // $documento->_id_producto = $id_producto;
-//             // $documento->_user_id = $user_id;
-//             // $documento->_reference = $reference;
-//             // $documento->_fecha = $fecha;
-//             // $documento->_monto = $monto;
-//             // $documento->_tipo_pago = $tipo_pago;
-//             // $documento->_clave = $clave;
-//             // $documento->_status = $status;
+            // $documento->_id_producto = $id_producto;
+            // $documento->_user_id = $user_id;
+            // $documento->_reference = $reference;
+            // $documento->_fecha = $fecha;
+            // $documento->_monto = $monto;
+            // $documento->_tipo_pago = $tipo_pago;
+            // $documento->_clave = $clave;
+            // $documento->_status = $status;
 
-//             // $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
+            // $existe = TalleresDao::getProductosPendientesPago($user_id,$id_producto);
 
-//             // if(!$existe){
-//             //     $id = TalleresDao::inserPendientePago($documento); 
-//             //     $delete = TalleresDao::deleteItem($value['id_carrito']);
-//             // }
-//                 // $delete = TalleresDao::deleteItem($value['id_carrito']);
+            // if(!$existe){
+            //     $id = TalleresDao::inserPendientePago($documento); 
+            //     $delete = TalleresDao::deleteItem($value['id_carrito']);
+            // }
+                // $delete = TalleresDao::deleteItem($value['id_carrito']);
 
-//         }
+        }
 
-//         // $d = $this->fechaCastellano($fecha);
+        // $d = $this->fechaCastellano($fecha);
         
-//         $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
+        $nombre_completo = $datos_user['name_user'] . " " . $datos_user['middle_name'] . " " . $datos_user['surname'] . " " . $datos_user['second_surname'];
 
 
-//         $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
-//         $pdf->AddPage();
-//         $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
-//         $pdf->setY(1);
-//         $pdf->SetFont('Arial', 'B', 16);
-//         $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
-//         // $pdf->SetFont('Arial', 'B', 25);
-//         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
+        $pdf = new \FPDF($orientation = 'P', $unit = 'mm', $format = 'A4');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->setY(1);
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('constancias/plantillas/orden.jpeg', 0, 0, 200, 300);
+        // $pdf->SetFont('Arial', 'B', 25);
+        // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
-//         $espace = 141;
-//         $total = array();
-//         foreach($productos as $key => $value){            
+        $espace = 141;
+        $total = array();
+        foreach($productos as $key => $value){            
             
             
-//             if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['amout_due'];
-//             }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//             }
-//             else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
-//             else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
-//                 $precio = $value['precio_publico'];
-//             }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
-//                 $precio = 0;
-//                 $precio = $value['precio_publico'];
-//             }
+            if($value['es_congreso'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['amout_due'];
+            }elseif($value['es_congreso'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+            }
+            else if($value['es_servicio'] == 1 && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_servicio'] == 1 && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
+            else if($value['es_curso'] == 1  && $value['clave_socio'] == ""){
+                $precio = $value['precio_publico'];
+            }else if($value['es_curso'] == 1  && $value['clave_socio'] != ""){
+                $precio = 0;
+                $precio = $value['precio_publico'];
+            }
 
-//             array_push($total,$precio);
+            array_push($total,$precio);
 
-//             //Nombre Curso
-//             $pdf->SetXY(30, $espace);
-//             $pdf->SetFont('Arial', 'B', 8);  
-//             $pdf->SetTextColor(0, 0, 0);
-//             $pdf->Multicell(100, 4, utf8_decode($value['nombre']), 0, 'C');
+            //Nombre Curso
+            $pdf->SetXY(30, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, utf8_decode($value['nombre']), 0, 'C');
 
-//             //Costo
-//             $pdf->SetXY(122, $espace);
-//             $pdf->SetFont('Arial', 'B', 8);  
-//             $pdf->SetTextColor(0, 0, 0);
-//             $pdf->Multicell(100, 4, '$ '.$precio.' ' .$value['tipo_moneda'], 0, 'C');
+            //Costo
+            $pdf->SetXY(122, $espace);
+            $pdf->SetFont('Arial', 'B', 8);  
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Multicell(100, 4, '$ '.$precio.' ' .$value['tipo_moneda'], 0, 'C');
 
-//             $espace = $espace + 7;
-//         }
+            $espace = $espace + 7;
+        }
 
-//         //folio
-//         $pdf->SetXY(92, 60.5);
-//         $pdf->SetFont('Arial', 'B', 13);  
-//         $pdf->SetTextColor(0, 0, 0);
-//         $pdf->Multicell(100, 10, $reference, 0, 'C');
+        //folio
+        $pdf->SetXY(92, 60.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $reference, 0, 'C');
 
-//         //fecha
-//         $pdf->SetXY(90, 70.5);
-//         $pdf->SetFont('Arial', 'B', 13);  
-//         $pdf->SetTextColor(0, 0, 0);
-//         $pdf->Multicell(100, 10, $fecha, 0, 'C');
+        //fecha
+        $pdf->SetXY(90, 70.5);
+        $pdf->SetFont('Arial', 'B', 13);  
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Multicell(100, 10, $fecha, 0, 'C');
 
 
 
-//        // total
-//         // $pdf->SetXY(118, 170);
-//         // $pdf->SetFont('Arial', 'B', 8);  
-//         // $pdf->SetTextColor(0, 0, 0);
-//         // $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
+       // total
+        // $pdf->SetXY(118, 170);
+        // $pdf->SetFont('Arial', 'B', 8);  
+        // $pdf->SetTextColor(0, 0, 0);
+        // $pdf->Multicell(100, 10, 'TOTAL : '.number_format(array_sum($total),2), 0, 'C');
 
-//         $pdf->Output();
-//         // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
+        $pdf->Output();
+        // $pdf->Output('F','constancias/'.$clave.$id_curso.'.pdf');
 
-//         // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
-//     }
+        // $pdf->Output('F', 'C:/pases_abordar/'. $clave.'.pdf');
+    }
 
 //     public function Success(){
 
