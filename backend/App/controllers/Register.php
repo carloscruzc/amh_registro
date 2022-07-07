@@ -1187,34 +1187,33 @@ $array_productos = [];
         }
 
 //         $checks .= <<<html
+//             <div class="row">
+//                 <div class="col-md-8">
+//                     <div class="form-check">
+//                         <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
+//                         <label class="form-check-label" for="check_curso_{$value['id_producto']}">
+//                             {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
+//                         </label>
+//                     </div>
+//                 </div>
+            
+//                 <div class="col-md-2">
+//                     {$precio} - {$value['tipo_moneda']}
+//                 </div>
 
-//         <div class="row">
-//             <!--<div class="col-md-8">
-//                 <div class="form-check">
-//                     <input class="form-check-input checks_product" type="checkbox" value="{$value['id_producto']}" id="check_curso_{$value['id_producto']}" name="checks_cursos[]" {$disabled} {$checked} data-precio="{$precio}" data-nombre-producto="{$value['nombre_producto']}">
-//                     <label class="form-check-label" for="check_curso_{$value['id_producto']}">
-//                         {$value['nombre_producto']} <span style="font-size: 13px; text-decoration: underline; color: green;">{$pend_validar}</span>
-//                     </label>
+//                 <div class="col-md-2">
+//                     {$numero_productos}
 //                 </div>
 //             </div>
-        
-//             <div class="col-md-2">
-//                 {$precio} - {$value['tipo_moneda']}
-//             </div>
 
-//             <div class="col-md-2">
-//                 {$numero_productos}
-//             </div>-->
-//         </div>
-
-//         <hr>
-        
+//             <hr>
+            
 // html;            
-//         $numero_productos = '';
+//             $numero_productos = '';
 
     }
 // }
-$clave = $this->generateRandomString();
+// $clave = $this->generateRandomString();
 
 //         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
@@ -1300,7 +1299,7 @@ $clave = $this->generateRandomString();
 
         View::set('header',$header);  
         View::set('datos',$data_user);
-        View::set('clave',$clave);    
+        // View::set('clave',$clave);    
         View::set('checks',$checks);
         // // View::set('src_qr',$src_qr); 
         // // View::set('btn_block',$btn_block); 
