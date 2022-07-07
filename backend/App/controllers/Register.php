@@ -1156,25 +1156,25 @@ $array_productos = [];
 
         
 
-//         if($value['estatus_compra'] == 1){
-//             $disabled = 'disabled';
-//             $checked = 'checked';
-//             $pend_validar ='Pagado y validado por AMH';
-//             // $btn_imp = '';
-//             // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//             // $ocultar = 'display:none;';
+        if($value['estatus_compra'] == 1){
+            $disabled = 'disabled';
+            $checked = 'checked';
+            $pend_validar ='Pagado y validado por AMH';
+            // $btn_imp = '';
+            // $productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+            // $ocultar = 'display:none;';
             
-//         }else if($value['estatus_compra'] == null){
-//             $pend_validar = 'Pendiente de Pagar';
-//             // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
-//             // $ocultar = '';
-//             // $disabled = 'disabled';
-//             $checked = 'checked';
-//             $total_productos += $count_producto['numero_productos'];
-//             $total_pago += $count_producto['numero_productos'] * $precio;
-//             array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
-//             array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
-//         }
+        }else if($value['estatus_compra'] == null){
+            $pend_validar = 'Pendiente de Pagar';
+            // $btn_imp = '<a class="btn btn-primary" href="/Home/print/'.$productos_pendientes_comprados[0]['clave'].'" target="blank_">Imprimir Formato de Pago</a>';
+            // $ocultar = '';
+            // $disabled = 'disabled';
+            $checked = 'checked';
+            $total_productos += $count_producto['numero_productos'];
+            $total_pago += $count_producto['numero_productos'] * $precio;
+            array_push($array_precios,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos']]);
+            array_push($array_productos,['id_product'=>$value['id_producto'],'precio'=>$precio,'cantidad'=>$count_producto['numero_productos'],'nombre_producto'=>$value['nombre_producto']]);
+        }
 
 //         if($value['max_compra'] <= 1){
 //             $numero_productos = '<input type="number" id="numero_articulos'.$value['id_producto'].'" name="numero_articulos" value="'.$value['max_compra'].'" style="border:none;" readonly>';
