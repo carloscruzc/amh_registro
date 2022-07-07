@@ -1186,6 +1186,11 @@ $array_productos = [];
             $numero_productos .= '</select>';
         }
 
+        $checks .= <<<html
+
+        <h1>xzcxzczxc<h1>
+html;        
+
 //         $checks .= <<<html
 //             <div class="row">
 //                 <div class="col-md-8">
