@@ -1152,7 +1152,7 @@ if(count($productos_pendientes_comprados) > 0){
             $precio = $value['precio_publico'];
         }
         
-//         $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
+        $count_producto = HomeDao::getCountProductos($data_user['user_id'],$value['id_producto'])[0];
 
         
 
