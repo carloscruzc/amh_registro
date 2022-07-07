@@ -894,6 +894,11 @@ html;
 // html;            
 //                 $numero_productos = '';
 
+            $checks .= <<<html
+
+            <h1>dsfdsfdsfsdf</h1>
+html;
+
         }
         $clave = $this->generateRandomString();
 
@@ -973,6 +978,11 @@ html;
                
 // html;            
 //             $numero_productos = '';
+
+            $checks .= <<<html
+
+            <h1>xzcxzczxc</h1>
+html;
 
         }
 
