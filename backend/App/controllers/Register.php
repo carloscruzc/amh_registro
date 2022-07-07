@@ -1185,11 +1185,7 @@ $array_productos = [];
             }
             $numero_productos .= '</select>';
         }
-
-        $checks .= <<<html
-
-        <h1>xzcxzczxc<h1>
-html;        
+       
 
 //         $checks .= <<<html
 //             <div class="row">
@@ -1218,7 +1214,7 @@ html;
 
     }
 // }
-            $clave = $this->generateRandomString();
+        $clave = $this->generateRandomString();
 
         $productos_no_comprados = HomeDao::getProductosNoComprados($data_user['user_id']);
 
