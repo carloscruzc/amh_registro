@@ -1,5 +1,10 @@
 <?php echo $header; ?>
 <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+<style>
+    .card{
+        background-color: #fff!important;
+    }
+</style>
 
 <body class="bg-body" id="body-home">
 
@@ -150,7 +155,7 @@
                                                 <select id="forma_pago" name="forma_pago" class="form-control">
                                                     <option value="">Seleccione una Opción</option>
                                                     <option value="Transferencia">Depósito/Transferencia</option>
-                                                    <option value="Paypal">Paypal</option>
+                                                    <!-- <option value="Paypal">Paypal</option> -->
                                                 </select>
 
                                                 <form class="form_compra" method="POST" action="" target="_blank">
